@@ -72,13 +72,13 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/segtree.hpp\"\nusing namespace std;\n\
-    // op(op(a, b), c) = op(a, op(b, c)) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\u8981\
-    \u304C\u3042\u308B(\u7D50\u5408\u5F8B)\ntemplate<class S, auto op, auto e>\nstruct\
-    \ segtree {\n    int _n, size;\n    vector<S> data;\n    // \u5927\u304D\u3055\
-    n \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    segtree(int n) : _n(n)\
-    \ { build(vector<S>(n, e())); }\n    // \u5927\u304D\u3055v.size() \u306E\u30BB\
-    \u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    segtree(vector<S>& v) : _n(v.size())\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/segtree.hpp\"\nusing namespace\
+    \ std;\n// op(op(a, b), c) = op(a, op(b, c)) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\
+    \u8981\u304C\u3042\u308B(\u7D50\u5408\u5F8B)\ntemplate<class S, auto op, auto\
+    \ e>\nstruct segtree {\n    int _n, size;\n    vector<S> data;\n    // \u5927\u304D\
+    \u3055n \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    segtree(int n) :\
+    \ _n(n) { build(vector<S>(n, e())); }\n    // \u5927\u304D\u3055v.size() \u306E\
+    \u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    segtree(vector<S>& v) : _n(v.size())\
     \ { build(v); }\n    void build(vector<S> v) {\n        size = __bit_ceil((unsigned\
     \ int)_n);\n        data.assign(2 * size, e());\n        for (int i=0; i<_n; i++)\
     \ data[size+i] = v[i];\n        for (int i=size-1; 0<i; i--) update(i);\n    }\n\
@@ -145,7 +145,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-05-09 08:11:48+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-static_range_sum.test.cpp

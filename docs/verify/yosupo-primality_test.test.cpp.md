@@ -69,10 +69,10 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"math/prime.hpp\"\nusing namespace std;\n// \u7D20\
-    \u6570\u5224\u5B9A O(log n)\nbool isprime(long long n) {\n    if (n <= 1) return\
-    \ false;\n    if (n == 2) return true;\n    if (n % 2 == 0) return false;\n  \
-    \  int flag = 1;\n    if (n < 4759123141LL) flag = 0;\n    vector<vector<long\
+    }\n\nvoid solve();\n// poe\n#line 3 \"math/prime.hpp\"\nusing namespace std;\n\
+    // \u7D20\u6570\u5224\u5B9A O(log n)\nbool isprime(long long n) {\n    if (n <=\
+    \ 1) return false;\n    if (n == 2) return true;\n    if (n % 2 == 0) return false;\n\
+    \    int flag = 1;\n    if (n < 4759123141LL) flag = 0;\n    vector<vector<long\
     \ long>> tests = {{2, 7, 61}, {2, 325, 9375, 28178, 450775, 9780504, 1795265022}};\n\
     \    long long s = 0, d = n - 1;\n    while (d % 2 == 0) {\n        ++s;\n   \
     \     d >>= 1;\n    }\n    for (auto a : tests[flag]) {\n        if (n <= a) return\
@@ -113,7 +113,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-primality_test.test.cpp
   requiredBy: []
-  timestamp: '2025-04-30 03:58:59+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-primality_test.test.cpp

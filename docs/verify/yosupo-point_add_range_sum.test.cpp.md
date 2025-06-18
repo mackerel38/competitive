@@ -69,9 +69,9 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/sqrttree.hpp\"\nusing namespace std;\n\
-    template <class S, auto op, auto e, class F, auto mapping, auto mapping2>\nstruct\
-    \ sqrttree {\n    int n, bsize, m;\n    vector<S> data, block;\n    sqrttree()\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/sqrttree.hpp\"\nusing namespace\
+    \ std;\ntemplate <class S, auto op, auto e, class F, auto mapping, auto mapping2>\n\
+    struct sqrttree {\n    int n, bsize, m;\n    vector<S> data, block;\n    sqrttree()\
     \ = default;\n    sqrttree(int n) : sqrttree(vector<S>(n, e())) {}\n    sqrttree(vector<S>\
     \ v) {\n        n = v.size();\n        bsize = sqrt(n) + 1;\n        m = bsize\
     \ * bsize;\n        data.reserve(m);\n        block.reserve(bsize);\n        for\
@@ -113,7 +113,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-05-12 10:21:29+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum.test.cpp

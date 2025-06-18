@@ -72,115 +72,115 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/lazysegtree.hpp\"\nusing namespace std;\n\
-    template<class S, auto op, class F, auto mapping, auto composition>\nstruct lazysegtree\
-    \ {\n    int _n, size, sz;\n    S _e;\n    F _id;\n    vector<S> data;\n    vector<F>\
-    \ lazy;\n    // \u5927\u304D\u3055n, \u5358\u4F4D\u5143e, id(\u7701\u7565\u3059\
-    \u308B\u3068S{}, F{} \u306B\u306A\u308B) \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9\
-    \ O(n)\n    lazysegtree(int n, S e = S{}, F id = F{}) : _n(n), _e(e), _id(id)\
-    \ { build(vector<S>(n, _e)); }\n    // \u5927\u304D\u3055v.size(), \u5358\u4F4D\
-    \u5143e, id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\u306A\u308B) \u306E\u30BB\
-    \u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(vector<S>& v, S e = S{},\
-    \ F id = F{}) : _n(v.size()), _e(e), _id(id) { build(v); }\n    void build(vector<S>\
-    \ v) {\n        size = __bit_ceil((unsigned int)_n);\n        sz = __countr_zero(size);\n\
-    \        data.assign(2 * size, _e);\n        lazy.assign(2 * size, _id);\n   \
-    \     for (int i=0; i<_n; i++) data[size+i] = v[i];\n        for (int i=size-1;\
-    \ 0<i; i--) update(i);\n    }\n    void update(int k) {\n        data[k] = op(data[2*k],\
-    \ data[2*k+1]);\n    }\n    void all_apply(int k, F f) {\n        data[k] = mapping(f,\
-    \ data[k]);\n        if (k < size) lazy[k] = composition(f, lazy[k]);\n    }\n\
-    \    void push(int k) {\n        all_apply(2*k, lazy[k]);\n        all_apply(2*k+1,\
-    \ lazy[k]);\n        lazy[k] = _id;\n    }\n    // p \u756A\u76EE\u306E\u8981\u7D20\
-    \u3092x \u306B\u3059\u308B O(log n)\n    void set(int p, S x) {\n        assert(0\
-    \ <= p && p < _n);\n        p += size;\n        for (int i=sz; 0<i; i--) push(p\
-    \ >> i);\n        data[p] = x;\n        for (int i=p>>1; 0<i; i>>=1) update(i);\n\
-    \    }\n    // p \u756A\u76EE\u306E\u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B\
-    \ O(log n)\n    S get(int p) {\n        assert(0 <= p && p < _n);\n        p +=\
-    \ size;\n        for (int i=sz; 0<i; i--) push(p >> i);\n        return data[p];\n\
-    \    }\n    // p \u756A\u76EE\u306E\u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B\
-    \ O(log n)\n    S operator[](int p) {\n        return get(p);\n    }\n    // [l,\
-    \ r) \u306E\u533A\u9593\u30AF\u30A8\u30EA\u306B\u7B54\u3048\u308B O(log n)\n \
-    \   S prod(int l, int r) {\n        assert(0 <= l && l <= r && r <= _n);\n   \
-    \     if (l == r) return _e;\n        l += size;\n        r += size;\n       \
-    \ for (int i=sz; 0<i; i--) if (((l >> i) << i) != l) push(l >> i);\n        for\
-    \ (int i=sz; 0<i; i--) if (((r >> i) << i) != r) push((r - 1) >> i);\n       \
-    \ S ll = _e, rr = _e;\n        while (l < r) {\n            if (l & 1) ll = op(ll,\
-    \ data[l++]);\n            if (r & 1) rr = op(data[--r], rr);\n            l >>=\
-    \ 1;\n            r >>= 1;\n        }\n        return op(ll, rr);\n    }\n   \
-    \ // [0, n) \u306E\u30AF\u30A8\u30EA\u306B\u7B54\u3048\u308B O(1)\n    S all_prod()\
-    \ {\n        return data[1];\n    }\n    // [0, n) \u306E\u533A\u9593\u306E\u5024\
-    \u3092\u53D6\u5F97\u3059\u308B O(n)\n    vector<S> values() {\n        vector<S>\
-    \ re(_n);\n        for (int i=0; i<size; i++) {\n            if (lazy[i] != _id)\
-    \ push(i);\n        }\n        for (int i=0; i<_n; i++) re[i] = data[size+i];\n\
-    \        return re;\n    }\n    // [l, r) \u306B\u5BFE\u3057\u3066 f \u3092\u9069\
-    \u7528\u3059\u308B O(log n)\n    void apply(int l, int r, F f) {\n        assert(0\
-    \ <= l && l <= r && r <= _n);\n        if (l == r) return;\n        l += size;\n\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/lazysegtree.hpp\"\nusing namespace\
+    \ std;\ntemplate<class S, auto op, class F, auto mapping, auto composition>\n\
+    struct lazysegtree {\n    int _n, size, sz;\n    S _e;\n    F _id;\n    vector<S>\
+    \ data;\n    vector<F> lazy;\n    // \u5927\u304D\u3055n, \u5358\u4F4D\u5143e,\
+    \ id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\u306A\u308B) \u306E\u30BB\u30B0\
+    \u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(int n, S e = S{}, F id = F{}) :\
+    \ _n(n), _e(e), _id(id) { build(vector<S>(n, _e)); }\n    // \u5927\u304D\u3055\
+    v.size(), \u5358\u4F4D\u5143e, id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\
+    \u306A\u308B) \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(vector<S>&\
+    \ v, S e = S{}, F id = F{}) : _n(v.size()), _e(e), _id(id) { build(v); }\n   \
+    \ void build(vector<S> v) {\n        size = __bit_ceil((unsigned int)_n);\n  \
+    \      sz = __countr_zero(size);\n        data.assign(2 * size, _e);\n       \
+    \ lazy.assign(2 * size, _id);\n        for (int i=0; i<_n; i++) data[size+i] =\
+    \ v[i];\n        for (int i=size-1; 0<i; i--) update(i);\n    }\n    void update(int\
+    \ k) {\n        data[k] = op(data[2*k], data[2*k+1]);\n    }\n    void all_apply(int\
+    \ k, F f) {\n        data[k] = mapping(f, data[k]);\n        if (k < size) lazy[k]\
+    \ = composition(f, lazy[k]);\n    }\n    void push(int k) {\n        all_apply(2*k,\
+    \ lazy[k]);\n        all_apply(2*k+1, lazy[k]);\n        lazy[k] = _id;\n    }\n\
+    \    // p \u756A\u76EE\u306E\u8981\u7D20\u3092x \u306B\u3059\u308B O(log n)\n\
+    \    void set(int p, S x) {\n        assert(0 <= p && p < _n);\n        p += size;\n\
+    \        for (int i=sz; 0<i; i--) push(p >> i);\n        data[p] = x;\n      \
+    \  for (int i=p>>1; 0<i; i>>=1) update(i);\n    }\n    // p \u756A\u76EE\u306E\
+    \u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    S get(int p) {\n    \
+    \    assert(0 <= p && p < _n);\n        p += size;\n        for (int i=sz; 0<i;\
+    \ i--) push(p >> i);\n        return data[p];\n    }\n    // p \u756A\u76EE\u306E\
+    \u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    S operator[](int p) {\n\
+    \        return get(p);\n    }\n    // [l, r) \u306E\u533A\u9593\u30AF\u30A8\u30EA\
+    \u306B\u7B54\u3048\u308B O(log n)\n    S prod(int l, int r) {\n        assert(0\
+    \ <= l && l <= r && r <= _n);\n        if (l == r) return _e;\n        l += size;\n\
     \        r += size;\n        for (int i=sz; 0<i; i--) if (((l >> i) << i) != l)\
     \ push(l >> i);\n        for (int i=sz; 0<i; i--) if (((r >> i) << i) != r) push((r\
-    \ - 1) >> i);\n        int ll = l, rr = r;\n        while (ll < rr) {\n      \
-    \      if (ll & 1) all_apply(ll++, f);\n            if (rr & 1) all_apply(--rr,\
-    \ f);\n            ll >>= 1;\n            rr >>= 1;\n        }\n        for (int\
-    \ i=1; i<=sz; i++) {\n            if (((l >> i) << i) != l) update(l >> i);\n\
-    \            if (((r >> i) << i) != r) update((r - 1) >> i);\n        }\n    }\n\
-    };\n#line 3 \"math/modint.hpp\"\nusing namespace std;\nlong long modint_MOD =\
-    \ 998244353;\n// mod \u306E\u5024\u3092\u5909\u66F4\u3059\u308B(\u30C7\u30D5\u30A9\
-    \u30EB\u30C8\u306F998244353)\nvoid setmod(long long x) { modint_MOD = x; }\nstruct\
-    \ mint {\n    long long val;\n    mint(long long x=0) {\n        val=(x%modint_MOD+modint_MOD)%modint_MOD;\n\
-    \    }\n    mint& operator+=(const mint& a) { val = (val + a.val) % modint_MOD;\
-    \ return *this; }\n    mint& operator-=(const mint& a) { val = (val - a.val +\
-    \ modint_MOD) % modint_MOD; return *this; }\n    mint& operator*=(const mint&\
-    \ a) { val = val * a.val % modint_MOD ; return *this; }\n    mint& operator/=(const\
-    \ mint& a) { return *this *= a.inv(); }\n    mint operator+(const mint& a) const\
-    \ { return mint(*this) += a; }\n    mint operator-(const mint& a) const { return\
-    \ mint(*this) -= a; }\n    mint operator*(const mint& a) const { return mint(*this)\
-    \ *= a; }\n    mint operator/(const mint& a) const { return mint(*this) /= a;\
-    \ }\n    bool operator==(const mint& a) const { return val == a.val; }\n    bool\
-    \ operator!=(const mint& a) const { return val != a.val; }\n    mint& operator+=(int\
-    \ a) { return *this += mint(a); }\n    mint& operator-=(int a) { return *this\
-    \ -= mint(a); }\n    mint& operator*=(int a) { return *this *= mint(a); }\n  \
-    \  mint& operator/=(int a) { return *this /= mint(a); }\n    mint operator+(int\
-    \ a) const { return mint(*this) += a; }\n    mint operator-(int a) const { return\
-    \ mint(*this) -= a; }\n    mint operator*(int a) const { return mint(*this) *=\
-    \ a; }\n    mint operator/(int a) const { return mint(*this) /= a; }\n    bool\
-    \ operator==(int a) const { return val == mint(a).val; }\n    bool operator!=(int\
-    \ a) const { return val != mint(a).val; }\n    friend mint operator+(int a,const\
-    \ mint& b) { return mint(a) + b; }\n    friend mint operator-(int a,const mint&\
-    \ b) { return mint(a) - b; }\n    friend mint operator*(int a,const mint& b) {\
-    \ return mint(a) * b; }\n    friend mint operator/(int a,const mint& b) { return\
-    \ mint(a) / b; }\n    friend bool operator==(int a, const mint& b) { return mint(a)\
-    \ == b; }\n    friend bool operator!=(int a, const mint& b) { return mint(a) !=\
-    \ b; }\n    mint& operator++() { return *this += 1; }\n    mint operator++(int)\
-    \ { mint r = *this; *this += 1; return r; }\n    mint& operator--() { return *this\
-    \ -= 1; }\n    mint operator--(int) { mint r = *this; *this -= 1; return r; }\n\
-    \    // modpow \u3092\u8A08\u7B97\u3059\u308B\u3002\u8A08\u7B97\u91CFO(log mod)\n\
-    \    mint pow(long long n) const {\n        if (n != 0) n = ((n-2) % (modint_MOD-1)\
-    \ + modint_MOD) % (modint_MOD-1) + 1;\n        mint r = 1, a = *this;\n      \
-    \  while (n) {\n            if (n & 1) r *= a;\n            a *= a;\n        \
-    \    n >>= 1;\n        }\n        return r;\n    }\n    mint inv() const { return\
-    \ pow(-1); }\n    friend ostream& operator<<(ostream&s, const mint& a) { return\
-    \ s << a.val; }\n    friend istream& operator>>(istream&s, mint& a) { long long\
-    \ x; s >> x; a = mint(x); return s; }\n};\nvector<mint>fac, ifac;\n// n \u307E\
-    \u3067\u306E\u968E\u4E57\u3092\u524D\u8A08\u7B97\u3059\u308B\u3002O(n)\nvoid buildfac(int\
-    \ n) {\n    fac.resize(n + 1);\n    ifac.resize(n + 1);\n    fac[0] = 1;\n   \
-    \ for (int i=1; i<=n; i++) fac[i] = fac[i-1] * i;\n    ifac[n] = mint(1) / fac[n];\n\
-    \    for (int i=n; 0<i; i--) ifac[i-1] = ifac[i] * i;\n}\n// nCk \u3092\u6C42\u3081\
-    \u308B\u3002buildfac\u306E\u547C\u3073\u51FA\u3057\u304C\u5FC5\u9808\u3002O(1)\n\
-    mint comb(int n,int k) { return (0 <= k && k <= n ) ? fac[n] * ifac[k] * ifac[n-k]\
-    \ : 0; }\n// nPk \u3092\u6C42\u3081\u308B\u3002buildfac\u306E\u547C\u3073\u51FA\
-    \u3057\u304C\u5FC5\u9808\u3002O(1)\nmint perm(int n,int k) { return (0 <= k &&\
-    \ k <= n ) ? fac[n] * ifac[n-k] : 0; }\n#line 5 \"verify/yosupo-range_affine_point_get.test.cpp\"\
-    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
-    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    using\
-    \ P = pair<mint, mint>;\r\n    vec<P> a(n);\r\n    rep(i, n) {\r\n        mint\
-    \ x; cin >> x;\r\n        a[i] = {x, mint(1)};\r\n    }\r\n    auto op = [](P\
-    \ a, P b) -> P { return {a.first+b.first, a.second+b.second}; };\r\n    auto mapping\
-    \ = [](P a, P b) -> P { return {a.first*b.first+a.second*b.second, b.second};\
-    \ };\r\n    auto composition = [](P a, P b) -> P { return {a.first*b.first, a.first*b.second+a.second};\
-    \ };\r\n    lazysegtree<P, op, P, mapping, composition> seg(a, {mint(0), mint(0)},\
-    \ {mint(1), mint(0)});\r\n    while (q--) {\r\n        int x; cin >> x;\r\n  \
-    \      if (x == 0) {\r\n            int l, r; mint a, b; cin >> l >> r >> a >>\
-    \ b;\r\n            seg.apply(l, r, {a, b});\r\n        } else {\r\n         \
-    \   int y; cin >> y;\r\n            cout << seg.get(y).first << nl;\r\n      \
-    \  }\r\n    }\r\n}\n"
+    \ - 1) >> i);\n        S ll = _e, rr = _e;\n        while (l < r) {\n        \
+    \    if (l & 1) ll = op(ll, data[l++]);\n            if (r & 1) rr = op(data[--r],\
+    \ rr);\n            l >>= 1;\n            r >>= 1;\n        }\n        return\
+    \ op(ll, rr);\n    }\n    // [0, n) \u306E\u30AF\u30A8\u30EA\u306B\u7B54\u3048\
+    \u308B O(1)\n    S all_prod() {\n        return data[1];\n    }\n    // [0, n)\
+    \ \u306E\u533A\u9593\u306E\u5024\u3092\u53D6\u5F97\u3059\u308B O(n)\n    vector<S>\
+    \ values() {\n        vector<S> re(_n);\n        for (int i=0; i<size; i++) {\n\
+    \            if (lazy[i] != _id) push(i);\n        }\n        for (int i=0; i<_n;\
+    \ i++) re[i] = data[size+i];\n        return re;\n    }\n    // [l, r) \u306B\u5BFE\
+    \u3057\u3066 f \u3092\u9069\u7528\u3059\u308B O(log n)\n    void apply(int l,\
+    \ int r, F f) {\n        assert(0 <= l && l <= r && r <= _n);\n        if (l ==\
+    \ r) return;\n        l += size;\n        r += size;\n        for (int i=sz; 0<i;\
+    \ i--) if (((l >> i) << i) != l) push(l >> i);\n        for (int i=sz; 0<i; i--)\
+    \ if (((r >> i) << i) != r) push((r - 1) >> i);\n        int ll = l, rr = r;\n\
+    \        while (ll < rr) {\n            if (ll & 1) all_apply(ll++, f);\n    \
+    \        if (rr & 1) all_apply(--rr, f);\n            ll >>= 1;\n            rr\
+    \ >>= 1;\n        }\n        for (int i=1; i<=sz; i++) {\n            if (((l\
+    \ >> i) << i) != l) update(l >> i);\n            if (((r >> i) << i) != r) update((r\
+    \ - 1) >> i);\n        }\n    }\n};\n#line 3 \"math/modint.hpp\"\nusing namespace\
+    \ std;\nlong long modint_MOD = 998244353;\n// mod \u306E\u5024\u3092\u5909\u66F4\
+    \u3059\u308B(\u30C7\u30D5\u30A9\u30EB\u30C8\u306F998244353)\nvoid setmod(long\
+    \ long x) { modint_MOD = x; }\nstruct mint {\n    long long val;\n    mint(long\
+    \ long x=0) {\n        val=(x%modint_MOD+modint_MOD)%modint_MOD;\n    }\n    mint&\
+    \ operator+=(const mint& a) { val = (val + a.val) % modint_MOD; return *this;\
+    \ }\n    mint& operator-=(const mint& a) { val = (val - a.val + modint_MOD) %\
+    \ modint_MOD; return *this; }\n    mint& operator*=(const mint& a) { val = val\
+    \ * a.val % modint_MOD ; return *this; }\n    mint& operator/=(const mint& a)\
+    \ { return *this *= a.inv(); }\n    mint operator+(const mint& a) const { return\
+    \ mint(*this) += a; }\n    mint operator-(const mint& a) const { return mint(*this)\
+    \ -= a; }\n    mint operator*(const mint& a) const { return mint(*this) *= a;\
+    \ }\n    mint operator/(const mint& a) const { return mint(*this) /= a; }\n  \
+    \  bool operator==(const mint& a) const { return val == a.val; }\n    bool operator!=(const\
+    \ mint& a) const { return val != a.val; }\n    mint& operator+=(int a) { return\
+    \ *this += mint(a); }\n    mint& operator-=(int a) { return *this -= mint(a);\
+    \ }\n    mint& operator*=(int a) { return *this *= mint(a); }\n    mint& operator/=(int\
+    \ a) { return *this /= mint(a); }\n    mint operator+(int a) const { return mint(*this)\
+    \ += a; }\n    mint operator-(int a) const { return mint(*this) -= a; }\n    mint\
+    \ operator*(int a) const { return mint(*this) *= a; }\n    mint operator/(int\
+    \ a) const { return mint(*this) /= a; }\n    bool operator==(int a) const { return\
+    \ val == mint(a).val; }\n    bool operator!=(int a) const { return val != mint(a).val;\
+    \ }\n    friend mint operator+(int a,const mint& b) { return mint(a) + b; }\n\
+    \    friend mint operator-(int a,const mint& b) { return mint(a) - b; }\n    friend\
+    \ mint operator*(int a,const mint& b) { return mint(a) * b; }\n    friend mint\
+    \ operator/(int a,const mint& b) { return mint(a) / b; }\n    friend bool operator==(int\
+    \ a, const mint& b) { return mint(a) == b; }\n    friend bool operator!=(int a,\
+    \ const mint& b) { return mint(a) != b; }\n    mint& operator++() { return *this\
+    \ += 1; }\n    mint operator++(int) { mint r = *this; *this += 1; return r; }\n\
+    \    mint& operator--() { return *this -= 1; }\n    mint operator--(int) { mint\
+    \ r = *this; *this -= 1; return r; }\n    // modpow \u3092\u8A08\u7B97\u3059\u308B\
+    \u3002\u8A08\u7B97\u91CFO(log mod)\n    mint pow(long long n) const {\n      \
+    \  if (n != 0) n = ((n-2) % (modint_MOD-1) + modint_MOD) % (modint_MOD-1) + 1;\n\
+    \        mint r = 1, a = *this;\n        while (n) {\n            if (n & 1) r\
+    \ *= a;\n            a *= a;\n            n >>= 1;\n        }\n        return\
+    \ r;\n    }\n    mint inv() const { return pow(-1); }\n    friend ostream& operator<<(ostream&s,\
+    \ const mint& a) { return s << a.val; }\n    friend istream& operator>>(istream&s,\
+    \ mint& a) { long long x; s >> x; a = mint(x); return s; }\n};\nvector<mint>fac,\
+    \ ifac;\n// n \u307E\u3067\u306E\u968E\u4E57\u3092\u524D\u8A08\u7B97\u3059\u308B\
+    \u3002O(n)\nvoid buildfac(int n) {\n    fac.resize(n + 1);\n    ifac.resize(n\
+    \ + 1);\n    fac[0] = 1;\n    for (int i=1; i<=n; i++) fac[i] = fac[i-1] * i;\n\
+    \    ifac[n] = mint(1) / fac[n];\n    for (int i=n; 0<i; i--) ifac[i-1] = ifac[i]\
+    \ * i;\n}\n// nCk \u3092\u6C42\u3081\u308B\u3002buildfac\u306E\u547C\u3073\u51FA\
+    \u3057\u304C\u5FC5\u9808\u3002O(1)\nmint comb(int n,int k) { return (0 <= k &&\
+    \ k <= n ) ? fac[n] * ifac[k] * ifac[n-k] : 0; }\n// nPk \u3092\u6C42\u3081\u308B\
+    \u3002buildfac\u306E\u547C\u3073\u51FA\u3057\u304C\u5FC5\u9808\u3002O(1)\nmint\
+    \ perm(int n,int k) { return (0 <= k && k <= n ) ? fac[n] * ifac[n-k] : 0; }\n\
+    #line 5 \"verify/yosupo-range_affine_point_get.test.cpp\"\n\r\nint main() { IO();\r\
+    \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    using P = pair<mint, mint>;\r\
+    \n    vec<P> a(n);\r\n    rep(i, n) {\r\n        mint x; cin >> x;\r\n       \
+    \ a[i] = {x, mint(1)};\r\n    }\r\n    auto op = [](P a, P b) -> P { return {a.first+b.first,\
+    \ a.second+b.second}; };\r\n    auto mapping = [](P a, P b) -> P { return {a.first*b.first+a.second*b.second,\
+    \ b.second}; };\r\n    auto composition = [](P a, P b) -> P { return {a.first*b.first,\
+    \ a.first*b.second+a.second}; };\r\n    lazysegtree<P, op, P, mapping, composition>\
+    \ seg(a, {mint(0), mint(0)}, {mint(1), mint(0)});\r\n    while (q--) {\r\n   \
+    \     int x; cin >> x;\r\n        if (x == 0) {\r\n            int l, r; mint\
+    \ a, b; cin >> l >> r >> a >> b;\r\n            seg.apply(l, r, {a, b});\r\n \
+    \       } else {\r\n            int y; cin >> y;\r\n            cout << seg.get(y).first\
+    \ << nl;\r\n        }\r\n    }\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_point_get\"\
     \r\n#include \"template\"\r\n#include \"lazysegtree\"\r\n#include \"modint\"\r\
     \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
@@ -203,7 +203,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-range_affine_point_get.test.cpp
   requiredBy: []
-  timestamp: '2025-05-09 07:41:10+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-range_affine_point_get.test.cpp

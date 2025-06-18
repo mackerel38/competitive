@@ -68,9 +68,9 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/sparsetable.hpp\"\nusing namespace std;\n\
-    // op(op(a, b), b) = op(a, b) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\u8981\u304C\
-    \u3042\u308B(\u51AA\u7B49\u6027)\ntemplate<class T, auto op>\nstruct sparsetable\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/sparsetable.hpp\"\nusing namespace\
+    \ std;\n// op(op(a, b), b) = op(a, b) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\u8981\
+    \u304C\u3042\u308B(\u51AA\u7B49\u6027)\ntemplate<class T, auto op>\nstruct sparsetable\
     \ {\n    int n;\n    vector<vector<T>> data;\n    // sparsetable \u3092\u69CB\u7BC9\
     \ O(n log n)\n    sparsetable(const vector<T>& v) : n(v.size()) {\n        int\
     \ m = 1;\n        while (m < n) m <<= 1;\n        data.assign(m, vector<T>(__lg(m)+1));\n\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2025-04-30 03:58:59+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-staticrmq.test.cpp

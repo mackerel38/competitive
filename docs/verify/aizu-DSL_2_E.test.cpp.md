@@ -68,21 +68,21 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/BIT.hpp\"\nusing namespace std;\ntemplate<class\
-    \ T>\nstruct BIT {\n    int _n;\n    vector<T> data;\n    // BIT \u30920-indexed\
-    \ \u3067\u69CB\u7BC9\u3059\u308B O(n)\n    BIT(int n) : _n(n), data(_n) {}\n \
-    \   // p \u756A\u76EE\u306E\u5024\u306Bx \u3092\u52A0\u7B97\u3059\u308B O(log\
-    \ n)\n    void add(int p, T x) {\n        assert(0 <= p && p < _n);\n        p++;\n\
-    \        while (p <= _n) {\n            data[p-1] += x;\n            p += p &\
-    \ -p;\n        }\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092x \u306B\u3059\
-    \u308B O(log n)\n    void set(int p, T x) {\n        add(p, x - get(p));\n   \
-    \ }\n    // [0, r) \u306E\u7DCF\u548C\u3092\u6C42\u3081\u308B O(log n)\n    T\
-    \ sum(int r) {\n        assert(0 <= r &&  r <= _n);\n        T re = T{};\n   \
-    \     while (0 < r) {\n            re += data[r-1];\n            r -= r & -r;\n\
-    \        }\n        return re;\n    }\n    // [l, r) \u306E\u7DCF\u548C\u3092\u6C42\
-    \u3081\u308B O(log n)\n    T sum(int l, int r) {\n        assert(l <= r);\n  \
-    \      return sum(r) - sum(l);\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092\
-    \u53D6\u5F97\u3059\u308B O(log n)\n    T get(int p) {\n        return sum(p+1)\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/BIT.hpp\"\nusing namespace std;\n\
+    template<class T>\nstruct BIT {\n    int _n;\n    vector<T> data;\n    // BIT\
+    \ \u30920-indexed \u3067\u69CB\u7BC9\u3059\u308B O(n)\n    BIT(int n) : _n(n),\
+    \ data(_n) {}\n    // p \u756A\u76EE\u306E\u5024\u306Bx \u3092\u52A0\u7B97\u3059\
+    \u308B O(log n)\n    void add(int p, T x) {\n        assert(0 <= p && p < _n);\n\
+    \        p++;\n        while (p <= _n) {\n            data[p-1] += x;\n      \
+    \      p += p & -p;\n        }\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092\
+    x \u306B\u3059\u308B O(log n)\n    void set(int p, T x) {\n        add(p, x -\
+    \ get(p));\n    }\n    // [0, r) \u306E\u7DCF\u548C\u3092\u6C42\u3081\u308B O(log\
+    \ n)\n    T sum(int r) {\n        assert(0 <= r &&  r <= _n);\n        T re =\
+    \ T{};\n        while (0 < r) {\n            re += data[r-1];\n            r -=\
+    \ r & -r;\n        }\n        return re;\n    }\n    // [l, r) \u306E\u7DCF\u548C\
+    \u3092\u6C42\u3081\u308B O(log n)\n    T sum(int l, int r) {\n        assert(l\
+    \ <= r);\n        return sum(r) - sum(l);\n    }\n    // p \u756A\u76EE\u306E\u5024\
+    \u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T get(int p) {\n        return sum(p+1)\
     \ - sum(p);\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092\u53D6\u5F97\u3059\u308B\
     \ O(log n)\n    T operator[](int p) {\n        return get(p);\n    }\n    // \u5168\
     \u4F53\u306E\u7DCF\u548C\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T all_sum()\
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: verify/aizu-DSL_2_E.test.cpp
   requiredBy: []
-  timestamp: '2025-04-30 03:58:59+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aizu-DSL_2_E.test.cpp

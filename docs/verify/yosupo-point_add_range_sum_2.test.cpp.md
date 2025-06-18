@@ -69,7 +69,7 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/dynamicsegtree.hpp\"\nusing namespace\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/dynamicsegtree.hpp\"\nusing namespace\
     \ std;\n// op(op(a, b), c) = op(a, op(b, c)) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\
     \u8981\u304C\u3042\u308B(\u7D50\u5408\u5F8B)\ntemplate<class S, auto op, auto\
     \ e>\nstruct dynamicsegtree {\n    long long _n, size;\n    unordered_map<long\
@@ -117,7 +117,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum_2.test.cpp
   requiredBy: []
-  timestamp: '2025-05-13 01:17:24+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum_2.test.cpp

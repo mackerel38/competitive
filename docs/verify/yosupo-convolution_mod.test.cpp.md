@@ -75,11 +75,11 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"math/modint.hpp\"\nusing namespace std;\nlong long\
-    \ modint_MOD = 998244353;\n// mod \u306E\u5024\u3092\u5909\u66F4\u3059\u308B(\u30C7\
-    \u30D5\u30A9\u30EB\u30C8\u306F998244353)\nvoid setmod(long long x) { modint_MOD\
-    \ = x; }\nstruct mint {\n    long long val;\n    mint(long long x=0) {\n     \
-    \   val=(x%modint_MOD+modint_MOD)%modint_MOD;\n    }\n    mint& operator+=(const\
+    }\n\nvoid solve();\n// poe\n#line 3 \"math/modint.hpp\"\nusing namespace std;\n\
+    long long modint_MOD = 998244353;\n// mod \u306E\u5024\u3092\u5909\u66F4\u3059\
+    \u308B(\u30C7\u30D5\u30A9\u30EB\u30C8\u306F998244353)\nvoid setmod(long long x)\
+    \ { modint_MOD = x; }\nstruct mint {\n    long long val;\n    mint(long long x=0)\
+    \ {\n        val=(x%modint_MOD+modint_MOD)%modint_MOD;\n    }\n    mint& operator+=(const\
     \ mint& a) { val = (val + a.val) % modint_MOD; return *this; }\n    mint& operator-=(const\
     \ mint& a) { val = (val - a.val + modint_MOD) % modint_MOD; return *this; }\n\
     \    mint& operator*=(const mint& a) { val = val * a.val % modint_MOD ; return\
@@ -157,7 +157,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2025-05-09 07:41:10+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-convolution_mod.test.cpp

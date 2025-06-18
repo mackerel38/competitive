@@ -61,9 +61,9 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 2 \"main.cpp\"\n\r\nint main() { IO();\r\n    int T=1;\r\
-    \n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve() {\r\n\
-    }\n"
+    }\n\nvoid solve();\n// poe\n#line 2 \"main.cpp\"\n\r\nint main() { IO();\r\n \
+    \   int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n}\n"
   code: "#include \"template\"\r\n\r\nint main() { IO();\r\n    int T=1;\r\n    //\
     \ cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve() {\r\n}"
   dependsOn:
@@ -71,7 +71,7 @@ data:
   isVerificationFile: false
   path: main.cpp
   requiredBy: []
-  timestamp: '2025-04-30 03:58:59+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: main.cpp

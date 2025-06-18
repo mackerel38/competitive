@@ -68,9 +68,9 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"structure/dynamicUnionFind.hpp\"\nusing namespace\
-    \ std;\nstruct dynamicUnionFind {\n    long long _n;\n    unordered_map<long long,\
-    \ long long> data;\n    // n \u500B\u306E\u8981\u7D20\u304B\u3089\u306A\u308B\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/dynamicUnionFind.hpp\"\nusing\
+    \ namespace std;\nstruct dynamicUnionFind {\n    long long _n;\n    unordered_map<long\
+    \ long, long long> data;\n    // n \u500B\u306E\u8981\u7D20\u304B\u3089\u306A\u308B\
     dynamicUnionFind \u3092\u69CB\u7BC9 O(1)\n    dynamicUnionFind(long long n) :\
     \ _n(n) {}\n    // 2 \u3064\u306E\u8981\u7D20\u3092\u4F75\u5408 O(\u03B1(n))\n\
     \    bool merge(long long p, long long q) {\n        p = root(p);\n        q =\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-05-04 04:30:48+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-unionfind.test.cpp

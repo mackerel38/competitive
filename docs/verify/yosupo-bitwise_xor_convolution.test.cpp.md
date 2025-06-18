@@ -75,13 +75,13 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 3 \"math/FWT.hpp\"\nusing namespace std;\ntemplate <class\
-    \ T>\nvoid FWT(vector<T>& a, bool invert = false) {\n    for (int i=1; i<(int)a.size();\
-    \ i<<=1) {\n        for (int j=0; j<(int)a.size(); j++) {\n            if ((i\
-    \ & j) == 0) {\n                T x = a[j], y = a[i+j];\n                a[j]\
-    \ = x + y;\n                a[i+j] = x - y;\n            }\n        }\n    }\n\
-    \    if (invert) {\n        for (int i=0; i<(int)a.size(); i++) {\n          \
-    \  a[i] /= (int)a.size();\n        }\n    }\n}\n#line 4 \"math/xorconvolution.hpp\"\
+    }\n\nvoid solve();\n// poe\n#line 3 \"math/FWT.hpp\"\nusing namespace std;\ntemplate\
+    \ <class T>\nvoid FWT(vector<T>& a, bool invert = false) {\n    for (int i=1;\
+    \ i<(int)a.size(); i<<=1) {\n        for (int j=0; j<(int)a.size(); j++) {\n \
+    \           if ((i & j) == 0) {\n                T x = a[j], y = a[i+j];\n   \
+    \             a[j] = x + y;\n                a[i+j] = x - y;\n            }\n\
+    \        }\n    }\n    if (invert) {\n        for (int i=0; i<(int)a.size(); i++)\
+    \ {\n            a[i] /= (int)a.size();\n        }\n    }\n}\n#line 4 \"math/xorconvolution.hpp\"\
     \nusing namespace std;\ntemplate <class T>\nvector<T> xorconvolution(vector<T>&\
     \ a, vector<T>& b) {\n    int n=1;\n    while (n < max((int)a.size(), (int)b.size()))\
     \ n<<=1;\n    vector<T> A(n), B(n);\n    for (int i=0; i<(int)a.size(); i++) {\n\
@@ -155,7 +155,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-bitwise_xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2025-06-09 03:12:03+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-bitwise_xor_convolution.test.cpp

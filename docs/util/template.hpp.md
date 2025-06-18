@@ -139,7 +139,7 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n"
+    }\n\nvoid solve();\n// poe\n"
   code: "#pragma once\n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n\
     #define debug(x)\n// #pragma GCC target(\"arch=skylake-avx512\")\n// #pragma GCC\
     \ target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"\
@@ -190,13 +190,13 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();"
+    }\n\nvoid solve();\n// poe"
   dependsOn: []
   isVerificationFile: false
   path: util/template.hpp
   requiredBy:
   - main.cpp
-  timestamp: '2025-04-30 03:58:59+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-minimum_steiner_tree.test.cpp

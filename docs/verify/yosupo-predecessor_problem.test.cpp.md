@@ -101,17 +101,17 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n#line 4 \"verify/yosupo-predecessor_problem.test.cpp\"\n\r\
-    \nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n);\r\n\
-    \    str st; cin >> st;\r\n    rep(i, n) if (st[i] == '1') a[i] = 1;\r\n    wordsizetree\
-    \ s(a);\r\n    while (q--) {\r\n        int x, y; cin >> x >> y;\r\n        if\
-    \ (x == 0) {\r\n            s.insert(y);\r\n        } elif (x == 1) {\r\n    \
-    \        s.erase(y);\r\n        } elif (x == 2) {\r\n            cout << s.count(y)\
-    \ << nl;\r\n        } elif (x == 3) {\r\n            int z = s.minright(y);\r\n\
-    \            cout << (z<n ? z : -1) << nl;\r\n        } else {\r\n           \
-    \ int z = s.maxleft(y);\r\n            cout << (0<=z ? z : -1) << nl;\r\n    \
-    \    }\r\n    }\r\n}\n"
+    }\n\nvoid solve();\n// poe\n#line 4 \"verify/yosupo-predecessor_problem.test.cpp\"\
+    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
+    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vi\
+    \ a(n);\r\n    str st; cin >> st;\r\n    rep(i, n) if (st[i] == '1') a[i] = 1;\r\
+    \n    wordsizetree s(a);\r\n    while (q--) {\r\n        int x, y; cin >> x >>\
+    \ y;\r\n        if (x == 0) {\r\n            s.insert(y);\r\n        } elif (x\
+    \ == 1) {\r\n            s.erase(y);\r\n        } elif (x == 2) {\r\n        \
+    \    cout << s.count(y) << nl;\r\n        } elif (x == 3) {\r\n            int\
+    \ z = s.minright(y);\r\n            cout << (z<n ? z : -1) << nl;\r\n        }\
+    \ else {\r\n            int z = s.maxleft(y);\r\n            cout << (0<=z ? z\
+    \ : -1) << nl;\r\n        }\r\n    }\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/predecessor_problem\"\r\
     \n#include \"wordsizetree\"\r\n#include \"template\"\r\n\r\nint main() { IO();\r\
     \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2025-05-12 01:10:39+00:00'
+  timestamp: '2025-06-18 08:29:31+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-predecessor_problem.test.cpp
