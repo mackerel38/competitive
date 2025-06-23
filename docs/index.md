@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: graph
     pages:
+    - icon: ':warning:'
+      path: graph/TSP.hpp
+      title: graph/TSP.hpp
     - icon: ':heavy_check_mark:'
       path: graph/bellmanford.hpp
       title: graph/bellmanford.hpp
