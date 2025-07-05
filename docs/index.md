@@ -3,9 +3,6 @@ data:
   libraryCategories:
   - name: graph
     pages:
-    - icon: ':warning:'
-      path: graph/TSP.hpp
-      title: graph/TSP.hpp
     - icon: ':heavy_check_mark:'
       path: graph/bellmanford.hpp
       title: graph/bellmanford.hpp
@@ -75,6 +72,9 @@ data:
     - icon: ':warning:'
       path: string/rollinghash.hpp
       title: string/rollinghash.hpp
+    - icon: ':warning:'
+      path: string/suffixarray.hpp
+      title: string/suffixarray.hpp
     - icon: ':warning:'
       path: string/trie.hpp
       title: string/trie.hpp

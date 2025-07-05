@@ -2,9 +2,6 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
-    path: graph/TSP.hpp
-    title: graph/TSP.hpp
   - icon: ':heavy_check_mark:'
     path: graph/bellmanford.hpp
     title: graph/bellmanford.hpp
@@ -137,7 +134,6 @@ data:
   path: graph/graphtemplate.hpp
   requiredBy:
   - graph/warshallfloyd.hpp
-  - graph/TSP.hpp
   - graph/kruskal.hpp
   - graph/scc.hpp
   - graph/bellmanford.hpp

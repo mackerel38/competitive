@@ -6,6 +6,7 @@ template<class T, auto op>
 struct sparsetable {
     int n;
     vector<vector<T>> data;
+    sparsetable() = default;
     // sparsetable を構築 O(n log n)
     sparsetable(const vector<T>& v) : n(v.size()) {
         int m = 1;
