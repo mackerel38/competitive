@@ -72,7 +72,7 @@ data:
     - icon: ':warning:'
       path: string/rollinghash.hpp
       title: string/rollinghash.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: string/suffixarray.hpp
       title: string/suffixarray.hpp
     - icon: ':warning:'
@@ -205,6 +205,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-staticrmq.test.cpp
       title: verify/yosupo-staticrmq.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-suffixarray.test.cpp
+      title: verify/yosupo-suffixarray.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-unionfind.test.cpp
       title: verify/yosupo-unionfind.test.cpp

@@ -82,6 +82,9 @@ data:
     path: verify/yosupo-staticrmq.test.cpp
     title: verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-suffixarray.test.cpp
+    title: verify/yosupo-suffixarray.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-unionfind.test.cpp
     title: verify/yosupo-unionfind.test.cpp
   _isVerificationFailed: false
@@ -224,6 +227,7 @@ data:
   - verify/yosupo-convolution_mod.test.cpp
   - verify/yosupo-static_range_sum.test.cpp
   - verify/yosupo-scc.test.cpp
+  - verify/yosupo-suffixarray.test.cpp
   - verify/aizu-DSL_2_A.test.cpp
 documentation_of: util/template.hpp
 layout: document
