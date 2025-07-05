@@ -73,17 +73,18 @@ data:
     \ std;\n\n// suffix array \u3092O(n (log n)^2) \u3067\u69CB\u7BC9\u3059\u308B\n\
     vector<int> suffixarray(const string& s) {\n    string t = s + '\\0';\n    vector<int>\
     \ sa(t.size()), isa(t.size()), tmp(t.size());\n    iota(sa.begin(), sa.end(),\
-    \ 0);\n    for (int i=0; i<t.size(); i++) isa[i] = t[i];\n    for (int k=1; k<t.size();\
-    \ k<<=1) {\n        auto cmp = [&](int a, int b) -> bool {\n            if (isa[a]\
-    \ != isa[b]) return isa[a] < isa[b];\n            int ra = (a + k < t.size() ?\
-    \ isa[a + k] : -1);\n            int rb = (b + k < t.size() ? isa[b + k] : -1);\n\
-    \            return ra < rb;\n        };\n        sort(sa.begin(), sa.end(), cmp);\n\
-    \        tmp[sa[0]] = 0;\n        for (int i = 1; i < t.size(); i++) tmp[sa[i]]\
-    \ = tmp[sa[i-1]] + cmp(sa[i-1], sa[i]);\n        isa = tmp;\n        if (isa[sa[t.size()-1]]\
-    \ == t.size()-1) break;\n    }\n    return sa;\n}\n#line 4 \"verify/yosupo-suffixarray.test.cpp\"\
-    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
-    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    str s; cin >> s;\r\n    vi sa = suffixarray(s);\r\
-    \n    rep1(i, s.size()) cout << sa[i] << sp;\r\n    cout << nl;\r\n}\n"
+    \ 0);\n    for (int i=0; i<(int)t.size(); i++) isa[i] = t[i];\n    for (int k=1;\
+    \ k<(int)t.size(); k<<=1) {\n        auto cmp = [&](int a, int b) -> bool {\n\
+    \            if (isa[a] != isa[b]) return isa[a] < isa[b];\n            int ra\
+    \ = (a+k<(int)t.size() ? isa[a + k] : -1);\n            int rb = (b+k<(int)t.size()\
+    \ ? isa[b + k] : -1);\n            return ra < rb;\n        };\n        sort(sa.begin(),\
+    \ sa.end(), cmp);\n        tmp[sa[0]] = 0;\n        for (int i=1; i<(int)t.size();\
+    \ i++) tmp[sa[i]] = tmp[sa[i-1]] + cmp(sa[i-1], sa[i]);\n        isa = tmp;\n\
+    \        if (isa[sa[t.size()-1]] == t.size()-1) break;\n    }\n    return sa;\n\
+    }\n#line 4 \"verify/yosupo-suffixarray.test.cpp\"\n\r\nint main() { IO();\r\n\
+    \    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n    str s; cin >> s;\r\n    vi sa = suffixarray(s);\r\n    rep1(i,\
+    \ s.size()) cout << sa[i] << sp;\r\n    cout << nl;\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/suffixarray\"\r\n#include\
     \ \"template\"\r\n#include \"suffixarray\"\r\n\r\nint main() { IO();\r\n    int\
     \ T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve()\
@@ -95,7 +96,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-suffixarray.test.cpp
   requiredBy: []
-  timestamp: '2025-07-05 09:47:28+00:00'
+  timestamp: '2025-07-05 09:51:12+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-suffixarray.test.cpp
