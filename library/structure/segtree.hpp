@@ -6,6 +6,7 @@ template<class S, auto op, auto e>
 struct segtree {
     int _n, size;
     vector<S> data;
+    segtree() = default;
     // 大きさn のセグ木を構築 O(n)
     segtree(int n) : _n(n) { build(vector<S>(n, e())); }
     // 大きさv.size() のセグ木を構築 O(n)

@@ -69,44 +69,44 @@ data:
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
     }\n\nvoid solve();\n// poe\n#line 3 \"structure/BIT.hpp\"\nusing namespace std;\n\
-    template<class T>\nstruct BIT {\n    int _n;\n    vector<T> data;\n    // BIT\
-    \ \u30920-indexed \u3067\u69CB\u7BC9\u3059\u308B O(n)\n    BIT(int n) : _n(n),\
-    \ data(_n) {}\n    // p \u756A\u76EE\u306E\u5024\u306Bx \u3092\u52A0\u7B97\u3059\
-    \u308B O(log n)\n    void add(int p, T x) {\n        assert(0 <= p && p < _n);\n\
-    \        p++;\n        while (p <= _n) {\n            data[p-1] += x;\n      \
-    \      p += p & -p;\n        }\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092\
-    x \u306B\u3059\u308B O(log n)\n    void set(int p, T x) {\n        add(p, x -\
-    \ get(p));\n    }\n    // [0, r) \u306E\u7DCF\u548C\u3092\u6C42\u3081\u308B O(log\
-    \ n)\n    T sum(int r) {\n        assert(0 <= r &&  r <= _n);\n        T re =\
-    \ T{};\n        while (0 < r) {\n            re += data[r-1];\n            r -=\
-    \ r & -r;\n        }\n        return re;\n    }\n    // [l, r) \u306E\u7DCF\u548C\
-    \u3092\u6C42\u3081\u308B O(log n)\n    T sum(int l, int r) {\n        assert(l\
-    \ <= r);\n        return sum(r) - sum(l);\n    }\n    // p \u756A\u76EE\u306E\u5024\
-    \u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T get(int p) {\n        return sum(p+1)\
-    \ - sum(p);\n    }\n    // p \u756A\u76EE\u306E\u5024\u3092\u53D6\u5F97\u3059\u308B\
-    \ O(log n)\n    T operator[](int p) {\n        return get(p);\n    }\n    // \u5168\
-    \u4F53\u306E\u7DCF\u548C\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T all_sum()\
-    \ {\n        return sum(_n);\n    }\n    // [l, r) \u306Bx \u3092\u52A0\u7B97\u3059\
-    \u308B \u4E00\u70B9\u53D6\u5F97\u306Fsum(p) \u3067\u884C\u3046 \u533A\u9593\u548C\
-    \u30AF\u30A8\u30EA\u304C\u3067\u304D\u306A\u304F\u306A\u308B\u306E\u3067\u6CE8\
-    \u610F O(log n)\n    void imos(int l, int r, T x) {\n        add(l, x);\n    \
-    \    if (r < _n) add(r, T{}-x);\n    }\n    // x <= sum(p) \u3068\u306A\u308B\u6700\
-    \u5C0F\u306Ep \u3092\u6C42\u3081\u308B O(log n)\n    int lower_bound(T x) {\n\
-    \        if (x <= 0) return 0;\n        int re = 0, t = 1;\n        while (t <\
-    \ _n) t <<= 1;\n        while (t) {\n            if (re + t < _n && data[re+t]\
-    \ < x) {\n                x -= data[re+t];\n                re += t;\n       \
-    \         t >>= 1;\n            }\n        }\n        return re;\n    }\n    //\
-    \ x < sum(p) \u3068\u306A\u308B\u6700\u5C0F\u306Ep \u3092\u6C42\u3081\u308B O(log\
-    \ n)\n    int upper_bound(T x) {\n        if (x < 0) return 0;\n        int re\
-    \ = 0, t = 1;\n        while (t < _n) t <<= 1;\n        while (t) {\n        \
-    \    if (re + t < _n && data[re+t] <= x) {\n                x -= data[re+t];\n\
+    template<class T>\nstruct BIT {\n    int _n;\n    vector<T> data;\n    BIT() =\
+    \ default;\n    // BIT \u30920-indexed \u3067\u69CB\u7BC9\u3059\u308B O(n)\n \
+    \   BIT(int n) : _n(n), data(_n) {}\n    // p \u756A\u76EE\u306E\u5024\u306Bx\
+    \ \u3092\u52A0\u7B97\u3059\u308B O(log n)\n    void add(int p, T x) {\n      \
+    \  assert(0 <= p && p < _n);\n        p++;\n        while (p <= _n) {\n      \
+    \      data[p-1] += x;\n            p += p & -p;\n        }\n    }\n    // p \u756A\
+    \u76EE\u306E\u5024\u3092x \u306B\u3059\u308B O(log n)\n    void set(int p, T x)\
+    \ {\n        add(p, x - get(p));\n    }\n    // [0, r) \u306E\u7DCF\u548C\u3092\
+    \u6C42\u3081\u308B O(log n)\n    T sum(int r) {\n        assert(0 <= r &&  r <=\
+    \ _n);\n        T re = T{};\n        while (0 < r) {\n            re += data[r-1];\n\
+    \            r -= r & -r;\n        }\n        return re;\n    }\n    // [l, r)\
+    \ \u306E\u7DCF\u548C\u3092\u6C42\u3081\u308B O(log n)\n    T sum(int l, int r)\
+    \ {\n        assert(l <= r);\n        return sum(r) - sum(l);\n    }\n    // p\
+    \ \u756A\u76EE\u306E\u5024\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T get(int\
+    \ p) {\n        return sum(p+1) - sum(p);\n    }\n    // p \u756A\u76EE\u306E\u5024\
+    \u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T operator[](int p) {\n        return\
+    \ get(p);\n    }\n    // \u5168\u4F53\u306E\u7DCF\u548C\u3092\u53D6\u5F97\u3059\
+    \u308B O(log n)\n    T all_sum() {\n        return sum(_n);\n    }\n    // [l,\
+    \ r) \u306Bx \u3092\u52A0\u7B97\u3059\u308B \u4E00\u70B9\u53D6\u5F97\u306Fsum(p)\
+    \ \u3067\u884C\u3046 \u533A\u9593\u548C\u30AF\u30A8\u30EA\u304C\u3067\u304D\u306A\
+    \u304F\u306A\u308B\u306E\u3067\u6CE8\u610F O(log n)\n    void imos(int l, int\
+    \ r, T x) {\n        add(l, x);\n        if (r < _n) add(r, T{}-x);\n    }\n \
+    \   // x <= sum(p) \u3068\u306A\u308B\u6700\u5C0F\u306Ep \u3092\u6C42\u3081\u308B\
+    \ O(log n)\n    int lower_bound(T x) {\n        if (x <= 0) return 0;\n      \
+    \  int re = 0, t = 1;\n        while (t < _n) t <<= 1;\n        while (t) {\n\
+    \            if (re + t < _n && data[re+t] < x) {\n                x -= data[re+t];\n\
     \                re += t;\n                t >>= 1;\n            }\n        }\n\
-    \        return re;\n    }\n};\n#line 4 \"verify/aizu-DSL_2_E.test.cpp\"\n\r\n\
-    int main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    BIT<int> s(n);\r\
-    \n    while (q--) {\r\n        int x; cin >> x;\r\n        if (x == 0) {\r\n \
-    \           int l, r, y; cin >> l >> r >> y; l--;\r\n            s.imos(l, r,\
-    \ y);\r\n        } else {\r\n            int y; cin >> y;\r\n            cout\
+    \        return re;\n    }\n    // x < sum(p) \u3068\u306A\u308B\u6700\u5C0F\u306E\
+    p \u3092\u6C42\u3081\u308B O(log n)\n    int upper_bound(T x) {\n        if (x\
+    \ < 0) return 0;\n        int re = 0, t = 1;\n        while (t < _n) t <<= 1;\n\
+    \        while (t) {\n            if (re + t < _n && data[re+t] <= x) {\n    \
+    \            x -= data[re+t];\n                re += t;\n                t >>=\
+    \ 1;\n            }\n        }\n        return re;\n    }\n};\n#line 4 \"verify/aizu-DSL_2_E.test.cpp\"\
+    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
+    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    BIT<int>\
+    \ s(n);\r\n    while (q--) {\r\n        int x; cin >> x;\r\n        if (x == 0)\
+    \ {\r\n            int l, r, y; cin >> l >> r >> y; l--;\r\n            s.imos(l,\
+    \ r, y);\r\n        } else {\r\n            int y; cin >> y;\r\n            cout\
     \ << s.sum(y) << nl;\r\n        }\r\n    }\r\n}\n"
   code: "#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_E\"\
     \r\n#include \"template\"\r\n#include \"BIT\"\r\n\r\nint main() { IO();\r\n  \
@@ -122,7 +122,7 @@ data:
   isVerificationFile: true
   path: verify/aizu-DSL_2_E.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:42:59+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/aizu-DSL_2_E.test.cpp

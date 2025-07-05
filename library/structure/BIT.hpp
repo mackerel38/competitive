@@ -5,6 +5,7 @@ template<class T>
 struct BIT {
     int _n;
     vector<T> data;
+    BIT() = default;
     // BIT を0-indexed で構築する O(n)
     BIT(int n) : _n(n), data(_n) {}
     // p 番目の値にx を加算する O(log n)

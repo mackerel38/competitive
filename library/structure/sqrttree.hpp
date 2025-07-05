@@ -1,6 +1,8 @@
 #pragma once
 #include <bits/stdc++.h>
+#include "isqrt"
 using namespace std;
+
 template <class S, auto op, auto e, class F, auto mapping, auto mapping2>
 struct sqrttree {
     int n, bsize, m;
@@ -9,7 +11,7 @@ struct sqrttree {
     sqrttree(int n) : sqrttree(vector<S>(n, e())) {}
     sqrttree(vector<S> v) {
         n = v.size();
-        bsize = sqrt(n) + 1;
+        bsize = isqrt(n) + 1;
         m = bsize * bsize;
         data.reserve(m);
         block.reserve(bsize);

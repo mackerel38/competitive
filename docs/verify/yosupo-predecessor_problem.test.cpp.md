@@ -19,57 +19,57 @@ data:
     - https://judge.yosupo.jp/problem/predecessor_problem
   bundledCode: "#line 1 \"verify/yosupo-predecessor_problem.test.cpp\"\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/predecessor_problem\"\r\n#line 1 \"structure/wordsizetree.hpp\"\
-    \n#include <bits/stdc++.h>\nusing namespace std;\nstruct wordsizetree{\n    int\
+    \n#include <bits/stdc++.h>\nusing namespace std;\nstruct wordsizetree {\n    int\
     \ size;\n    vector<vector<unsigned long long>> a;\n    static int highbit(unsigned\
     \ long long x){\n        if(x == 0) return 0;\n        return 63 - __builtin_clzll(x);\n\
     \    }\n    static int lowbit(unsigned long long x){\n        if(x == 0) return\
-    \ 64;\n        return __builtin_ctzll(x);\n    }\n    wordsizetree(int n){\n \
-    \       size = n;\n        int t = n;\n        do {\n            vector<unsigned\
-    \ long long> b(t/64+1);\n            a.emplace_back(move(b));\n            t /=\
-    \ 64;\n        } while(t);\n    }\n    wordsizetree(vector<int> v) : wordsizetree(v.size())\
-    \ {\n        for (int i=0; i<(int)v.size(); i++) {\n            if (v[i]) {\n\
-    \                insert(i);\n            }\n        }\n    }\n    void insert(int\
-    \ x){\n        for(auto& a : a){\n            a[x/64] |= 1ULL << (x % 64);\n \
-    \           x /= 64;\n        }\n    }\n    void erase(int x){\n        for(auto&\
-    \ a : a){\n        a[x/64] &= ~(1ULL << (x % 64));\n        if(a[x/64]) return;\n\
-    \        x /= 64;\n        }\n    }\n    int count(int x) {\n        return (int)((a[0][x/64]\
-    \ >> (x%64)) & 1);\n    }\n    // x<=y \u3068\u306A\u308B\u6700\u5C0F\u306Ey \u3092\
-    \u8FD4\u3059\n    int minright(int x) {\n        if(x < 0) x = 0;\n        if(size\
-    \ <= x) return size;\n        int d = 0, i = x;\n        while(true){\n      \
-    \      if(d >= (int)a.size()) return size;\n            if(i/64 >= (int)a[d].size())\
-    \ return size;\n            unsigned long long m = a[d][i/64] & ((~(unsigned long\
-    \ long)0) << (i%64));\n            if(!m){d++; i/=64; i++;}\n            else{\n\
-    \                int to = lowbit(m);\n                i = i/64*64 + to;\n    \
-    \            if(d == 0) break;\n                i *= 64;\n                d--;\n\
-    \            }\n        }\n        return i;\n    }\n    // x<=y \u3092\u6E80\u305F\
-    \u3059\u6700\u5C0F\u306Ey \u3092\u8FD4\u3059\n    int maxleft(int x) {\n     \
-    \   if(x < 0) return -1;\n        if(size <= x) x = size-1;\n        int d = 0,\
-    \ i = x;\n        while(true){\n            if(i < 0) return -1;\n           \
-    \ if(d >= (int)a.size()) return -1;\n            unsigned long long m = a[d][i/64]\
-    \ & ~((~(unsigned long long)1) << (i%64));\n            if(!m){ d++; i /= 64;\
-    \ i--; }\n            else{\n                int to = highbit(m);\n          \
-    \      i = i/64*64 + to;\n                if(d == 0) break;\n                i\
-    \ *= 64;\n                i += 64-1;\n                d--;\n            }\n  \
-    \      }\n        return i;\n    }\n};\n#line 2 \"util/template.hpp\"\n#ifdef\
-    \ poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n#define debug(x)\n//\
-    \ #pragma GCC target(\"arch=skylake-avx512\")\n// #pragma GCC target(\"avx2\"\
-    )\n// #pragma GCC optimize(\"O3\")\n// #pragma GCC optimize(\"unroll-loops\")\n\
-    #endif\n#line 12 \"util/template.hpp\"\nusing namespace std;\nusing ll=long long;\n\
-    using ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\n\
-    using pll=pair<ll,ll>;\nusing str=string;\ntemplate<class T>using vec=vector<T>;\n\
-    using vi=vec<int>;using vvi=vec<vi>;using vvvi=vec<vvi>;using vvvvi=vec<vvvi>;using\
-    \ vvvvvi=vec<vvvvi>;\nusing vll=vec<ll>;using vvll=vec<vll>;using vvvll=vec<vvll>;using\
-    \ vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;\nusing vpi=vec<pi>;using vvpi=vec<vpi>;using\
-    \ vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;\nusing vpll=vec<pll>;using\
-    \ vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using vvvvvpll=vec<vvvvpll>;\n\
-    template<class T>using pq=priority_queue<T,vector<T>>;\ntemplate<class T>using\
-    \ pqg=priority_queue<T,vector<T>,greater<T>>;\n#define rep(i,n) for(int i=0;i<(int)(n);i++)\n\
-    #define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n#define per(i,n) for(int i=(int)(n)-1;0<=i;i--)\n\
-    #define per1(i,n) for(int i=(int)(n);0<i;i--)\n#define range(i,x) for(auto&i:x)\n\
-    #define range2(i,j,x) for(auto&[i,j]:x)\n#define all(x) (x).begin(),(x).end()\n\
-    #define rall(x) (x).rbegin(),(x).rend()\n#define Sort(x) sort((x).begin(),(x).end())\n\
-    #define troS(x) sort((x).rbegin(),(x).rend())\n#define Reverse(x) reverse((x).begin(),(x).end())\n\
-    #define uniq(x) sort((x).begin(),(x).end());(x).erase(unique((x).begin(),(x).end()),(x).end())\n\
+    \ 64;\n        return __builtin_ctzll(x);\n    }\n    wordsizetree() = default;\n\
+    \    wordsizetree(int n){\n        size = n;\n        int t = n;\n        do {\n\
+    \            vector<unsigned long long> b(t/64+1);\n            a.emplace_back(move(b));\n\
+    \            t /= 64;\n        } while(t);\n    }\n    wordsizetree(vector<int>\
+    \ v) : wordsizetree(v.size()) {\n        for (int i=0; i<(int)v.size(); i++) {\n\
+    \            if (v[i]) {\n                insert(i);\n            }\n        }\n\
+    \    }\n    void insert(int x){\n        for(auto& a : a){\n            a[x/64]\
+    \ |= 1ULL << (x % 64);\n            x /= 64;\n        }\n    }\n    void erase(int\
+    \ x){\n        for(auto& a : a){\n        a[x/64] &= ~(1ULL << (x % 64));\n  \
+    \      if(a[x/64]) return;\n        x /= 64;\n        }\n    }\n    int count(int\
+    \ x) {\n        return (int)((a[0][x/64] >> (x%64)) & 1);\n    }\n    // x<=y\
+    \ \u3068\u306A\u308B\u6700\u5C0F\u306Ey \u3092\u8FD4\u3059\n    int minright(int\
+    \ x) {\n        if(x < 0) x = 0;\n        if(size <= x) return size;\n       \
+    \ int d = 0, i = x;\n        while(true){\n            if(d >= (int)a.size())\
+    \ return size;\n            if(i/64 >= (int)a[d].size()) return size;\n      \
+    \      unsigned long long m = a[d][i/64] & ((~(unsigned long long)0) << (i%64));\n\
+    \            if(!m){d++; i/=64; i++;}\n            else{\n                int\
+    \ to = lowbit(m);\n                i = i/64*64 + to;\n                if(d ==\
+    \ 0) break;\n                i *= 64;\n                d--;\n            }\n \
+    \       }\n        return i;\n    }\n    // x<=y \u3092\u6E80\u305F\u3059\u6700\
+    \u5C0F\u306Ey \u3092\u8FD4\u3059\n    int maxleft(int x) {\n        if(x < 0)\
+    \ return -1;\n        if(size <= x) x = size-1;\n        int d = 0, i = x;\n \
+    \       while(true){\n            if(i < 0) return -1;\n            if(d >= (int)a.size())\
+    \ return -1;\n            unsigned long long m = a[d][i/64] & ~((~(unsigned long\
+    \ long)1) << (i%64));\n            if(!m){ d++; i /= 64; i--; }\n            else{\n\
+    \                int to = highbit(m);\n                i = i/64*64 + to;\n   \
+    \             if(d == 0) break;\n                i *= 64;\n                i +=\
+    \ 64-1;\n                d--;\n            }\n        }\n        return i;\n \
+    \   }\n};\n#line 2 \"util/template.hpp\"\n#ifdef poe\n#define debug(x) cerr<<#x<<\"\
+    : \"<<x<<endl\n#else\n#define debug(x)\n// #pragma GCC target(\"arch=skylake-avx512\"\
+    )\n// #pragma GCC target(\"avx2\")\n// #pragma GCC optimize(\"O3\")\n// #pragma\
+    \ GCC optimize(\"unroll-loops\")\n#endif\n#line 12 \"util/template.hpp\"\nusing\
+    \ namespace std;\nusing ll=long long;\nusing ull=unsigned long long;\nusing ld=long\
+    \ double;\nusing pi=pair<int,int>;\nusing pll=pair<ll,ll>;\nusing str=string;\n\
+    template<class T>using vec=vector<T>;\nusing vi=vec<int>;using vvi=vec<vi>;using\
+    \ vvvi=vec<vvi>;using vvvvi=vec<vvvi>;using vvvvvi=vec<vvvvi>;\nusing vll=vec<ll>;using\
+    \ vvll=vec<vll>;using vvvll=vec<vvll>;using vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;\n\
+    using vpi=vec<pi>;using vvpi=vec<vpi>;using vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using\
+    \ vvvvvpi=vec<vvvvpi>;\nusing vpll=vec<pll>;using vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using\
+    \ vvvvpll=vec<vvvpll>;using vvvvvpll=vec<vvvvpll>;\ntemplate<class T>using pq=priority_queue<T,vector<T>>;\n\
+    template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;\n#define rep(i,n)\
+    \ for(int i=0;i<(int)(n);i++)\n#define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n\
+    #define per(i,n) for(int i=(int)(n)-1;0<=i;i--)\n#define per1(i,n) for(int i=(int)(n);0<i;i--)\n\
+    #define range(i,x) for(auto&i:x)\n#define range2(i,j,x) for(auto&[i,j]:x)\n#define\
+    \ all(x) (x).begin(),(x).end()\n#define rall(x) (x).rbegin(),(x).rend()\n#define\
+    \ Sort(x) sort((x).begin(),(x).end())\n#define troS(x) sort((x).rbegin(),(x).rend())\n\
+    #define Reverse(x) reverse((x).begin(),(x).end())\n#define uniq(x) sort((x).begin(),(x).end());(x).erase(unique((x).begin(),(x).end()),(x).end())\n\
     #define nextp(x) next_permutation((x).begin(),(x).end())\n#define nextc(x,k) next_combination((x).begin(),(x).end(),k)\n\
     #define bit(x,i) (((x)>>(i))&1)\n#define pf push_front\n#define pb push_back\n\
     #define df pop_front\n#define db pop_back\n#define fi first\n#define se second\n\
@@ -129,7 +129,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:44:39+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-predecessor_problem.test.cpp

@@ -70,29 +70,29 @@ data:
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
     }\n\nvoid solve();\n// poe\n#line 3 \"structure/dynamicUnionFind.hpp\"\nusing\
     \ namespace std;\nstruct dynamicUnionFind {\n    long long _n;\n    unordered_map<long\
-    \ long, long long> data;\n    // n \u500B\u306E\u8981\u7D20\u304B\u3089\u306A\u308B\
-    dynamicUnionFind \u3092\u69CB\u7BC9 O(1)\n    dynamicUnionFind(long long n) :\
-    \ _n(n) {}\n    // 2 \u3064\u306E\u8981\u7D20\u3092\u4F75\u5408 O(\u03B1(n))\n\
-    \    bool merge(long long p, long long q) {\n        p = root(p);\n        q =\
-    \ root(q);\n        if (p == q) return false;\n        if (q < p) swap(p, q);\n\
-    \        data[p] += data[q];\n        data[q] = p;\n        return true;\n   \
-    \ }\n    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n    long long root(long\
-    \ long p) {\n        assert(0 <= p && p < _n);\n        if (!data.count(p)) {\n\
-    \            data[p] = -1;\n        }\n        if (data[p] < 0) {\n          \
-    \  return p;\n        } else {\n            data[p] = root(data[p]);\n       \
-    \     return data[p];\n        }\n    }\n    // \u89AA\u8981\u7D20\u3092\u53D6\
-    \u5F97 O(\u03B1(n))\n    long long operator[](long long p) {\n        return root(p);\n\
-    \    }\n    // 2 \u3064\u306E\u8981\u7D20\u304C\u540C\u3058\u96C6\u5408\u306B\u542B\
-    \u307E\u308C\u308B\u304B\u5224\u5B9A O(\u03B1(n))\n    bool same(long long p,\
-    \ long long q) {\n        return root(p) == root(q);\n    }\n    // \u8981\u7D20\
-    \u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\u5927\u304D\u3055\u3092\u8FD4\u3059\
-    \ O(\u03B1(n))\n    long long size(long long p) {\n        return -data[root(p)];\n\
-    \    }\n};\n#line 4 \"verify/yosupo-unionfind.test.cpp\"\n\r\nint main() { IO();\r\
-    \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
-    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    dynamicUnionFind uf(n);\r\n\
-    \    while (q--) {\r\n        int x, y, z; cin >> x >> y >> z;\r\n        if (x\
-    \ == 0) {\r\n            uf.merge(y, z);\r\n        } else {\r\n            cout\
-    \ << uf.same(y, z) << nl;\r\n        }\r\n    }\r\n}\n"
+    \ long, long long> data;\n    dynamicUnionFind() = default;\n    // n \u500B\u306E\
+    \u8981\u7D20\u304B\u3089\u306A\u308BdynamicUnionFind \u3092\u69CB\u7BC9 O(1)\n\
+    \    dynamicUnionFind(long long n) : _n(n) {}\n    // 2 \u3064\u306E\u8981\u7D20\
+    \u3092\u4F75\u5408 O(\u03B1(n))\n    bool merge(long long p, long long q) {\n\
+    \        p = root(p);\n        q = root(q);\n        if (p == q) return false;\n\
+    \        if (q < p) swap(p, q);\n        data[p] += data[q];\n        data[q]\
+    \ = p;\n        return true;\n    }\n    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97\
+    \ O(\u03B1(n))\n    long long root(long long p) {\n        assert(0 <= p && p\
+    \ < _n);\n        if (!data.count(p)) {\n            data[p] = -1;\n        }\n\
+    \        if (data[p] < 0) {\n            return p;\n        } else {\n       \
+    \     data[p] = root(data[p]);\n            return data[p];\n        }\n    }\n\
+    \    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n    long long operator[](long\
+    \ long p) {\n        return root(p);\n    }\n    // 2 \u3064\u306E\u8981\u7D20\
+    \u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\u5224\u5B9A\
+    \ O(\u03B1(n))\n    bool same(long long p, long long q) {\n        return root(p)\
+    \ == root(q);\n    }\n    // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\
+    \u5927\u304D\u3055\u3092\u8FD4\u3059 O(\u03B1(n))\n    long long size(long long\
+    \ p) {\n        return -data[root(p)];\n    }\n};\n#line 4 \"verify/yosupo-unionfind.test.cpp\"\
+    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
+    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    dynamicUnionFind\
+    \ uf(n);\r\n    while (q--) {\r\n        int x, y, z; cin >> x >> y >> z;\r\n\
+    \        if (x == 0) {\r\n            uf.merge(y, z);\r\n        } else {\r\n\
+    \            cout << uf.same(y, z) << nl;\r\n        }\r\n    }\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\r\n#include\
     \ \"template\"\r\n#include \"dynamicUnionFind\"\r\n\r\nint main() { IO();\r\n\
     \    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:43:20+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-unionfind.test.cpp

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-struct wordsizetree{
+struct wordsizetree {
     int size;
     vector<vector<unsigned long long>> a;
     static int highbit(unsigned long long x){
@@ -11,6 +11,7 @@ struct wordsizetree{
         if(x == 0) return 64;
         return __builtin_ctzll(x);
     }
+    wordsizetree() = default;
     wordsizetree(int n){
         size = n;
         int t = n;

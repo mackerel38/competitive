@@ -6,6 +6,7 @@ struct abstractBIT {
     int _n;
     T _e;
     vector<T> data;
+    abstractBIT() = default;
     // 抽象化BIT を構築する O(n)
     abstractBIT(int n, T e = T{}) : _n(n), data(_n), _e(e) {}
     // p 番目の値にx を加算する O(log n)

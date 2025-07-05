@@ -4,6 +4,7 @@ using namespace std;
 struct dynamicUnionFind {
     long long _n;
     unordered_map<long long, long long> data;
+    dynamicUnionFind() = default;
     // n 個の要素からなるdynamicUnionFind を構築 O(1)
     dynamicUnionFind(long long n) : _n(n) {}
     // 2 つの要素を併合 O(α(n))

@@ -6,6 +6,7 @@ struct rollbackUnionFind {
     vector<int> data;
     stack<pair<int, int>> history;
     int snap;
+    rollbackUnionFind() = default;
     // _n 個の要素からなるrollback 可能なUnionFind を構築 O(n)
     rollbackUnionFind(int n) : _n(n), data(n, -1), snap(0) {}
     // 2 つの要素を併合 O(log n)

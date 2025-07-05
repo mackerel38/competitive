@@ -122,20 +122,20 @@ data:
     structure/segtree.hpp\"\nusing namespace std;\n// op(op(a, b), c) = op(a, op(b,\
     \ c)) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\u8981\u304C\u3042\u308B(\u7D50\u5408\
     \u5F8B)\ntemplate<class S, auto op, auto e>\nstruct segtree {\n    int _n, size;\n\
-    \    vector<S> data;\n    // \u5927\u304D\u3055n \u306E\u30BB\u30B0\u6728\u3092\
-    \u69CB\u7BC9 O(n)\n    segtree(int n) : _n(n) { build(vector<S>(n, e())); }\n\
-    \    // \u5927\u304D\u3055v.size() \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9\
-    \ O(n)\n    segtree(vector<S>& v) : _n(v.size()) { build(v); }\n    void build(vector<S>\
-    \ v) {\n        size = __bit_ceil((unsigned int)_n);\n        data.assign(2 *\
-    \ size, e());\n        for (int i=0; i<_n; i++) data[size+i] = v[i];\n       \
-    \ for (int i=size-1; 0<i; i--) update(i);\n    }\n    // p \u756A\u76EE\u306E\u8981\
-    \u7D20\u3092x \u306B\u3059\u308B O(log n)\n    void set(int p, S x) {\n      \
-    \  assert(0 <= p && p < _n);\n        p += size;\n        data[p] = x;\n     \
-    \   for (p>>=1; 0<p; p>>=1) update(p);\n    }\n    // p \u756A\u76EE\u306E\u8981\
-    \u7D20\u3092\u53D6\u5F97\u3059\u308B O(1)\n    S get(int p) {\n        assert(0\
-    \ <= p && p < _n);\n        return data[size+p];\n    }\n    // p \u756A\u76EE\
-    \u306E\u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B O(1)\n    S operator[](int p)\
-    \ {\n        return get(p);\n    }\n    // [l, r) \u306E\u533A\u9593\u30AF\u30A8\
+    \    vector<S> data;\n    segtree() = default;\n    // \u5927\u304D\u3055n \u306E\
+    \u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    segtree(int n) : _n(n) { build(vector<S>(n,\
+    \ e())); }\n    // \u5927\u304D\u3055v.size() \u306E\u30BB\u30B0\u6728\u3092\u69CB\
+    \u7BC9 O(n)\n    segtree(vector<S>& v) : _n(v.size()) { build(v); }\n    void\
+    \ build(vector<S> v) {\n        size = __bit_ceil((unsigned int)_n);\n       \
+    \ data.assign(2 * size, e());\n        for (int i=0; i<_n; i++) data[size+i] =\
+    \ v[i];\n        for (int i=size-1; 0<i; i--) update(i);\n    }\n    // p \u756A\
+    \u76EE\u306E\u8981\u7D20\u3092x \u306B\u3059\u308B O(log n)\n    void set(int\
+    \ p, S x) {\n        assert(0 <= p && p < _n);\n        p += size;\n        data[p]\
+    \ = x;\n        for (p>>=1; 0<p; p>>=1) update(p);\n    }\n    // p \u756A\u76EE\
+    \u306E\u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B O(1)\n    S get(int p) {\n  \
+    \      assert(0 <= p && p < _n);\n        return data[size+p];\n    }\n    //\
+    \ p \u756A\u76EE\u306E\u8981\u7D20\u3092\u53D6\u5F97\u3059\u308B O(1)\n    S operator[](int\
+    \ p) {\n        return get(p);\n    }\n    // [l, r) \u306E\u533A\u9593\u30AF\u30A8\
     \u30EA\u306B\u7B54\u3048\u308B O(log n)\n    S prod(int l, int r) {\n        assert(0\
     \ <= l && l <= r && r <= _n);\n        S ll = e(), rr = e();\n        l += size;\n\
     \        r += size;\n        while (l < r) {\n            if (l & 1) ll = op(ll,\
@@ -195,7 +195,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:43:55+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_set_range_composite.test.cpp

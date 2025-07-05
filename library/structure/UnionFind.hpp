@@ -4,6 +4,7 @@ using namespace std;
 struct UnionFind {
     int _n;
     vector<int> data;
+    UnionFind() = default;
     // n 個の要素からなるUnionFind を構築 O(n)
     UnionFind(int n) : _n(n), data(n, -1) {}
     // 2 つの要素を併合 O(α(n))

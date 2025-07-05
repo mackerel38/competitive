@@ -8,6 +8,7 @@ struct lazysegtree {
     F _id;
     vector<S> data;
     vector<F> lazy;
+    lazysegtree() = default;
     // 大きさn, 単位元e, id(省略するとS{}, F{} になる) のセグ木を構築 O(n)
     lazysegtree(int n, S e = S{}, F id = F{}) : _n(n), _e(e), _id(id) { build(vector<S>(n, _e)); }
     // 大きさv.size(), 単位元e, id(省略するとS{}, F{} になる) のセグ木を構築 O(n)

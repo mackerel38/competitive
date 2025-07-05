@@ -52,7 +52,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/convolution.hpp
       title: math/convolution.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/isqrt.hpp
       title: math/isqrt.hpp
     - icon: ':heavy_check_mark:'
@@ -98,9 +98,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/lazysegtree.hpp
       title: structure/lazysegtree.hpp
-    - icon: ':warning:'
-      path: structure/lazysqrttree.hpp
-      title: structure/lazysqrttree.hpp
     - icon: ':warning:'
       path: structure/rollbackUnionFind.hpp
       title: structure/rollbackUnionFind.hpp

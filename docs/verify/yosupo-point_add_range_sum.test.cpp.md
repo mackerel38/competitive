@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
+    path: math/isqrt.hpp
+    title: math/isqrt.hpp
+  - icon: ':heavy_check_mark:'
     path: structure/sqrttree.hpp
     title: structure/sqrttree.hpp
   - icon: ':heavy_check_mark:'
@@ -69,35 +72,39 @@ data:
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\n#define\
     \ inf ((1<<30)-(1<<15))\n#define INF (1LL<<61)\n#define mod 998244353\n\nvoid\
     \ IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n// poe\n#line 3 \"structure/sqrttree.hpp\"\nusing namespace\
-    \ std;\ntemplate <class S, auto op, auto e, class F, auto mapping, auto mapping2>\n\
-    struct sqrttree {\n    int n, bsize, m;\n    vector<S> data, block;\n    sqrttree()\
-    \ = default;\n    sqrttree(int n) : sqrttree(vector<S>(n, e())) {}\n    sqrttree(vector<S>\
-    \ v) {\n        n = v.size();\n        bsize = sqrt(n) + 1;\n        m = bsize\
-    \ * bsize;\n        data.reserve(m);\n        block.reserve(bsize);\n        for\
-    \ (int i=0; i<bsize; i++) {\n            block[i] = e();\n            for (int\
-    \ j=0; j<bsize; j++) {\n                int k = i * bsize + j;\n             \
-    \   if (k < n) {\n                    data[k] = v[k];\n                } else\
-    \ {\n                    data[k] = e();\n                }\n                block[i]\
-    \ = op(block[i], data[k]);\n            }\n        }\n    }\n    void apply(int\
-    \ i, F f) {\n        assert(0<=i && i<n);\n        data[i] = mapping(f, data[i]);\n\
-    \        block[i/bsize] = mapping2(f, block[i/bsize]);\n    }\n    S get(int i)\
-    \ {\n        assert(0 <= i && i < n);\n        return data[i];\n    }\n    S operator[](int\
-    \ i) {\n        return get(i);\n    }\n    S prod(int l, int r) {\n        assert(0<=l\
-    \ && l<=r && r<=n);\n        S re = e();\n        for (int i=0; i<bsize; i++)\
-    \ {\n            if (r<=i*bsize || (i+1)*bsize<=l) continue;\n            if (l<=i*bsize\
-    \ && (i+1)*bsize<=r) re = op(re, block[i]);\n            else {\n            \
-    \    for (int j=0; j<bsize; j++) {\n                    int k = i * bsize + j;\n\
-    \                    if (l<=k && k<r) {\n                        re = op(re, data[k]);\n\
-    \                    }\n                }\n            }\n        }\n        return\
-    \ re;\n    }\n};\n#line 4 \"verify/yosupo-point_add_range_sum.test.cpp\"\n\r\n\
-    int main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin\
-    \ >> a;\r\n    sqrttree<ll,[](ll a,ll b){return a+b;},[](){return 0;},ll,[](ll\
-    \ a,ll b){return a+b;},[](ll a,ll b){return a+b;}> seg(a);\r\n    while (q--)\
-    \ {\r\n        int x, y, z; cin >> x >> y >> z;\r\n        if (x == 0) {\r\n \
-    \           seg.apply(y, z);\r\n        } else {\r\n            cout << seg.prod(y,\
-    \ z) << nl;\r\n        }\r\n    }\r\n}\n"
+    }\n\nvoid solve();\n// poe\n#line 3 \"math/isqrt.hpp\"\nusing namespace std;\n\
+    \n// floor(sqrt(n)) \u3092\u8FD4\u3059\nlong long isqrt(long long n) {\n    assert(0\
+    \ <= n);\n    long long re = sqrt(n);\n    while ((re + 1) * (re + 1) <= n) re++;\n\
+    \    while (n < re * re) re--;\n    return re;\n}\n#line 4 \"structure/sqrttree.hpp\"\
+    \nusing namespace std;\n\ntemplate <class S, auto op, auto e, class F, auto mapping,\
+    \ auto mapping2>\nstruct sqrttree {\n    int n, bsize, m;\n    vector<S> data,\
+    \ block;\n    sqrttree() = default;\n    sqrttree(int n) : sqrttree(vector<S>(n,\
+    \ e())) {}\n    sqrttree(vector<S> v) {\n        n = v.size();\n        bsize\
+    \ = isqrt(n) + 1;\n        m = bsize * bsize;\n        data.reserve(m);\n    \
+    \    block.reserve(bsize);\n        for (int i=0; i<bsize; i++) {\n          \
+    \  block[i] = e();\n            for (int j=0; j<bsize; j++) {\n              \
+    \  int k = i * bsize + j;\n                if (k < n) {\n                    data[k]\
+    \ = v[k];\n                } else {\n                    data[k] = e();\n    \
+    \            }\n                block[i] = op(block[i], data[k]);\n          \
+    \  }\n        }\n    }\n    void apply(int i, F f) {\n        assert(0<=i && i<n);\n\
+    \        data[i] = mapping(f, data[i]);\n        block[i/bsize] = mapping2(f,\
+    \ block[i/bsize]);\n    }\n    S get(int i) {\n        assert(0 <= i && i < n);\n\
+    \        return data[i];\n    }\n    S operator[](int i) {\n        return get(i);\n\
+    \    }\n    S prod(int l, int r) {\n        assert(0<=l && l<=r && r<=n);\n  \
+    \      S re = e();\n        for (int i=0; i<bsize; i++) {\n            if (r<=i*bsize\
+    \ || (i+1)*bsize<=l) continue;\n            if (l<=i*bsize && (i+1)*bsize<=r)\
+    \ re = op(re, block[i]);\n            else {\n                for (int j=0; j<bsize;\
+    \ j++) {\n                    int k = i * bsize + j;\n                    if (l<=k\
+    \ && k<r) {\n                        re = op(re, data[k]);\n                 \
+    \   }\n                }\n            }\n        }\n        return re;\n    }\n\
+    };\n#line 4 \"verify/yosupo-point_add_range_sum.test.cpp\"\n\r\nint main() { IO();\r\
+    \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin >> a;\r\n   \
+    \ sqrttree<ll,[](ll a,ll b){return a+b;},[](){return 0;},ll,[](ll a,ll b){return\
+    \ a+b;},[](ll a,ll b){return a+b;}> seg(a);\r\n    while (q--) {\r\n        int\
+    \ x, y, z; cin >> x >> y >> z;\r\n        if (x == 0) {\r\n            seg.apply(y,\
+    \ z);\r\n        } else {\r\n            cout << seg.prod(y, z) << nl;\r\n   \
+    \     }\r\n    }\r\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\r\
     \n#include \"template\"\r\n#include \"sqrttree\"\r\n\r\nint main() { IO();\r\n\
     \    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
@@ -110,10 +117,11 @@ data:
   dependsOn:
   - util/template.hpp
   - structure/sqrttree.hpp
+  - math/isqrt.hpp
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:42:27+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum.test.cpp

@@ -6,6 +6,7 @@ template<class S, auto op, auto e>
 struct dynamicsegtree {
     long long _n, size;
     unordered_map<long long, S> data;
+    dynamicsegtree() = default;
     // 大きさn, 単位元e(省略するとS{} になる) のセグ木を構築 O(log n)
     dynamicsegtree(long long n) : _n(n) {
         size = 1;

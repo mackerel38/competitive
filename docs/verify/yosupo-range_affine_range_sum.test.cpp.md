@@ -75,17 +75,17 @@ data:
     }\n\nvoid solve();\n// poe\n#line 3 \"structure/lazysegtree.hpp\"\nusing namespace\
     \ std;\ntemplate<class S, auto op, class F, auto mapping, auto composition>\n\
     struct lazysegtree {\n    int _n, size, sz;\n    S _e;\n    F _id;\n    vector<S>\
-    \ data;\n    vector<F> lazy;\n    // \u5927\u304D\u3055n, \u5358\u4F4D\u5143e,\
-    \ id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\u306A\u308B) \u306E\u30BB\u30B0\
-    \u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(int n, S e = S{}, F id = F{}) :\
-    \ _n(n), _e(e), _id(id) { build(vector<S>(n, _e)); }\n    // \u5927\u304D\u3055\
-    v.size(), \u5358\u4F4D\u5143e, id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\
-    \u306A\u308B) \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(vector<S>&\
-    \ v, S e = S{}, F id = F{}) : _n(v.size()), _e(e), _id(id) { build(v); }\n   \
-    \ void build(vector<S> v) {\n        size = __bit_ceil((unsigned int)_n);\n  \
-    \      sz = __countr_zero(size);\n        data.assign(2 * size, _e);\n       \
-    \ lazy.assign(2 * size, _id);\n        for (int i=0; i<_n; i++) data[size+i] =\
-    \ v[i];\n        for (int i=size-1; 0<i; i--) update(i);\n    }\n    void update(int\
+    \ data;\n    vector<F> lazy;\n    lazysegtree() = default;\n    // \u5927\u304D\
+    \u3055n, \u5358\u4F4D\u5143e, id(\u7701\u7565\u3059\u308B\u3068S{}, F{} \u306B\
+    \u306A\u308B) \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9 O(n)\n    lazysegtree(int\
+    \ n, S e = S{}, F id = F{}) : _n(n), _e(e), _id(id) { build(vector<S>(n, _e));\
+    \ }\n    // \u5927\u304D\u3055v.size(), \u5358\u4F4D\u5143e, id(\u7701\u7565\u3059\
+    \u308B\u3068S{}, F{} \u306B\u306A\u308B) \u306E\u30BB\u30B0\u6728\u3092\u69CB\u7BC9\
+    \ O(n)\n    lazysegtree(vector<S>& v, S e = S{}, F id = F{}) : _n(v.size()), _e(e),\
+    \ _id(id) { build(v); }\n    void build(vector<S> v) {\n        size = __bit_ceil((unsigned\
+    \ int)_n);\n        sz = __countr_zero(size);\n        data.assign(2 * size, _e);\n\
+    \        lazy.assign(2 * size, _id);\n        for (int i=0; i<_n; i++) data[size+i]\
+    \ = v[i];\n        for (int i=size-1; 0<i; i--) update(i);\n    }\n    void update(int\
     \ k) {\n        data[k] = op(data[2*k], data[2*k+1]);\n    }\n    void all_apply(int\
     \ k, F f) {\n        data[k] = mapping(f, data[k]);\n        if (k < size) lazy[k]\
     \ = composition(f, lazy[k]);\n    }\n    void push(int k) {\n        all_apply(2*k,\
@@ -211,7 +211,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-range_affine_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2025-06-18 08:29:31+00:00'
+  timestamp: '2025-07-05 11:43:40+00:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-range_affine_range_sum.test.cpp
