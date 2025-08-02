@@ -1,0 +1,97 @@
+{
+  "contest": {
+    "id": "codequeen2025-final-Public",
+    "title": "CodeQUEEN 2025 決勝",
+    "url": "https://atcoder.jp/contests/codequeen2025-final-Public"
+  },
+  "tasks": [
+    {
+      "id": "codequeen2025_final_a",
+      "label": "A",
+      "title": "ファンレター",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_b",
+      "label": "B",
+      "title": "カップリング選抜",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_c",
+      "label": "C",
+      "title": "整理券",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_d",
+      "label": "D",
+      "title": "特訓",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_e",
+      "label": "E",
+      "title": "ブレスレット",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_f",
+      "label": "F",
+      "title": "アクリルスタンド",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_g",
+      "label": "G",
+      "title": "全国ツアー",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "codequeen2025_final_h",
+      "label": "H",
+      "title": "ライブ",
+      "url": "https://atcoder.jp/contests/codequeen2025-final-Public/tasks/codequeen2025_final_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
