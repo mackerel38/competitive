@@ -95,6 +95,7 @@
         "prim": "cpp",
         "template": "cpp",
         "graphtemplate": "cpp",
-        "dijkstrarestore": "cpp"
+        "dijkstrarestore": "cpp",
+        "lazysegtree": "cpp"
     }
 }
