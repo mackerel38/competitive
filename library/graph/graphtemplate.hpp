@@ -24,10 +24,10 @@ struct graph {
     // from から to へ辺を追加する
     void add_edge(int from, int to, T cost = 1, int id = -1) {
         if (id == -1) id = _edges.size();
-        data[from].push_back(edge<T>(from, to, cost, id));
-        _edges.push_back(edge<T>(from, to, cost, id));
+        data[from].push_back(edge<T>{from, to, cost, id});
+        _edges.push_back(edge<T>{from, to, cost, id});
         if (!isdirected) {
-            data[to].push_back(edge<T>(to, from, cost, id));
+            data[to].push_back(edge<T>{to, from, cost, id});
         }
         sumcost += cost;
     }
