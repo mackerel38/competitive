@@ -41,7 +41,7 @@ struct mint {
     mint operator--(int) { mint r = *this; *this -= 1; return r; }
     // modpow を計算する。計算量O(log mod)
     mint pow(long long n) const {
-        if (n != 0) n = ((n-2) % (modint_MOD-1) + modint_MOD) % (modint_MOD-1) + 1;
+        if (n != 0) n %= modint_MOD - 1;
         mint r = 1, a = *this;
         while (n) {
             if (n & 1) r *= a;
@@ -50,7 +50,7 @@ struct mint {
         }
         return r;
     }
-    mint inv() const { return pow(-1); }
+    mint inv() const { return pow(modint_MOD-2); }
     friend ostream& operator<<(ostream&s, const mint& a) { return s << a.val; }
     friend istream& operator>>(istream&s, mint& a) { long long x; s >> x; a = mint(x); return s; }
 };
