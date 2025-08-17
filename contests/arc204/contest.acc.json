@@ -1,0 +1,53 @@
+{
+  "contest": {
+    "id": "arc204",
+    "title": "AtCoder Regular Contest 204 (Div. 1)",
+    "url": "https://atcoder.jp/contests/arc204"
+  },
+  "tasks": [
+    {
+      "id": "arc204_a",
+      "label": "A",
+      "title": "Use Udon Coupon",
+      "url": "https://atcoder.jp/contests/arc204/tasks/arc204_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc204_b",
+      "label": "B",
+      "title": "Sort Permutation",
+      "url": "https://atcoder.jp/contests/arc204/tasks/arc204_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc204_c",
+      "label": "C",
+      "title": "Maximize Sum of Mex",
+      "url": "https://atcoder.jp/contests/arc204/tasks/arc204_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc204_d",
+      "label": "D",
+      "title": "Favorite Interval",
+      "url": "https://atcoder.jp/contests/arc204/tasks/arc204_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
