@@ -9,7 +9,7 @@ vector<vector<T>> warshallfloyd(vector<vector<T>>& g) {
     for (int k=0; k<(int)g.size(); k++) {
         for (int i=0; i<(int)g.size(); i++) {
             for (int j=0; j<(int)g.size(); j++) {
-                if (d[i][k] < numeric_limits<T>::max()/2 && d[k][j] < numeric_limits<T>::max()/2) {
+                if (d[i][k] != numeric_limits<T>::max() && d[k][j] != numeric_limits<T>::max()) {
                     d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
                 }
             }
