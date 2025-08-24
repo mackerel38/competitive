@@ -1,48 +1,30 @@
 #pragma once
 #include<bits/stdc++.h>
 using namespace std;
-long long modint_MOD = 998244353;
-// mod の値を変更する(デフォルトは998244353)
-void setmod(long long x) { modint_MOD = x; }
-struct mint {
+template <long long modint_MOD>
+struct modint {
     long long val;
-    mint(long long x=0) {
-        val=(x%modint_MOD+modint_MOD)%modint_MOD;
+    constexpr modint() noexcept : val(0) {}
+    constexpr modint(long long x) noexcept {
+        long long v = x % modint_MOD;
+        if (v < 0)  v+= modint_MOD;
+        val = v;
     }
-    mint& operator+=(const mint& a) { val = (val + a.val) % modint_MOD; return *this; }
-    mint& operator-=(const mint& a) { val = (val - a.val + modint_MOD) % modint_MOD; return *this; }
-    mint& operator*=(const mint& a) { val = val * a.val % modint_MOD ; return *this; }
-    mint& operator/=(const mint& a) { return *this *= a.inv(); }
-    mint operator+(const mint& a) const { return mint(*this) += a; }
-    mint operator-(const mint& a) const { return mint(*this) -= a; }
-    mint operator*(const mint& a) const { return mint(*this) *= a; }
-    mint operator/(const mint& a) const { return mint(*this) /= a; }
-    bool operator==(const mint& a) const { return val == a.val; }
-    bool operator!=(const mint& a) const { return val != a.val; }
-    mint& operator+=(int a) { return *this += mint(a); }
-    mint& operator-=(int a) { return *this -= mint(a); }
-    mint& operator*=(int a) { return *this *= mint(a); }
-    mint& operator/=(int a) { return *this /= mint(a); }
-    mint operator+(int a) const { return mint(*this) += a; }
-    mint operator-(int a) const { return mint(*this) -= a; }
-    mint operator*(int a) const { return mint(*this) *= a; }
-    mint operator/(int a) const { return mint(*this) /= a; }
-    bool operator==(int a) const { return val == mint(a).val; }
-    bool operator!=(int a) const { return val != mint(a).val; }
-    friend mint operator+(int a,const mint& b) { return mint(a) + b; }
-    friend mint operator-(int a,const mint& b) { return mint(a) - b; }
-    friend mint operator*(int a,const mint& b) { return mint(a) * b; }
-    friend mint operator/(int a,const mint& b) { return mint(a) / b; }
-    friend bool operator==(int a, const mint& b) { return mint(a) == b; }
-    friend bool operator!=(int a, const mint& b) { return mint(a) != b; }
-    mint& operator++() { return *this += 1; }
-    mint operator++(int) { mint r = *this; *this += 1; return r; }
-    mint& operator--() { return *this -= 1; }
-    mint operator--(int) { mint r = *this; *this -= 1; return r; }
-    // modpow を計算する。計算量O(log mod)
-    mint pow(long long n) const {
-        if (n != 0) n %= modint_MOD - 1;
-        mint r = 1, a = *this;
+    constexpr modint& operator+=(const modint& a) noexcept { val += a.val; if (modint_MOD <= val) val -= modint_MOD; return *this; }
+    constexpr modint& operator-=(const modint& a) noexcept { val -= a.val; if (val < 0) val += modint_MOD; return *this; }
+    constexpr modint& operator*=(const modint& a) noexcept { val = (long long)(val * a.val % modint_MOD); return *this; }
+    constexpr modint& operator/=(const modint& a) noexcept { return *this *= a.inv(); }
+    constexpr modint operator-() const noexcept { return modint(val ? modint_MOD - val : 0); }
+    friend constexpr modint operator+(modint a,const modint& b) noexcept { return a += b; }
+    friend constexpr modint operator-(modint a,const modint& b) noexcept { return a -= b; }
+    friend constexpr modint operator*(modint a,const modint& b) noexcept { return a *= b; }
+    friend constexpr modint operator/(modint a,const modint& b) noexcept { return a /= b; }
+    constexpr bool operator==(const modint& a) noexcept { return val == a.val; }
+    constexpr bool operator!=(const modint& a) noexcept { return val != a.val; }
+    constexpr modint pow(long long n) const noexcept {
+        n %= modint_MOD - 1;
+        if (n < 0) n += modint_MOD;
+        modint r = 1, a = *this;
         while (n) {
             if (n & 1) r *= a;
             a *= a;
@@ -50,21 +32,48 @@ struct mint {
         }
         return r;
     }
-    mint inv() const { return pow(modint_MOD-2); }
-    friend ostream& operator<<(ostream&s, const mint& a) { return s << a.val; }
-    friend istream& operator>>(istream&s, mint& a) { long long x; s >> x; a = mint(x); return s; }
+    constexpr modint inv() const noexcept { return pow(-1); }
+    friend istream& operator>>(istream& is, modint& a) { long long x; is >> x; a = modint(x); return is; }
+    friend ostream& operator<<(ostream& os, const modint& a) { os << a.val; return os; }
 };
-vector<mint>fac, ifac;
-// n までの階乗を前計算する。O(n)
-void buildfac(int n) {
-    fac.resize(n + 1);
-    ifac.resize(n + 1);
-    fac[0] = 1;
-    for (int i=1; i<=n; i++) fac[i] = fac[i-1] * i;
-    ifac[n] = mint(1) / fac[n];
-    for (int i=n; 0<i; i--) ifac[i-1] = ifac[i] * i;
+
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator+(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) + b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator-(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) - b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator*(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) * b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator/(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) / b; }
+
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator+(modint<modint_MOD> a, T b) noexcept { return a += b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator-(modint<modint_MOD> a, T b) noexcept { return a -= b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator*(modint<modint_MOD> a, T b) noexcept { return a *= b; }
+template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
+constexpr modint<modint_MOD> operator/(modint<modint_MOD> a, T b) noexcept { return a /= b; }
+
+long long fact_MOD = 998244353;
+
+vector<long long> fac, ifac;
+template <long long factMOD>
+void buildfac(int n) noexcept {
+    fact_MOD = factMOD;
+    fac.reserve(n+1);
+    ifac.resize(n+1);
+    fac.emplace_back(1);
+    for (int i=1; i<=n; i++) fac.emplace_back(fac[i-1] * i % fact_MOD);
+    ifac[n] = (modint<fact_MOD>(1) / fac[n]).val;
+    for (int i=n; 0<i; i--) ifac[i-1] = ifac[i] * i % fact_MOD;
 }
-// nCk を求める。buildfacの呼び出しが必須。O(1)
-mint comb(int n,int k) { return (0 <= k && k <= n ) ? fac[n] * ifac[k] * ifac[n-k] : 0; }
-// nPk を求める。buildfacの呼び出しが必須。O(1)
-mint perm(int n,int k) { return (0 <= k && k <= n ) ? fac[n] * ifac[n-k] : 0; }
+
+template<long long factMOD = fact_MOD>
+modint<factMOD> comb(int n, int k) noexcept {
+    return modint<factMOD>(fac[n]) * ifac[n-k] * ifac[k];
+}
+template<long long factMOD = fact_MOD>
+modint<factMOD> perm(int n, int k) noexcept {
+    return modint<factMOD>(fac[n]) * ifac[n-k];
+}
