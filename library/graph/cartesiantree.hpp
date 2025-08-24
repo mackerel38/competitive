@@ -10,7 +10,7 @@ pair<graph<int, true, false>, int> cartesiantree(vector<T> & a) {
     stack<int> s;
     for (int i=0; i<(int)a.size(); i++) {
         int pre = -1;
-        while (!s.empty() && a[i] < a[s.top()]) {
+        while (!s.empty() && a[i]<a[s.top()]) {
             pre = s.top(); s.pop();
         }
         if (pre != -1) p[pre] = i;
@@ -20,7 +20,7 @@ pair<graph<int, true, false>, int> cartesiantree(vector<T> & a) {
     int r = -1;
     for (int i=0; i<(int)a.size(); i++) {
         if (p[i] != -1) {
-            g.add_edge(p[i], i);
+            g.add_edge(i, p[i]);
         } else {
             r = i;
         }
