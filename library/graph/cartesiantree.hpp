@@ -20,7 +20,7 @@ pair<graph<int, true, false>, int> cartesiantree(vector<T> & a) {
     int r = -1;
     for (int i=0; i<(int)a.size(); i++) {
         if (p[i] != -1) {
-            g.add_edge(i, p[i]);
+            g.add_edge(p[i], i);
         } else {
             r = i;
         }
