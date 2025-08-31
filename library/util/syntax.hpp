@@ -13,10 +13,10 @@ string syntax(string& s, vector<string>& o, int size=128) {
     int rank=0;
     for (int i=0; i<(int)s.size(); i++) {
         if (s[i] == '(') {
-            rank += (int)o.size();
+            rank += (int)o.size() + 1;
             ranks[i] = rank;
         } else if (s[i] == ')') {
-            rank -= (int)o.size();
+            rank -= (int)o.size() + 1;
             ranks[i] = rank;
         } else {
             ranks[i] = rank + rankdict[s[i]];
@@ -26,7 +26,7 @@ string syntax(string& s, vector<string>& o, int size=128) {
     stack<int> st;
     for (int i=0; i<(int)s.size(); i++) {
         if (s[i]=='(' || s[i]==')') continue;
-        if (rankdict[s[i]] == '0') {
+        if (rankdict[s[i]] == 0) {
             re += s[i];
         } else if (st.empty() || ranks[st.top()]<ranks[i]) {
             st.push(i);
@@ -37,6 +37,10 @@ string syntax(string& s, vector<string>& o, int size=128) {
             }
             st.push(i);
         }
+    }
+    while (!st.empty()) {
+        re += s[st.top()];
+        st.pop();
     }
     return re;
 }
