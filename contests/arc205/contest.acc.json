@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "arc205",
+    "title": "AtCoder Regular Contest 205 (Div. 2)",
+    "url": "https://atcoder.jp/contests/arc205"
+  },
+  "tasks": [
+    {
+      "id": "arc205_a",
+      "label": "A",
+      "title": "2x2 Erasing",
+      "url": "https://atcoder.jp/contests/arc205/tasks/arc205_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc205_b",
+      "label": "B",
+      "title": "Triangle Toggle",
+      "url": "https://atcoder.jp/contests/arc205/tasks/arc205_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc205_c",
+      "label": "C",
+      "title": "No Collision Moves",
+      "url": "https://atcoder.jp/contests/arc205/tasks/arc205_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc205_d",
+      "label": "D",
+      "title": "Non-Ancestor Matching",
+      "url": "https://atcoder.jp/contests/arc205/tasks/arc205_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc205_e",
+      "label": "E",
+      "title": "Subset Product Problem",
+      "url": "https://atcoder.jp/contests/arc205/tasks/arc205_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
