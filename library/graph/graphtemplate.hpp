@@ -53,6 +53,7 @@ struct graph {
     edges<T> operator[](int k) {
         return data[k];
     }
+    // パスを頂点に変換する
     vector<int> path_to_vertex(edges<T>& _e) {
         vector<int> re;
         if (_e.size() == 0) {
@@ -74,6 +75,7 @@ struct graph {
         }
         return re;
     }
+    // 頂点をパスに変換する
     edges<T> vetex_to_path (vector<int>& v){
         edges<T> re;
         for (int i=0; i+1<v.size(); i++) {
