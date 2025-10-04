@@ -1,7 +1,9 @@
 #pragma once
 #include<bits/stdc++.h>
 using namespace std;
-template <long long modint_MOD>
+
+ll modint_MOD = 998244353;
+
 struct modint {
     long long val;
     constexpr modint() noexcept : val(0) {}
@@ -55,25 +57,3 @@ constexpr modint<modint_MOD> operator*(modint<modint_MOD> a, T b) noexcept { ret
 template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
 constexpr modint<modint_MOD> operator/(modint<modint_MOD> a, T b) noexcept { return a /= b; }
 
-long long fact_MOD = 998244353;
-
-vector<long long> fac, ifac;
-template <long long factMOD>
-void buildfac(int n) noexcept {
-    fact_MOD = factMOD;
-    fac.reserve(n+1);
-    ifac.resize(n+1);
-    fac.emplace_back(1);
-    for (int i=1; i<=n; i++) fac.emplace_back(fac[i-1] * i % fact_MOD);
-    ifac[n] = (modint<fact_MOD>(1) / fac[n]).val;
-    for (int i=n; 0<i; i--) ifac[i-1] = ifac[i] * i % fact_MOD;
-}
-
-template<long long factMOD = fact_MOD>
-modint<factMOD> comb(int n, int k) noexcept {
-    return modint<factMOD>(fac[n]) * ifac[n-k] * ifac[k];
-}
-template<long long factMOD = fact_MOD>
-modint<factMOD> perm(int n, int k) noexcept {
-    return modint<factMOD>(fac[n]) * ifac[n-k];
-}
