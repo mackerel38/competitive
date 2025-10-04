@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "arc206",
+    "title": "AtCoder Regular Contest 206 (Div. 2)",
+    "url": "https://atcoder.jp/contests/arc206"
+  },
+  "tasks": [
+    {
+      "id": "arc206_a",
+      "label": "A",
+      "title": "Range Replace",
+      "url": "https://atcoder.jp/contests/arc206/tasks/arc206_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc206_b",
+      "label": "B",
+      "title": "Slime Swap",
+      "url": "https://atcoder.jp/contests/arc206/tasks/arc206_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc206_c",
+      "label": "C",
+      "title": "Tree Sequence",
+      "url": "https://atcoder.jp/contests/arc206/tasks/arc206_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc206_d",
+      "label": "D",
+      "title": "LIS ∩ LDS",
+      "url": "https://atcoder.jp/contests/arc206/tasks/arc206_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc206_e",
+      "label": "E",
+      "title": "Rectangle Coloring",
+      "url": "https://atcoder.jp/contests/arc206/tasks/arc206_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
