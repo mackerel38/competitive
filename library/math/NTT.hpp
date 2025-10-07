@@ -1,30 +1,34 @@
 #pragma once
-#include "modint"
+#include "modint.hpp"
 #include <bits/stdc++.h>
 using namespace std;
-void NTT(vector<mint>& a, bool invert=false) {
-    int n = a.size();
+
+template <long long NTT_MOD>
+void NTT(vector<modint<NTT_MOD>>& a, bool inv=false) {
+    int n = (int)a.size();
     for (int i=1, j=0; i<n; i++) {
-        int b;
-        for (b=n>>1; j&b; b>>=1) j ^= b;
-        j ^= b;
+        int bit = n >> 1;
+        for (; j & bit; bit >>= 1) j ^= bit;
+        j ^= bit;
         if (i < j) swap(a[i], a[j]);
     }
+    modint<NTT_MOD> g = 3;
     for (int len=2; len<=n; len<<=1) {
-        mint wlen = mint(3).pow((998244353 - 1) / len);
-        if (invert) wlen = wlen.inv();
+        modint<NTT_MOD> wlen = g.pow((NTT_MOD - 1) / len);
+        if (inv) wlen = wlen.inv();
         for (int i=0; i<n; i+=len) {
-            mint w = 1;
+            modint<NTT_MOD> w = 1;
             for (int j=0; j<len/2; j++) {
-                mint u = a[i+j], v = a[i+j+len/2] * w;
+                modint<NTT_MOD> u = a[i+j];
+                modint<NTT_MOD> v = a[i+j+len/2]*w;
                 a[i+j] = u + v;
                 a[i+j+len/2] = u - v;
                 w *= wlen;
             }
         }
     }
-    if (invert) {
-        mint inv_n = mint(n).inv();
+    if (inv) {
+        modint<NTT_MOD> inv_n = modint<NTT_MOD>(n).inv();
         for (auto& x : a) x *= inv_n;
     }
 }
