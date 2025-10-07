@@ -2,58 +2,66 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-ll modint_MOD = 998244353;
-
+template <long long modint_MOD>
 struct modint {
     long long val;
-    constexpr modint() noexcept : val(0) {}
-    constexpr modint(long long x) noexcept {
-        long long v = x % modint_MOD;
-        if (v < 0)  v+= modint_MOD;
-        val = v;
+    constexpr modint(long long x = 0) noexcept {
+        x %= modint_MOD;
+        if (x < 0) x += modint_MOD;
+        val = x;
     }
-    constexpr modint& operator+=(const modint& a) noexcept { val += a.val; if (modint_MOD <= val) val -= modint_MOD; return *this; }
-    constexpr modint& operator-=(const modint& a) noexcept { val -= a.val; if (val < 0) val += modint_MOD; return *this; }
-    constexpr modint& operator*=(const modint& a) noexcept { val = (long long)(val * a.val % modint_MOD); return *this; }
-    constexpr modint& operator/=(const modint& a) noexcept { return *this *= a.inv(); }
-    constexpr modint operator-() const noexcept { return modint(val ? modint_MOD - val : 0); }
-    friend constexpr modint operator+(modint a,const modint& b) noexcept { return a += b; }
-    friend constexpr modint operator-(modint a,const modint& b) noexcept { return a -= b; }
-    friend constexpr modint operator*(modint a,const modint& b) noexcept { return a *= b; }
-    friend constexpr modint operator/(modint a,const modint& b) noexcept { return a /= b; }
-    constexpr bool operator==(const modint& a) noexcept { return val == a.val; }
-    constexpr bool operator!=(const modint& a) noexcept { return val != a.val; }
+    explicit constexpr operator long long() const noexcept { return val; }
+    constexpr modint operator+(const modint& x) const noexcept { return modint(*this) += x; }
+    constexpr modint operator-(const modint& x) const noexcept { return modint(*this) -= x; }
+    constexpr modint operator*(const modint& x) const noexcept { return modint(*this) *= x; }
+    constexpr modint operator/(const modint& x) const noexcept { return modint(*this) /= x; }
+    constexpr modint& operator+=(const modint& x) noexcept {
+        if (modint_MOD <= (val += x.val)) val -= modint_MOD;
+        return *this;
+    }
+    constexpr modint& operator-=(const modint& x) noexcept {
+        if ((val -= x.val) < 0) val += modint_MOD;
+        return *this;
+    }
+    constexpr modint& operator*=(const modint& x) noexcept {
+        val = val * x.val % modint_MOD;
+        return *this;
+    }
+    constexpr modint& operator/=(modint& x) noexcept {
+        *this *= x.inv();
+        return *this;
+    }
+    constexpr modint operator-() const noexcept { return modint() - *this; }
+    constexpr bool operator==(const modint& x) const noexcept { return val == x.val; }
+    constexpr bool operator!=(const modint& x) const noexcept { return val != x.val; }
+    constexpr modint& operator++() noexcept { return *this += 1; }
+    constexpr modint& operator--() noexcept { return *this -= 1; }
+    constexpr modint operator++(int) noexcept { modint tmp = *this; ++*this; return tmp; }
+    constexpr modint operator--(int) noexcept { modint tmp = *this; --*this; return tmp; }
+    friend constexpr istream& operator>> (istream& i, modint& x) { long long y; i >> y; x = modint(y); return i; }
+    friend constexpr ostream& operator<< (ostream& o, const modint& x) { o << x.val; return o; }
     constexpr modint pow(long long n) const noexcept {
-        n %= modint_MOD - 1;
-        if (n < 0) n += modint_MOD;
-        modint r = 1, a = *this;
-        while (n) {
-            if (n & 1) r *= a;
-            a *= a;
+        modint x = *this, re = 1;
+        while (0 < n){
+            if (n & 1) re *= x;
+            x *= x;
             n >>= 1;
         }
-        return r;
+        return re;
     }
-    constexpr modint inv() const noexcept { return pow(-1); }
-    friend istream& operator>>(istream& is, modint& a) { long long x; is >> x; a = modint(x); return is; }
-    friend ostream& operator<<(ostream& os, const modint& a) { os << a.val; return os; }
+    constexpr modint inv() const noexcept { return pow(modint_MOD - 2); }
 };
 
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator+(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) + b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator-(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) - b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator*(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) * b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator/(T a, modint<modint_MOD> b) noexcept { return modint<modint_MOD>(a) / b; }
-
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator+(modint<modint_MOD> a, T b) noexcept { return a += b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator-(modint<modint_MOD> a, T b) noexcept { return a -= b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator*(modint<modint_MOD> a, T b) noexcept { return a *= b; }
-template <long long modint_MOD, class T, class = enable_if_t<is_integral_v<T>>>
-constexpr modint<modint_MOD> operator/(modint<modint_MOD> a, T b) noexcept { return a /= b; }
-
+template <long long modint_MOD>
+struct factor {
+    vector<modint<modint_MOD>> fac, ifac;
+    factor(int n) : fac(n+1), ifac(n+1) {
+        fac[0] = 1;
+        for (int i=1; i<=n; i++) fac[i] = fac[i-1] * i;
+        ifac[n] = fac[n].inv();
+        for (int i=n; 1<=i; i--) ifac[i-1] = ifac[i] * i;
+    }
+    modint<modint_MOD> P(int n, int r) const noexcept { return (r<0 || n<r) ? 0 : fac[n] * ifac[n-r]; }
+    modint<modint_MOD> C(int n, int r) const noexcept { return (r<0 || n<r) ? 0 : P(n, r) * ifac[r]; }
+    modint<modint_MOD> H(int n, int r) const noexcept { return (n==0 && r==0) ? 1 : C(n+r-1, r); }
+};
