@@ -64,7 +64,7 @@ template<class S,class T>T Sum(const pair<S,T>&p){return p.first+p.second;}
 template<class S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return s;}
 template<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<' '<<p.second<<'\n';return s;}
 template<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return s;}
-template<class T>ostream&operator<<(ostream&s,vector<T>&v){for(auto&i:v)s<<i<<' ';s<<'\n';return s;}
+template<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++)s<<v[i]<<" \n"[i==v.size()-1];return s;}
 template<class F>long long bsearch(long long ok,long long ng,F&f){while(abs(ok-ng)>1){long long mid=(ok+ng)/2;if(f(mid))ok=mid;else ng=mid;}return ok;}
 const int dxy[5]={0,1,0,-1,0};
 const int dx[8]={0,1,0,-1,1,1,-1,-1};
@@ -76,7 +76,7 @@ const int dy[8]={1,0,-1,0,1,-1,1,-1};
 #define mod 998244353
 #define MOD 1000000007
 #define EPS 1e-9
-const long double PI = acos(-1)
+const long double PI = acos(-1);
 
 void IO() {
     ios::sync_with_stdio(false);
