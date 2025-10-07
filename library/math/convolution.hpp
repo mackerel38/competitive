@@ -9,8 +9,8 @@ vector<modint<convolution_MOD>> convolution(vector<modint<convolution_MOD>> a,ve
     while (n < (int)(a.size()+b.size()-1)) n<<=1;
     a.resize(n);
     b.resize(n);
-    NTT(a,false);
-    NTT(b,false);
+    NTT(a);
+    NTT(b);
     for (int i=0; i<n; i++) a[i] *= b[i];
     NTT(a,true);
     a.resize(a.size()+b.size()-1);
