@@ -7,6 +7,12 @@ template <long long FPS_MOD>
 struct FPS : vector<modint<FPS_MOD>> {
     using mint = modint<FPS_MOD>;
     using vector<mint>::vector;
+    using vector<mint>::size;
+    using vector<mint>::empty;
+    using vector<mint>::resize;
+    using vector<mint>::operator[];
+    FPS(const vector<mint>& v) : vector<mint>(v) {}
+    FPS(vector<mint>&& v) : vector<mint>(move(v)) {}
     FPS low(int n) const {
         return FPS(this->begin(), this->begin() + min<int>(n, size()));
     }
@@ -64,18 +70,36 @@ struct FPS : vector<modint<FPS_MOD>> {
         return g;
     }
     FPS inv(int deg = -1) const {
-        assert((*this)[0] != 0);
-        if (deg == -1) deg = size();
-        FPS g({(*this)[0].inv()});
-        for (int m = 1; m < deg; m <<= 1) {
-            FPS f2 = low(2 * m);
-            FPS t = convolution(g, f2);
-            t.resize(2 * m);
-            for (int i = 0; i < 2 * m; i++) t[i] = -t[i];
-            for (int i = 0; i < m; i++) t[i] += mint(2) * g[i];
-            g = convolution(g, t).low(2 * m);
+        assert(!this->empty() && (*this)[0] != 0);
+        int n = this->size();
+        if (deg == -1) deg = n;
+        FPS res({(*this)[0].inv()});
+        int m = 1;
+        while (m < deg) {
+            m <<= 1;
+            FPS f_low = this->low(2 * m);
+            FPS t = FPS(convolution(convolution(res, res), f_low)).low(2 * m);
+            res.resize(2 * m);
+            for (int i = 0; i < 2 * m; i++) {
+                t[i] = (i < (int)t.size() ? t[i] : 0);
+                res[i] = res[i] * 2 - t[i];
+            }
+            res = res.low(2 * m);
         }
-        g.resize(deg);
-        return g;
+        res.resize(deg);
+        return res;
+    }
+    pair<FPS, FPS> divmod(const FPS& g) const {
+        FPS f = *this;
+        if (f.size() < g.size()) return {FPS{0}, f};
+        int n = f.size(), m = g.size();
+        FPS rf = f, rg = g;
+        reverse(rf.begin(), rf.end());
+        reverse(rg.begin(), rg.end());
+        FPS q = (rf * rg.inv(n - m + 1)).low(n - m + 1);
+        reverse(q.begin(), q.end());
+        FPS r = f - g * q;
+        r.resize(m - 1);
+        return {q, r};
     }
 };
