@@ -86,7 +86,6 @@ struct FPS : vector<modint<FPS_MOD>> {
         assert(!this->empty() && (*this)[0] != 0);
         int n = this->size();
         if (deg == -1) deg = n;
-
         FPS res; res.resize(1); res[0] = (*this)[0].inv();
         for (int m = 1; m < deg; m <<= 1) {
             int cut = 2 * m;
@@ -151,5 +150,11 @@ struct FPS : vector<modint<FPS_MOD>> {
         }
         g.resize(deg);
         return g;
+    }
+    FPS pow(long long k, int n=-1) const {
+        int v = 0;
+        while(v < (int)this->size() && (*this)[v].val == 0) v++;
+        if (v == (int)this->size()) return FPS(n, mint(0));
+        if (n == -1) n = this->size();
     }
 };
