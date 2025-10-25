@@ -76,10 +76,8 @@ struct FPS : vector<modint<FPS_MOD>> {
         FPS g(size() + 1);
         static vector<mint> invs = {mint(0), mint(1)};
         int n = g.size();
-        for (int i = (int)invs.size(); i < n; ++i)
-            invs.push_back(-invs[FPS_MOD % i] * mint(FPS_MOD / i));
-        for (int i = 0; i < (int)size(); i++)
-            g[i + 1] = (*this)[i] * invs[i + 1];
+        for (int i=(int)invs.size(); i<n; i++) invs.push_back(-invs[FPS_MOD % i] * mint(FPS_MOD / i));
+        for (int i=0; i<(int)size(); i++) g[i+1] = (*this)[i] * invs[i+1];
         return g;
     }
     FPS inv(int deg = -1) const {
@@ -87,18 +85,18 @@ struct FPS : vector<modint<FPS_MOD>> {
         int n = this->size();
         if (deg == -1) deg = n;
         FPS res; res.resize(1); res[0] = (*this)[0].inv();
-        for (int m = 1; m < deg; m <<= 1) {
+        for (int m=1; m<deg; m<<=1) {
             int cut = 2 * m;
             FPS f_low = this->low(cut);
             auto vres = to_vec(res);
-            auto vres2 = vres; // copy
+            auto vres2 = vres;
             auto v_f_low = to_vec(f_low);
             auto t1 = convolution(vres, vres2);
             auto t2 = convolution(t1, v_f_low);
             FPS t = from_vec(move(t2));
             t.resize(cut);
             res.resize(cut);
-            for (int i = 0; i < cut; ++i) {
+            for (int i=0; i<cut; i++) {
                 mint ti = (i < (int)t.size() ? t[i] : mint(0));
                 res[i] = res[i] * mint(2) - ti;
             }
