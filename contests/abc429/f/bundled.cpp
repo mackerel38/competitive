@@ -1,6 +1,6 @@
 /**
  *    author:  mackerel38
- *    created: 25.10.2025 22:28:18
+ *    created: 01.11.2025 13:44:25
 **/
 
 #line 2 "library/util/template.hpp"
