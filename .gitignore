@@ -3,6 +3,7 @@
 /.vscode
 /a.out
 /precompile
+/library/.verify-helper
 /library/atcoder
 /library/Nyaan
 /library/ei1333
