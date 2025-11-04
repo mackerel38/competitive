@@ -8,6 +8,7 @@ using vm = vector<mint>; using vvm = vector<vm>; using vvvm = vector<vvm>; using
 inline istream& operator>>(istream& is, mint& x) { ll x_; is >> x_; x = x_; return is; }
 inline ostream& operator<<(ostream& os, const mint& x) { os << x.val(); return os; }
 
+// 文字の種類数
 #define N 2
 
 mint naive(const string& s) {
