@@ -74,7 +74,7 @@ void embed_coefs(int K) {
 				return to_string(v);
 			};
 			string eb = "";
-            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\ntemplate <class VTYPE>\nTYPE solvedp(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
+            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\n#include \"autodp/naive.hpp\"\ntemplate <class VTYPE>\nVTYPE solvedp(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
 			rep(i, R) {
 				eb += "{";
 				rep(j, R) eb += to_signed_string(P[i][j]) + ",";
