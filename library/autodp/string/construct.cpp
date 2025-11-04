@@ -1,9 +1,8 @@
 #include "autodp/template.hpp"
+#include "autodp/matrix.hpp"
 
 // 愚直
 #include "autodp/string/naive.hpp"
-
-#include "autodp/matrix.hpp"
 
 
 // 遷移行列の係数を計算し，埋め込み用のコードを出力する．
@@ -43,7 +42,7 @@ void embed_coefs(int K) {
 		dump("piv:"); dump(piv);
 
 		// rank の更新がなかったら必要な情報は揃ったとみなして打ち切る．
-		if (len > 0 && sz(piv) == sz(piv_prv)) {
+		if (len > 0 && sz(piv) == sz(piv_prv) || len==LEN_LIM) {
 			int R = sz(piv);
 			
 			// 選択した行と列をそれぞれ昇順に並べて is, js とする（0 始まり）
@@ -74,7 +73,7 @@ void embed_coefs(int K) {
 				return to_string(v);
 			};
 			string eb = "";
-            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\n#include \"autodp/naive.hpp\"\ntemplate <class VTYPE>\nVTYPE solvedp(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
+            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\n#include \"autodp/string/naive.hpp\"\ntemplate <class VTYPE>\nVTYPE solve(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
 			rep(i, R) {
 				eb += "{";
 				rep(j, R) eb += to_signed_string(P[i][j]) + ",";
@@ -95,7 +94,7 @@ void embed_coefs(int K) {
 				eb += "},";
 			}
 			eb.pop_back();
-			eb += "};\n\tint R = sz(matP_ume);\n\tint K = sz(mats_ume)\n\t;Matrix<VTYPE> matP(matP_ume);\n\tvector<Matrix<VTYPE>> mats(K);\n\trep(k, K) mats[k] = Matrix<VTYPE>(mats_ume[k]);\n\tMatrix<VTYPE> mat(R);\n\trepe(c, s) mat = mat * mats[c - '0'];\n\tmat = mat * matP;\n\treturn mat[0][0];\n}\n\nint main() {\n}\n";
+			eb += "};\n\tint R = sz(matP_ume);\n\tint K = sz(mats_ume);\n\tMatrix<VTYPE> matP(matP_ume);\n\tvector<Matrix<VTYPE>> mats(K);\n\trep(k, K) mats[k] = Matrix<VTYPE>(mats_ume[k]);\n\tMatrix<VTYPE> mat(R);\n\trepe(c, s) mat = mat * mats[c - '0'];\n\tmat = mat * matP;\n\treturn mat[0][0];\n}\n\nint main() {\n}\n";
 			cout << eb;
 			exit(0);
 		}
