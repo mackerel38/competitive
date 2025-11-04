@@ -74,7 +74,7 @@ void embed_coefs(int K) {
 				return to_string(v);
 			};
 			string eb = "";
-            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\ntemplate <class VTYPE>\nTYPE solvedp(const string& s) {\tvector<vector<VTYPE>>matP_ume={";
+            eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\ntemplate <class VTYPE>\nTYPE solvedp(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
 			rep(i, R) {
 				eb += "{";
 				rep(j, R) eb += to_signed_string(P[i][j]) + ",";
@@ -112,7 +112,5 @@ int main() {
 	//【方法】
 	// 愚直を書いて集めたデータをもとに遷移行列を復元する．
 
-    cout << "文字種数を入力" << endl;
-    int K; cin >> K;
-	embed_coefs(K);
+	embed_coefs(N);
 }
