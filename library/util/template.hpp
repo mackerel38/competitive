@@ -21,6 +21,7 @@ template<class T>using pq=priority_queue<T,vector<T>>;
 template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;
 #define rep(i,n) for(int i=0;i<(int)(n);i++)
 #define rep1(i,n) for(int i=1;i<=(int)(n);i++)
+#define loop(i, l, r) for (int i=(int)(l); i<(int)(r); i++)
 #define per(i,n) for(int i=(int)(n)-1;0<=i;i--)
 #define per1(i,n) for(int i=(int)(n);0<i;i--)
 #define range(i,x) for(auto&i:x)
