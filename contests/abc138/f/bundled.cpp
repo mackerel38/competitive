@@ -1,327 +1,317 @@
 /**
  *    author:  mackerel38
- *    created: 04.11.2025 12:14:45
+ *    created: 05.11.2025 11:32:37
 **/
 
-#line 2 "library/autodp/template.hpp"
-#ifndef HIDDEN_IN_VS // 折りたたみ用
-
-// 警告の抑制
-#define _CRT_SECURE_NO_WARNINGS
-
-// ライブラリの読み込み
-#include <bits/stdc++.h>
+#line 2 "library/util/template.hpp"
+#ifdef poe
+#define debug(x) cerr<<#x<<": "<<x<<endl
+#else
+#define debug(x)
+#endif
+#include<bits/stdc++.h>
 using namespace std;
+using ll=long long;
+using ull=unsigned long long;
+using ld=long double;
+using pi=pair<int,int>;
+using pll=pair<ll,ll>;
+using str=string;
+template<class T>using vec=vector<T>;
+using vi=vec<int>;using vvi=vec<vi>;using vvvi=vec<vvi>;using vvvvi=vec<vvvi>;using vvvvvi=vec<vvvvi>;
+using vll=vec<ll>;using vvll=vec<vll>;using vvvll=vec<vvll>;using vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;
+using vpi=vec<pi>;using vvpi=vec<vpi>;using vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;
+using vpll=vec<pll>;using vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using vvvvvpll=vec<vvvvpll>;
+template<class T>using pq=priority_queue<T,vector<T>>;
+template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;
+#define rep(i,n) for(int i=0;i<(int)(n);i++)
+#define rep1(i,n) for(int i=1;i<=(int)(n);i++)
+#define per(i,n) for(int i=(int)(n)-1;0<=i;i--)
+#define per1(i,n) for(int i=(int)(n);0<i;i--)
+#define range(i,x) for(auto&i:x)
+#define range2(i,j,x) for(auto&[i,j]:x)
+#define all(x) (x).begin(),(x).end()
+#define rall(x) (x).rbegin(),(x).rend()
+#define Sort(x) sort((x).begin(),(x).end())
+#define troS(x) sort((x).rbegin(),(x).rend())
+#define Reverse(x) reverse((x).begin(),(x).end())
+#define uniq(x) sort((x).begin(),(x).end());(x).erase(unique((x).begin(),(x).end()),(x).end())
+#define nextp(x) next_permutation((x).begin(),(x).end())
+#define nextc(x,k) next_combination((x).begin(),(x).end(),k)
+#define bit(x,i) (((x)>>(i))&1)
+#define pf push_front
+#define pb push_back
+#define df pop_front
+#define db pop_back
+#define fi first
+#define se second
+#define elif else if
+#define Yes cout<<"Yes"<<'\n'
+#define No cout<<"No"<<'\n'
+#define YN(x) cout<<((x)?"Yes":"No")<<'\n'
+#define O(x) cout<<(x)<<'\n'
+#define ismid(a,b,c) ((a)<=(b)&&(b)<(c))
+template<class S,class T>bool chmin(S&a,T b){if(a>b){a=b;return true;}return false;}
+template<class S,class T>bool chmax(S&a,T b){if(a<b){a=b;return true;}return false;}
+template<class T>bool next_combination(T l,T r,int k){T m=l+k;if(l==r||l==m||r==m)return false;T t=m;while(l!=t){t--;if(*t<*(r-1)){T d=m;while(*t>=*d)d++;iter_swap(t,d);rotate(t+1,d+1,r);rotate(m,m+(r-d)-1,r);return true;}}rotate(l,m,r);return false;}
+template<class T>T Min(T a,T b){return a<b?a:b;}
+template<class T,class...Args>T Min(T a,T b,Args...args){return Min(Min(a,b),args...);}
+template<class T>T Max(T a,T b){return a>b?a:b;}
+template<class T,class...Args>T Max(T a,T b,Args...args){return Max(Max(a,b),args...);}
+template<class T>T Sum(T a){return a;}
+template<class T,class... Args>T Sum(T a,Args... args){return a+Sum(args...);}
+template<class T>T Max(const vector<T>&v){return *max_element(all(v));}
+template<class T>T Min(const vector<T>&v){return *min_element(all(v));}
+template<class T>T Sum(const vector<T>&v){return accumulate(all(v),T(0));}
+template<class S,class T>T Max(const pair<S,T>&p){return max(p.first,p.second);}
+template<class S,class T>T Min(const pair<S,T>&p){return min(p.first,p.second);}
+template<class S,class T>T Sum(const pair<S,T>&p){return p.first+p.second;}
+template<class S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return s;}
+template<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<' '<<p.second<<'\n';return s;}
+template<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return s;}
+template<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++)s<<v[i]<<" \n"[i==(int)v.size()-1];return s;}
+const int dxy[5]={0,1,0,-1,0};
+const int dx[8]={0,1,0,-1,1,1,-1,-1};
+const int dy[8]={1,0,-1,0,1,-1,1,-1};
+#define nl '\n'
+#define sp ' '
+const int inf = (1<<30)-(1<<15);
+const ll INF = 1LL<<61;
+const ll mod = 998244353;
+const ll MOD = 1000000007;
+const ld EPS = 1e-9;
+const ld PI = acos(-1);
 
-// 型名の短縮
-using ll = long long; using ull = unsigned long long; // -2^63 ～ 2^63 = 9e18（int は -2^31 ～ 2^31 = 2e9）
-using pii = pair<int, int>;	using pll = pair<ll, ll>;	using pil = pair<int, ll>;	using pli = pair<ll, int>;
-using vi = vector<int>;		using vvi = vector<vi>;		using vvvi = vector<vvi>;	using vvvvi = vector<vvvi>;
-using vl = vector<ll>;		using vvl = vector<vl>;		using vvvl = vector<vvl>;	using vvvvl = vector<vvvl>;
-using vb = vector<bool>;	using vvb = vector<vb>;		using vvvb = vector<vvb>;
-using vc = vector<char>;	using vvc = vector<vc>;		using vvvc = vector<vvc>;
-using vd = vector<double>;	using vvd = vector<vd>;		using vvvd = vector<vvd>;
-template <class T> using priority_queue_rev = priority_queue<T, vector<T>, greater<T>>;
-using Graph = vvi;
+void IO() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout<<fixed<<setprecision(30);
+}
 
-// 定数の定義
-const double PI = acos(-1);
-int DX[4] = { 1, 0, -1, 0 }; // 4 近傍（下，右，上，左）
-int DY[4] = { 0, 1, 0, -1 };
-int INF = 1001001001; ll INFL = 4004004003094073385LL; // (int)INFL = INF, (int)(-INFL) = -INF;
-
-// 入出力高速化
-struct fast_io { fast_io() { cin.tie(nullptr); ios::sync_with_stdio(false); cout << fixed << setprecision(18); } } fastIOtmp;
-
-// 汎用マクロの定義
-#define all(a) (a).begin(), (a).end()
-#define sz(x) ((int)(x).size())
-#define lbpos(a, x) (int)distance((a).begin(), std::lower_bound(all(a), (x)))
-#define ubpos(a, x) (int)distance((a).begin(), std::upper_bound(all(a), (x)))
-#define Yes(b) {cout << ((b) ? "Yes\n" : "No\n");}
-#define rep(i, n) for(int i = 0, i##_len = int(n); i < i##_len; ++i) // 0 から n-1 まで昇順
-#define repi(i, s, t) for(int i = int(s), i##_end = int(t); i <= i##_end; ++i) // s から t まで昇順
-#define repir(i, s, t) for(int i = int(s), i##_end = int(t); i >= i##_end; --i) // s から t まで降順
-#define repe(v, a) for(const auto& v : (a)) // a の全要素（変更不可能）
-#define repea(v, a) for(auto& v : (a)) // a の全要素（変更可能）
-#define repb(set, d) for(int set = 0, set##_ub = 1 << int(d); set < set##_ub; ++set) // d ビット全探索（昇順）
-#define repis(i, set) for(int i = lsb(set), bset##i = set; i < 32; bset##i -= 1 << i, i = lsb(bset##i)) // set の全要素（昇順）
-#define repp(a) sort(all(a)); for(bool a##_perm = true; a##_perm; a##_perm = next_permutation(all(a))) // a の順列全て（昇順）
-#define uniq(a) {sort(all(a)); (a).erase(unique(all(a)), (a).end());} // 重複除去
-#define EXIT(a) {cout << (a) << endl; exit(0);} // 強制終了
-#define inQ(x, y, u, l, d, r) ((u) <= (x) && (l) <= (y) && (x) < (d) && (y) < (r)) // 半開矩形内判定
-
-// 汎用関数の定義
-template <class T> inline ll powi(T n, int k) { ll v = 1; rep(i, k) v *= n; return v; }
-template <class T> inline bool chmax(T& M, const T& x) { if (M < x) { M = x; return true; } return false; } // 最大値を更新（更新されたら true を返す）
-template <class T> inline bool chmin(T& m, const T& x) { if (m > x) { m = x; return true; } return false; } // 最小値を更新（更新されたら true を返す）
-template <class T> inline T getb(T set, int i) { return (set >> i) & T(1); }
-template <class T> inline T smod(T n, T m) { n %= m; if (n < 0) n += m; return n; } // 非負mod
-
-// 演算子オーバーロード
-template <class T, class U> inline istream& operator>>(istream& is, pair<T, U>& p) { is >> p.first >> p.second; return is; }
-template <class T> inline istream& operator>>(istream& is, vector<T>& v) { repea(x, v) is >> x; return is; }
-template <class T> inline vector<T>& operator--(vector<T>& v) { repea(x, v) --x; return v; }
-template <class T> inline vector<T>& operator++(vector<T>& v) { repea(x, v) ++x; return v; }
-
-#endif // 折りたたみ用
-
-int mute_dump = 0;
-int frac_print = 0;
-inline int popcount(int n) { return __builtin_popcount(n); }
-inline int popcount(ll n) { return __builtin_popcountll(n); }
-inline int lsb(int n) { return n != 0 ? __builtin_ctz(n) : 32; }
-inline int lsb(ll n) { return n != 0 ? __builtin_ctzll(n) : 64; }
-inline int msb(int n) { return n != 0 ? (31 - __builtin_clz(n)) : -1; }
-inline int msb(ll n) { return n != 0 ? (63 - __builtin_clzll(n)) : -1; }
-#define dump(...)
-#define dumpel(v)
-#define dump_math(v)
-#define input_from_file(f)
-#define output_to_file(f)
-#define Assert(b) { if (!(b)) { vc MLE(1<<30); EXIT(MLE.back()); } } // RE の代わりに MLE を出す
+void solve();
+// poe
+#line 3 "library/autodp/string/construct.hpp"
+using namespace std;
 #line 3 "library/autodp/matrix.hpp"
+using namespace std;
 template <class T>
-struct Matrix {
-	int n, m; // 行列のサイズ（n 行 m 列）
-	vector<vector<T>> v; // 行列の成分
-
-	// n×m 零行列で初期化する．
+struct Matrix
+{
+	int n, m;
+	vector<vector<T>> v;
 	Matrix(int n, int m) : n(n), m(m), v(n, vector<T>(m)) {}
-
-	// n×n 単位行列で初期化する．
-	Matrix(int n) : n(n), m(n), v(n, vector<T>(n)) { rep(i, n) v[i][i] = T(1); }
-
-	// 二次元配列 a[0..n)[0..m) の要素で初期化する．
-	Matrix(const vector<vector<T>>& a) : n(sz(a)), m(sz(a[0])), v(a) {}
+	Matrix(int n) : n(n), m(n), v(n, vector<T>(n))
+	{
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			v[i][i] = T(1);
+	}
+	Matrix(const vector<vector<T>> &a) : n(((int)(a).size())), m(((int)(a[0]).size())), v(a) {}
 	Matrix() : n(0), m(0) {}
-
-	// 代入
-	Matrix(const Matrix&) = default;
-	Matrix& operator=(const Matrix&) = default;
-
-	// アクセス
-	inline vector<T> const& operator[](int i) const { return v[i]; }
-	inline vector<T>& operator[](int i) {
-		// verify : https://judge.yosupo.jp/problem/matrix_product
-
-		// inline を付けて [] でアクセスするとなぜか v[] への直接アクセスより速くなった．
+	Matrix(const Matrix &) = default;
+	Matrix &operator=(const Matrix &) = default;
+	inline vector<T> const &operator[](int i) const { return v[i]; }
+	inline vector<T> &operator[](int i)
+	{
 		return v[i];
 	}
-
-	// 入力
-	friend istream& operator>>(istream& is, Matrix& a) {
-		rep(i, a.n) rep(j, a.m) is >> a.v[i][j];
+	friend istream &operator>>(istream &is, Matrix &a)
+	{
+		for (int i = 0, i_len = int(a.n); i < i_len; ++i)
+			for (int j = 0, j_len = int(a.m); j < j_len; ++j)
+				is >> a.v[i][j];
 		return is;
 	}
-
-	// 行の追加
-	void push_back(const vector<T>& a) {
-		Assert(sz(a) == m);
+	void push_back(const vector<T> &a)
+	{
+		{
+			if (!(((int)(a).size()) == m))
+			{
+				vector<char> MLE(1 << 30);
+				{
+					cout << (MLE.back()) << endl;
+					exit(0);
+				};
+			}
+		};
 		v.push_back(a);
 		n++;
 	}
-
-	// 行の削除
-	void pop_back() {
-		Assert(n > 0);
+	void pop_back()
+	{
+		{
+			if (!(n > 0))
+			{
+				vector<char> MLE(1 << 30);
+				{
+					cout << (MLE.back()) << endl;
+					exit(0);
+				};
+			}
+		};
 		v.pop_back();
 		n--;
 	}
-
-	// サイズ変更
-	void resize(int n_) {
+	void resize(int n_)
+	{
 		v.resize(n_);
 		n = n_;
 	}
-
-	void resize(int n_, int m_) {
+	void resize(int n_, int m_)
+	{
 		n = n_;
 		m = m_;
-
 		v.resize(n);
-		rep(i, n) v[i].resize(m);
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			v[i].resize(m);
 	}
-
-	// 空か
 	bool empty() const { return min(n, m) == 0; }
-
-	// 比較
-	bool operator==(const Matrix& b) const { return n == b.n && m == b.m && v == b.v; }
-	bool operator!=(const Matrix& b) const { return !(*this == b); }
-
-	// 加算，減算，スカラー倍
-	Matrix& operator+=(const Matrix& b) {
-		rep(i, n) rep(j, m) v[i][j] += b[i][j];
+	bool operator==(const Matrix &b) const { return n == b.n && m == b.m && v == b.v; }
+	bool operator!=(const Matrix &b) const { return !(*this == b); }
+	Matrix &operator+=(const Matrix &b)
+	{
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			for (int j = 0, j_len = int(m); j < j_len; ++j)
+				v[i][j] += b[i][j];
 		return *this;
 	}
-	Matrix& operator-=(const Matrix& b) {
-		rep(i, n) rep(j, m) v[i][j] -= b[i][j];
+	Matrix &operator-=(const Matrix &b)
+	{
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			for (int j = 0, j_len = int(m); j < j_len; ++j)
+				v[i][j] -= b[i][j];
 		return *this;
 	}
-	Matrix& operator*=(const T& c) {
-		rep(i, n) rep(j, m) v[i][j] *= c;
+	Matrix &operator*=(const T &c)
+	{
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			for (int j = 0, j_len = int(m); j < j_len; ++j)
+				v[i][j] *= c;
 		return *this;
 	}
-	Matrix operator+(const Matrix& b) const { return Matrix(*this) += b; }
-	Matrix operator-(const Matrix& b) const { return Matrix(*this) -= b; }
-	Matrix operator*(const T& c) const { return Matrix(*this) *= c; }
-	friend Matrix operator*(const T& c, const Matrix<T>& a) { return a * c; }
+	Matrix operator+(const Matrix &b) const { return Matrix(*this) += b; }
+	Matrix operator-(const Matrix &b) const { return Matrix(*this) -= b; }
+	Matrix operator*(const T &c) const { return Matrix(*this) *= c; }
+	friend Matrix operator*(const T &c, const Matrix<T> &a) { return a * c; }
 	Matrix operator-() const { return Matrix(*this) *= T(-1); }
-
-	// 行列ベクトル積 : O(m n)
-	vector<T> operator*(const vector<T>& x) const {
+	vector<T> operator*(const vector<T> &x) const
+	{
 		vector<T> y(n);
-		rep(i, n) rep(j, m)	y[i] += v[i][j] * x[j];
+		for (int i = 0, i_len = int(n); i < i_len; ++i)
+			for (int j = 0, j_len = int(m); j < j_len; ++j)
+				y[i] += v[i][j] * x[j];
 		return y;
 	}
-
-	// ベクトル行列積 : O(m n)
-	friend vector<T> operator*(const vector<T>& x, const Matrix& a) {
+	friend vector<T> operator*(const vector<T> &x, const Matrix &a)
+	{
 		vector<T> y(a.m);
-		rep(i, a.n) rep(j, a.m) y[j] += x[i] * a[i][j];
+		for (int i = 0, i_len = int(a.n); i < i_len; ++i)
+			for (int j = 0, j_len = int(a.m); j < j_len; ++j)
+				y[j] += x[i] * a[i][j];
 		return y;
 	}
-
-	// 積：O(n^3)
-	Matrix operator*(const Matrix& b) const {
-		// verify : https://judge.yosupo.jp/problem/matrix_product
-
+	Matrix operator*(const Matrix &b) const
+	{
 		Matrix res(n, b.m);
-		rep(i, res.n) rep(k, m) rep(j, res.m) res[i][j] += v[i][k] * b[k][j];
+		for (int i = 0, i_len = int(res.n); i < i_len; ++i)
+			for (int k = 0, k_len = int(m); k < k_len; ++k)
+				for (int j = 0, j_len = int(res.m); j < j_len; ++j)
+					res[i][j] += v[i][k] * b[k][j];
 		return res;
 	}
-	Matrix& operator*=(const Matrix& b) { *this = *this * b; return *this; }
-
-	// 累乗：O(n^3 log d)
-	Matrix pow(ll d) const {
-		// verify : https://judge.yosupo.jp/problem/pow_of_matrix
-
+	Matrix &operator*=(const Matrix &b)
+	{
+		*this = *this * b;
+		return *this;
+	}
+	Matrix pow(long long d) const
+	{
 		Matrix res(n), pow2 = *this;
-		while (d > 0) {
-			if (d & 1) res *= pow2;
+		while (d > 0)
+		{
+			if (d & 1)
+				res *= pow2;
 			pow2 *= pow2;
 			d >>= 1;
 		}
 		return res;
 	}
-
-#ifdef _MSC_VER
-	friend ostream& operator<<(ostream& os, const Matrix& a) {
-		rep(i, a.n) {
-			os << "[";
-			rep(j, a.m) os << a[i][j] << " ]"[j == a.m - 1];
-			if (i < a.n - 1) os << "\n";
-		}
-		return os;
-	}
-#endif
 };
-
-
-//【行簡約形（行交換なし）】O(n m min(n, m))
-/*
-* 行基本変形（行交換なし）で n×m 行列 A を行簡約形に変形し，ピボット位置のリストを返す．
-*/
 template <class T>
-vector<pii> row_reduced_form(Matrix<T>& A) {
+vector<pair<int, int>> row_reduced_form(Matrix<T> &A)
+{
 	int n = A.n, m = A.m;
-	
-	vector<pii> piv;
+	vector<pair<int, int>> piv;
 	piv.reserve(min(n, m));
-
-	// 未確定の列を記録しておくリスト
 	list<int> rjs;
-	rep(j, m) rjs.push_back(j);
-
-	rep(i, n) {
-		// 第 i 行の係数を左から走査し非 0 を見つける．
+	for (int j = 0, j_len = int(m); j < j_len; ++j)
+		rjs.push_back(j);
+	for (int i = 0, i_len = int(n); i < i_len; ++i)
+	{
 		auto it = rjs.begin();
-		for (; it != rjs.end(); it++) if (A[i][*it] != 0) break;
-
-		// 第 i 行の全てが 0 なら無視する．
-		if (it == rjs.end()) continue;
-
-		// A[i][j] をピボットに選択する．
+		for (; it != rjs.end(); it++)
+			if (A[i][*it] != 0)
+				break;
+		if (it == rjs.end())
+			continue;
 		int j = *it;
 		rjs.erase(it);
 		piv.emplace_back(i, j);
-
-		// A[i][j] が 1 になるよう行全体を A[i][j] で割る．
 		T Aij_inv = T(1) / A[i][j];
-		repi(j2, j, m - 1) A[i][j2] *= Aij_inv;
-
-		// 第 i 行以外の第 j 列の成分が全て 0 になるよう第 i 行を定数倍して減じる．
-		rep(i2, n) if (A[i2][j] != 0 && i2 != i) {
-			T mul = A[i2][j];
-			repi(j2, j, m - 1) A[i2][j2] -= A[i][j2] * mul;
-		}
+		for (int j2 = int(j), j2_end = int(m - 1); j2 <= j2_end; ++j2)
+			A[i][j2] *= Aij_inv;
+		for (int i2 = 0, i2_len = int(n); i2 < i2_len; ++i2)
+			if (A[i2][j] != 0 && i2 != i)
+			{
+				T mul = A[i2][j];
+				for (int j2 = int(j), j2_end = int(m - 1); j2 <= j2_end; ++j2)
+					A[i2][j2] -= A[i][j2] * mul;
+			}
 	}
-
 	return piv;
 }
-
-
-//【逆行列】O(n^3)
-/*
-* n 次正方行列 mat の逆行列を返す（存在しなければ空）
-*/
 template <class T>
-Matrix<T> inverse_matrix(const Matrix<T>& mat) {
-	// verify : https://judge.yosupo.jp/problem/inverse_matrix
-
+Matrix<T> inverse_matrix(const Matrix<T> &mat)
+{
 	int n = mat.n;
-
-	// 元の行列 mat と単位行列を繋げた拡大行列 v を作る．
 	vector<vector<T>> v(n, vector<T>(2 * n));
-	rep(i, n) rep(j, n) {
-		v[i][j] = mat[i][j];
-		if (i == j) v[i][n + j] = 1;
-	}
-	int m = 2 * n;
-
-	// 注目位置を (i, j)（i 行目かつ j 列目）とする．
-	int i = 0, j = 0;
-
-	// 拡大行列に対して行基本変形を行い，左側を単位行列にすることを目指す．
-	while (i < n && j < m) {
-		// 同じ列の下方の行から非 0 成分を見つける．
-		int i2 = i;
-		while (i2 < n && v[i2][j] == T(0)) i2++;
-
-		// 見つからなかったら全て 0 の列があったので mat は非正則
-		if (i2 == n) return Matrix<T>();
-
-		// 見つかったら i 行目とその行を入れ替える．
-		if (i != i2) swap(v[i], v[i2]);
-
-		// v[i][j] が 1 になるよう行全体を v[i][j] で割る．
-		T vij_inv = T(1) / v[i][j];
-		repi(j2, j, m - 1) v[i][j2] *= vij_inv;
-
-		// v[i][j] と同じ列の成分が全て 0 になるよう i 行目を定数倍して減じる．
-		rep(i2, n) {
-			// i 行目だけは引かない．
-			if (i2 == i) continue;
-
-			T mul = v[i2][j];
-			repi(j2, j, m - 1) v[i2][j2] -= v[i][j2] * mul;
+	for (int i = 0, i_len = int(n); i < i_len; ++i)
+		for (int j = 0, j_len = int(n); j < j_len; ++j)
+		{
+			v[i][j] = mat[i][j];
+			if (i == j)
+				v[i][n + j] = 1;
 		}
-
-		// 注目位置を右下に移す．
-		i++; j++;
+	int m = 2 * n;
+	int i = 0, j = 0;
+	while (i < n && j < m)
+	{
+		int i2 = i;
+		while (i2 < n && v[i2][j] == T(0))
+			i2++;
+		if (i2 == n)
+			return Matrix<T>();
+		if (i != i2)
+			swap(v[i], v[i2]);
+		T vij_inv = T(1) / v[i][j];
+		for (int j2 = int(j), j2_end = int(m - 1); j2 <= j2_end; ++j2)
+			v[i][j2] *= vij_inv;
+		for (int i2 = 0, i2_len = int(n); i2 < i2_len; ++i2)
+		{
+			if (i2 == i)
+				continue;
+			T mul = v[i2][j];
+			for (int j2 = int(j), j2_end = int(m - 1); j2 <= j2_end; ++j2)
+				v[i2][j2] -= v[i][j2] * mul;
+		}
+		i++;
+		j++;
 	}
-
-	// 拡大行列の右半分が mat の逆行列なのでコピーする．
 	Matrix<T> mat_inv(n, n);
-	rep(i, n) rep(j, n) mat_inv[i][j] = v[i][n + j];
-
+	for (int i = 0, i_len = int(n); i < i_len; ++i)
+		for (int j = 0, j_len = int(n); j < j_len; ++j)
+			mat_inv[i][j] = v[i][n + j];
 	return mat_inv;
 }
-#line 1 "library/autodp/string/naive.hpp"
-#include <bits/stdc++.h>
-using namespace std;
-
 #line 1 "library/atcoder/modint.hpp"
 
 
@@ -647,7 +637,6 @@ template <class T> using to_unsigned_t = typename to_unsigned<T>::type;
 #line 14 "library/atcoder/modint.hpp"
 
 namespace atcoder {
-
 namespace internal {
 
 struct modint_base {};
@@ -907,18 +896,102 @@ using is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;
 }  // namespace atcoder
 
 
-#line 5 "library/autodp/string/naive.hpp"
+#line 6 "library/autodp/string/construct.hpp"
 using namespace atcoder;
-using mint = modint1000000007;
-using vm = vector<mint>; using vvm = vector<vm>; using vvvm = vector<vvm>; using vvvvm = vector<vvvm>; using pim = pair<int, mint>;
-inline istream& operator>>(istream& is, mint& x) { ll x_; is >> x_; x = x_; return is; }
-inline ostream& operator<<(ostream& os, const mint& x) { os << x.val(); return os; }
 
-// 文字の種類数
-#define N 4
+template <class CTYPE, auto NAIVE>
+void embed_coefs(int K, int len_max=1001001001, int lb_max=1001001001)
+{
+	if (len_max == -1) len_max = 1001001001;
+	if (lb_max == -1) lb_max = 1001001001;
+	vector<string> ss{""};
+	int idx = 0;
+	vector<pair<int, int>> piv_prv;
+	for (int len = int(0), len_end = int(1001001001); len <= len_end; ++len)
+	{
+		int L = ((int)(ss).size());
+		int LB = min(L, lb_max);
+		Matrix<CTYPE> mat(L, LB);
+		for (int i = 0, i_len = int(L); i < i_len; ++i)
+			for (int j = 0, j_len = int(LB); j < j_len; ++j)
+				mat[i][j] = NAIVE(ss[i] + ss[j]);
+		auto piv = row_reduced_form(mat);
+		if (len == len_max || (((int)(piv).size()) > 0 && ((int)(piv).size()) == ((int)(piv_prv).size())))
+		{
+			int R = ((int)(piv).size());
+			vector<int> is(R), js(R);
+			for (int r = 0, r_len = int(R); r < r_len; ++r)
+				tie(is[r], js[r]) = piv[r];
+			sort((js).begin(), (js).end());
+			Matrix<CTYPE> P(R, R);
+			for (int i = 0, i_len = int(R); i < i_len; ++i)
+				for (int j = 0, j_len = int(R); j < j_len; ++j)
+					P[i][j] = NAIVE(ss[is[i]] + ss[js[j]]);
+			auto P_inv = inverse_matrix(P);
+			vector<Matrix<CTYPE>> mats(K, Matrix<CTYPE>(R, R));
+			for (int k = 0, k_len = int(K); k < k_len; ++k)
+			{
+				char c = '0' + k;
+				for (int i = 0, i_len = int(R); i < i_len; ++i)
+					for (int j = 0, j_len = int(R); j < j_len; ++j)
+						mats[k][i][j] = NAIVE(ss[is[i]] + c + ss[js[j]]);
+				mats[k] = mats[k] * P_inv;
+			}
+			auto to_signed_string = [](CTYPE x)
+			{
+				int v = x.val();
+				int mod = CTYPE::mod();
+				if (2 * v > mod)
+					v -= mod;
+				return to_string(v);
+			};
+			string eb = "constexpr int DIM = ";
+			eb += to_string(R);
+			eb += ";\n";
+			eb += "constexpr int COL = ";
+			eb += to_string(K);
+			eb += ";\n";
+			eb += "VTYPE matAs[COL][DIM][DIM] = {";
+			for (int k = 0, k_len = int(K); k < k_len; ++k)
+			{
+				eb += "{";
+				for (int i = 0, i_len = int(R); i < i_len; ++i)
+				{
+					eb += "{";
+					for (int j = 0, j_len = int(R); j < j_len; ++j)
+						eb += to_signed_string(mats[k][i][j]) + ",";
+					eb.pop_back();
+					eb += "},";
+				}
+				eb.pop_back();
+				eb += "},";
+			}
+			eb.pop_back();
+			eb += "};\n";
+			eb += "VTYPE vecQ[DIM] = {";
+			for (int i = 0, i_len = int(R); i < i_len; ++i)
+				eb += to_signed_string(P[i][0]) + ",";
+			eb.pop_back();
+			eb += "};\n";
+			cout << eb;
+			exit(0);
+		}
+		int nidx = ((int)(ss).size());
+		for (int i = int(idx), i_end = int(nidx - 1); i <= i_end; ++i)
+			for (int k = 0, k_len = int(K); k < k_len; ++k)
+			{
+				ss.push_back(ss[i]);
+				ss.back().push_back('0' + k);
+			}
+		idx = nidx;
+		piv_prv = move(piv);
+	}
+}
+#line 3 "contests/abc138/f/main.cpp"
+using mint = modint1000000007;
 
 mint naive(const string& s) {
-    ll l=0, r=0;
+    long long l=0, r=0;
     for (auto& c : s) {
         l<<=1; r<<=1;
         l += (c - '0') % 2;
@@ -928,27 +1001,48 @@ mint naive(const string& s) {
     for (int i=l; i<=r; i++) for (int j=i; j<=r; j++) if (i) if (j%i == (i^j)) re++;
     return re;
 }
-#line 4 "contests/abc138/f/main.cpp"
-template <class VTYPE>
-VTYPE solve(const string& s) {
-        vector<vector<VTYPE>>matP_ume={{0,0,0,1,1,0},{1,2,2,4,4,4},{1,1,0,3,1,0},{2,5,5,7,7,13},{2,4,2,6,4,4},{4,9,9,13,13,23}};
-        vector<vector<vector<VTYPE>>>mats_ume={{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,1,0,0,0},{0,-3,0,4,0,0},{0,-2,0,3,2,-1},{0,-5,0,5,0,1}},{{0,0,0,0,0,0},{0,0,0,0,1,0},{0,0,0,0,0,0},{0,-3,0,3,1,0},{0,0,0,0,1,0},{0,-5,0,4,1,1}},{{0,1,0,0,0,0},{0,0,0,0,0,1},{0,0,1,0,1,0},{0,-3,0,3,0,1},{0,-2,0,2,2,0},{0,-5,0,3,0,3}},{{0,0,1,0,0,0},{0,0,0,-1,1,1},{0,0,1,0,0,0},{0,-3,0,2,1,1},{0,0,0,-1,1,1},{0,-5,0,2,1,3}}};
-        int R = sz(matP_ume);
-        int K = sz(mats_ume)
-        ;Matrix<VTYPE> matP(matP_ume);
-        vector<Matrix<VTYPE>> mats(K);
-        rep(k, K) mats[k] = Matrix<VTYPE>(mats_ume[k]);
-        Matrix<VTYPE> mat(R);
-        repe(c, s) mat = mat * mats[c - '0'];
-        mat = mat * matP;
-        return mat[0][0];
-}
+#line 3 "library/autodp/string/generated.hpp"
+using namespace std;
 
-int main() {
-    long long l, r; cin >> l >> r;
+template <class VTYPE>
+VTYPE solvedp(const string &s)
+{
+	constexpr int DIM = 6;
+	constexpr int COL = 4;
+	VTYPE matAs[COL][DIM][DIM] = {{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,1,0,0,0},{0,-3,0,4,0,0},{0,-2,0,3,2,-1},{0,-5,0,5,0,1}},{{0,0,0,0,0,0},{0,0,0,0,1,0},{0,0,0,0,0,0},{0,-3,0,3,1,0},{0,0,0,0,1,0},{0,-5,0,4,1,1}},{{0,1,0,0,0,0},{0,0,0,0,0,1},{0,0,1,0,1,0},{0,-3,0,3,0,1},{0,-2,0,2,2,0},{0,-5,0,3,0,3}},{{0,0,1,0,0,0},{0,0,0,-1,1,1},{0,0,1,0,0,0},{0,-3,0,2,1,1},{0,0,0,-1,1,1},{0,-5,0,2,1,3}}};
+	VTYPE vecQ[DIM] = {0,1,1,2,2,4};
+	array<VTYPE, DIM> dp;
+	dp[0] = 1;
+	for (int i = int(1), i_end = int(DIM - 1); i <= i_end; ++i)
+		dp[i] = 0;
+	auto apply = [&](const array<VTYPE, DIM> &x, int col)
+	{
+		array<VTYPE, DIM> z;
+		for (int j = 0, j_len = int(DIM); j < j_len; ++j)
+		{
+			z[j] = 0;
+			for (int i = 0, i_len = int(DIM); i < i_len; ++i)
+				z[j] += x[i] * matAs[col][i][j];
+		}
+		return z;
+	};
+	for (const auto &c : (s))
+	{
+		dp = apply(dp, c - '0');
+	}
+	VTYPE res = 0;
+	for (int i = 0, i_len = int(DIM); i < i_len; ++i)
+		res += vecQ[i] * dp[i];
+	return res;
+}
+#line 17 "contests/abc138/f/main.cpp"
+int main()
+{
+	// embed_coefs<mint, naive>(4, -1, -1);
+	long long l, r; cin >> l >> r;
     string s;
     for (int i=60; 0<=i; i--) {
         s += '0' + (((l>>i)&1) + ((r>>i)&1)*2);
     }
-    cout << solve<mint>(s) << '\n';
+    cout << solvedp<mint>(s).val() << '\n';
 }
