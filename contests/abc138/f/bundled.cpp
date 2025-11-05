@@ -1,6 +1,6 @@
 /**
  *    author:  mackerel38
- *    created: 05.11.2025 11:32:37
+ *    created: 05.11.2025 12:14:30
 **/
 
 #line 2 "library/util/template.hpp"
@@ -945,13 +945,21 @@ void embed_coefs(int K, int len_max=1001001001, int lb_max=1001001001)
 					v -= mod;
 				return to_string(v);
 			};
-			string eb = "constexpr int DIM = ";
+			ofstream ofs("/home/mackerel38/competitive/library/autodp/string/generated.hpp");
+			string eb = "";
+			eb += "#pragma once\n";
+			eb += "#include <bits/stdc++.h>\n";
+			eb += "using namespace std;\n";
+			eb += "\n";
+			eb += "template <class VTYPE>\n";
+			eb += "VTYPE solvedp(const string &s) {\n";
+			eb += "\tconstexpr int DIM = ";
 			eb += to_string(R);
 			eb += ";\n";
-			eb += "constexpr int COL = ";
+			eb += "\tconstexpr int COL = ";
 			eb += to_string(K);
 			eb += ";\n";
-			eb += "VTYPE matAs[COL][DIM][DIM] = {";
+			eb += "\tVTYPE matAs[COL][DIM][DIM] = {";
 			for (int k = 0, k_len = int(K); k < k_len; ++k)
 			{
 				eb += "{";
@@ -968,12 +976,28 @@ void embed_coefs(int K, int len_max=1001001001, int lb_max=1001001001)
 			}
 			eb.pop_back();
 			eb += "};\n";
-			eb += "VTYPE vecQ[DIM] = {";
+			eb += "\tVTYPE vecQ[DIM] = {";
 			for (int i = 0, i_len = int(R); i < i_len; ++i)
 				eb += to_signed_string(P[i][0]) + ",";
 			eb.pop_back();
 			eb += "};\n";
-			cout << eb;
+			eb += "\tarray<VTYPE, DIM> dp;\n";
+			eb += "\tdp[0] = 1;\n";
+			eb += "\tfor (int i=1; i<DIM; i++) dp[i] = 0;\n";
+			eb += "\tauto apply = [&](const array<VTYPE, DIM> &x, int col) {\n";
+			eb += "\t\tarray<VTYPE, DIM> z;\n";
+			eb += "\t\tfor (int j=0; j<DIM; j++) {\n";
+			eb += "\t\t\tz[j] = 0;\n";
+			eb += "\t\t\tfor (int i=0; i<DIM; i++) z[j] += x[i]*matAs[col][i][j];\n";
+			eb += "\t\t}\n";
+			eb += "\t\treturn z;\n";
+			eb += "\t};\n";
+			eb += "\tfor (const auto &c : s) dp = apply(dp, c-'0');\n";
+			eb += "\tVTYPE res = 0;\n";
+			eb += "\tfor (int i=0; i<DIM; i++) res += vecQ[i]*dp[i];\n";
+			eb += "\treturn res;\n";
+			eb += "}\n";
+			ofs << eb << endl;
 			exit(0);
 		}
 		int nidx = ((int)(ss).size());
@@ -987,6 +1011,32 @@ void embed_coefs(int K, int len_max=1001001001, int lb_max=1001001001)
 		piv_prv = move(piv);
 	}
 }
+#line 3 "library/autodp/string/generated.hpp"
+using namespace std;
+
+template <class VTYPE>
+VTYPE solvedp(const string &s) {
+	constexpr int DIM = 6;
+	constexpr int COL = 4;
+	VTYPE matAs[COL][DIM][DIM] = {{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,1,0,0,0},{0,-3,0,4,0,0},{0,-2,0,3,2,-1},{0,-5,0,5,0,1}},{{0,0,0,0,0,0},{0,0,0,0,1,0},{0,0,0,0,0,0},{0,-3,0,3,1,0},{0,0,0,0,1,0},{0,-5,0,4,1,1}},{{0,1,0,0,0,0},{0,0,0,0,0,1},{0,0,1,0,1,0},{0,-3,0,3,0,1},{0,-2,0,2,2,0},{0,-5,0,3,0,3}},{{0,0,1,0,0,0},{0,0,0,-1,1,1},{0,0,1,0,0,0},{0,-3,0,2,1,1},{0,0,0,-1,1,1},{0,-5,0,2,1,3}}};
+	VTYPE vecQ[DIM] = {0,1,1,2,2,4};
+	array<VTYPE, DIM> dp;
+    dp[0] = 1;
+	for (int i=1; i<DIM; i++) dp[i] = 0;
+	auto apply = [&](const array<VTYPE, DIM> &x, int col) {
+		array<VTYPE, DIM> z;
+		for (int j=0; j<DIM; j++) {
+			z[j] = 0;
+			for (int i=0; i<DIM; i++) z[j] += x[i]*matAs[col][i][j];
+		}
+		return z;
+	};
+	for (const auto &c : s) dp = apply(dp, c-'0');
+	VTYPE res = 0;
+	for (int i=0; i<DIM; i++) res += vecQ[i]*dp[i];
+	return res;
+}
+
 #line 3 "contests/abc138/f/main.cpp"
 using mint = modint1000000007;
 
@@ -1001,43 +1051,15 @@ mint naive(const string& s) {
     for (int i=l; i<=r; i++) for (int j=i; j<=r; j++) if (i) if (j%i == (i^j)) re++;
     return re;
 }
-#line 3 "library/autodp/string/generated.hpp"
-using namespace std;
 
-template <class VTYPE>
-VTYPE solvedp(const string &s)
-{
-	constexpr int DIM = 6;
-	constexpr int COL = 4;
-	VTYPE matAs[COL][DIM][DIM] = {{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,1,0,0,0},{0,-3,0,4,0,0},{0,-2,0,3,2,-1},{0,-5,0,5,0,1}},{{0,0,0,0,0,0},{0,0,0,0,1,0},{0,0,0,0,0,0},{0,-3,0,3,1,0},{0,0,0,0,1,0},{0,-5,0,4,1,1}},{{0,1,0,0,0,0},{0,0,0,0,0,1},{0,0,1,0,1,0},{0,-3,0,3,0,1},{0,-2,0,2,2,0},{0,-5,0,3,0,3}},{{0,0,1,0,0,0},{0,0,0,-1,1,1},{0,0,1,0,0,0},{0,-3,0,2,1,1},{0,0,0,-1,1,1},{0,-5,0,2,1,3}}};
-	VTYPE vecQ[DIM] = {0,1,1,2,2,4};
-	array<VTYPE, DIM> dp;
-	dp[0] = 1;
-	for (int i = int(1), i_end = int(DIM - 1); i <= i_end; ++i)
-		dp[i] = 0;
-	auto apply = [&](const array<VTYPE, DIM> &x, int col)
-	{
-		array<VTYPE, DIM> z;
-		for (int j = 0, j_len = int(DIM); j < j_len; ++j)
-		{
-			z[j] = 0;
-			for (int i = 0, i_len = int(DIM); i < i_len; ++i)
-				z[j] += x[i] * matAs[col][i][j];
-		}
-		return z;
-	};
-	for (const auto &c : (s))
-	{
-		dp = apply(dp, c - '0');
-	}
-	VTYPE res = 0;
-	for (int i = 0, i_len = int(DIM); i < i_len; ++i)
-		res += vecQ[i] * dp[i];
-	return res;
+int main() {
+    IO();
+    int T=1;
+    // cin >> T;
+    while (T--) solve();
 }
-#line 17 "contests/abc138/f/main.cpp"
-int main()
-{
+
+void solve() {
 	// embed_coefs<mint, naive>(4, -1, -1);
 	long long l, r; cin >> l >> r;
     string s;

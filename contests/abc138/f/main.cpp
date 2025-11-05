@@ -13,6 +13,20 @@ mint naive(const string& s) {
     for (int i=l; i<=r; i++) for (int j=i; j<=r; j++) if (i) if (j%i == (i^j)) re++;
     return re;
 }
+
 int main() {
-	embed_coefs<mint, naive>(4, -1, -1);
+    IO();
+    int T=1;
+    // cin >> T;
+    while (T--) solve();
+}
+
+void solve() {
+	// embed_coefs<mint, naive>(4, -1, -1);
+	long long l, r; cin >> l >> r;
+    string s;
+    for (int i=60; 0<=i; i--) {
+        s += '0' + (((l>>i)&1) + ((r>>i)&1)*2);
+    }
+    cout << solvedp<mint>(s).val() << '\n';
 }
