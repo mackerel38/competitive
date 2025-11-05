@@ -72,7 +72,10 @@ void embed_coefs(int K) {
 				if (2 * v > mod) v -= mod;
 				return to_string(v);
 			};
-			string eb = "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\n#include \"autodp/string/naive.hpp\"\ntemplate <class VTYPE>\nVTYPE solve(const string& s) {\n\tvector<vector<VTYPE>>matP_ume={";
+			string eb = "";
+			eb += "#include \"autodp/template.hpp\"\n#include \"autodp/matrix.hpp\"\n#include \"autodp/string/naive.hpp\"\n";
+			eb += "template <class VTYPE>\nVTYPE solve(const string& s) {\n";
+			eb += "\tvector<vector<VTYPE>>matP_ume={";
 			rep(i, R) {
 				eb += "{";
 				rep(j, R) eb += to_signed_string(P[i][j]) + ",";
