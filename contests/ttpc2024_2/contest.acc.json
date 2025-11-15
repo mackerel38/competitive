@@ -1,0 +1,174 @@
+{
+  "contest": {
+    "id": "ttpc2024_2",
+    "title": "Tokyo Tech Programming Contest 2024 (Div. 2)",
+    "url": "https://atcoder.jp/contests/ttpc2024_2"
+  },
+  "tasks": [
+    {
+      "id": "ttpc2024_1_a",
+      "label": "A",
+      "title": "Don't Detect Cycle",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_b",
+      "label": "B",
+      "title": "Self Checkout",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_c",
+      "label": "C",
+      "title": "Segment Tree",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_d",
+      "label": "D",
+      "title": "Odd Xor",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_e",
+      "label": "E",
+      "title": "ReTravel",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_f",
+      "label": "F",
+      "title": "I prefer ISCT",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_g",
+      "label": "G",
+      "title": "Coloring Tree",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_h",
+      "label": "H",
+      "title": "TTPC Never Ends",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_i",
+      "label": "I",
+      "title": "Near Pair",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_i",
+      "directory": {
+        "path": "i",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_j",
+      "label": "J",
+      "title": "Grid Construction",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_j",
+      "directory": {
+        "path": "j",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_k",
+      "label": "K",
+      "title": "01 Abs Sum",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_k",
+      "directory": {
+        "path": "k",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_1_l",
+      "label": "L",
+      "title": "Long Sequence Inversion 2",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_1_l",
+      "directory": {
+        "path": "l",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_m",
+      "label": "M",
+      "title": "Colorful Stone Sorting ",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_m",
+      "directory": {
+        "path": "m",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_n",
+      "label": "N",
+      "title": "Adjacent Game",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_n",
+      "directory": {
+        "path": "n",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "ttpc2024_2_o",
+      "label": "O",
+      "title": "Marunomi for All Prefixes",
+      "url": "https://atcoder.jp/contests/ttpc2024_2/tasks/ttpc2024_2_o",
+      "directory": {
+        "path": "o",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}

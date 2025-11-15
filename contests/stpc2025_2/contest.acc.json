@@ -1,0 +1,174 @@
+{
+  "contest": {
+    "id": "stpc2025_2",
+    "title": "東京科学大学プログラミングコンテスト2025 (Div. 2)",
+    "url": "https://atcoder.jp/contests/stpc2025_2"
+  },
+  "tasks": [
+    {
+      "id": "stpc2025_2_a",
+      "label": "A",
+      "title": "Various Roots",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_b",
+      "label": "B",
+      "title": "Heavy Rotation",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_1_c",
+      "label": "C",
+      "title": "Sum of Three Inversions",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_1_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_d",
+      "label": "D",
+      "title": "Boomerang",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_e",
+      "label": "E",
+      "title": "Max Twice Subsequences (Easy)",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_1_f",
+      "label": "F",
+      "title": "Decimal Pyramid",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_1_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_g",
+      "label": "G",
+      "title": "Team Division",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_1_h",
+      "label": "H",
+      "title": "Akari Counting",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_1_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_1_i",
+      "label": "I",
+      "title": "Subgrid Connected Components",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_1_i",
+      "directory": {
+        "path": "i",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_j",
+      "label": "J",
+      "title": "KinGin's Summit",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_j",
+      "directory": {
+        "path": "j",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_1_k",
+      "label": "K",
+      "title": "Two-Way Communication",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_1_k",
+      "directory": {
+        "path": "k",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_l",
+      "label": "L",
+      "title": "Avoid Multiple",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_l",
+      "directory": {
+        "path": "l",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_m",
+      "label": "M",
+      "title": "Take K",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_m",
+      "directory": {
+        "path": "m",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_n",
+      "label": "N",
+      "title": "Fair Flags",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_n",
+      "directory": {
+        "path": "n",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "stpc2025_2_o",
+      "label": "O",
+      "title": "Next STPC",
+      "url": "https://atcoder.jp/contests/stpc2025_2/tasks/stpc2025_2_o",
+      "directory": {
+        "path": "o",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
