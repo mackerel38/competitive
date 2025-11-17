@@ -3,7 +3,7 @@
 /.vscode
 /a.out
 /precompile
-/library/atcoder
-/library/Nyaan
-/library/ei1333
-/library/hitonanode
+/library/.atcoder
+/library/.Nyaan
+/library/.ei1333
+/library/.hitonanode
