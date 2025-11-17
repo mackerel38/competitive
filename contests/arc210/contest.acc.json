@@ -1,0 +1,75 @@
+{
+  "contest": {
+    "id": "arc210",
+    "title": "AtCoder Regular Contest 210",
+    "url": "https://atcoder.jp/contests/arc210"
+  },
+  "tasks": [
+    {
+      "id": "arc210_a",
+      "label": "A",
+      "title": "Always Increasing",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc210_b",
+      "label": "B",
+      "title": "Remove Median Operations",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc210_c",
+      "label": "C",
+      "title": "Fair Coin Partition",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc210_d",
+      "label": "D",
+      "title": "Independent Set Game",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc210_e",
+      "label": "E",
+      "title": "Subset Sum Gaps",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "arc210_f",
+      "label": "F",
+      "title": "± ab",
+      "url": "https://atcoder.jp/contests/arc210/tasks/arc210_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
