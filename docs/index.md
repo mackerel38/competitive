@@ -24,9 +24,6 @@ data:
       path: graph/dinic.hpp
       title: graph/dinic.hpp
     - icon: ':warning:'
-      path: graph/dualshortestpath.hpp
-      title: graph/dualshortestpath.hpp
-    - icon: ':warning:'
       path: graph/flowtemplate.hpp
       title: graph/flowtemplate.hpp
     - icon: ':warning:'

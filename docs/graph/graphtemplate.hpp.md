@@ -14,9 +14,6 @@ data:
   - icon: ':x:'
     path: graph/dijkstrarestore.hpp
     title: graph/dijkstrarestore.hpp
-  - icon: ':warning:'
-    path: graph/dualshortestpath.hpp
-    title: graph/dualshortestpath.hpp
   - icon: ':x:'
     path: graph/kruskal.hpp
     title: graph/kruskal.hpp
@@ -142,7 +139,6 @@ data:
   - graph/warshallfloydrestore.hpp
   - graph/minimumsteinertree.hpp
   - graph/bellmanford.hpp
-  - graph/dualshortestpath.hpp
   - graph/scc.hpp
   - graph/kruskal.hpp
   - graph/dijkstrarestore.hpp

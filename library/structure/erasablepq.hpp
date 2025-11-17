@@ -14,16 +14,16 @@ struct erasablepq {
         normalize();
     }
     void pop() {
-        normalize();
         pq.pop();
+        normalize();
     }
     T top() {
-        normalize();
         return pq.top();
+        normalize();
     }
     bool empty() {
-        normalize();
         return pq.empty();
+        normalize();
     }
     int size() {
         return pq.size() - del.size();
@@ -48,16 +48,16 @@ struct erasablepqg {
         normalize();
     }
     void pop() {
-        normalize();
         pq.pop();
+        normalize();
     }
     T top() {
-        normalize();
         return pq.top();
+        normalize();
     }
     bool empty() {
-        normalize();
         return pq.empty();
+        normalize();
     }
     int size() {
         return pq.size() - del.size();
