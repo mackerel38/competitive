@@ -19,6 +19,9 @@ struct erasablepq {
         normalize();
         return pq.empty();
     }
+    int size() {
+        return pq.size() - del.size();
+    }
     void normalize() {
         while (!del.empty() && !pq.empty() && pq.top() == del.top()) {
             pq.pop();
@@ -43,6 +46,9 @@ struct erasablepqg {
     bool empty() {
         normalize();
         return pq.empty();
+    }
+    int size() {
+        return pq.size() - del.size();
     }
     void normalize() {
         while (!del.empty() && !pq.empty() && pq.top() == del.top()) {

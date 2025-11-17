@@ -13,5 +13,6 @@ struct bipq {
     void pop_min() { qg.pop(); }
     T top_max() { return q.top(); }
     T top_min() { return qg.top(); }
+    int size() { return q.size(); }
     bool empty() { return q.empty(); }
 };
