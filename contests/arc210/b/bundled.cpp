@@ -1,6 +1,6 @@
 /**
  *    author:  mackerel38
- *    created: 17.11.2025 02:06:47
+ *    created: 18.11.2025 14:07:41
 **/
 
 #line 2 "library/util/template.hpp"
@@ -91,194 +91,99 @@ void IO() {
 
 void solve();
 // poe
-#line 1 "library/atcoder/segtree.hpp"
+#line 3 "library/structure/erasablepq.hpp"
+using namespace std;
 
-
-
-#line 8 "library/atcoder/segtree.hpp"
-
-#line 1 "library/atcoder/internal_bit.hpp"
-
-
-
-#ifdef _MSC_VER
-#include <intrin.h>
-#endif
-
-#if __cplusplus >= 202002L
-#include <bit>
-#endif
-
-namespace atcoder {
-
-namespace internal {
-
-#if __cplusplus >= 202002L
-
-using std::bit_ceil;
-
-#else
-
-// @return same with std::bit::bit_ceil
-unsigned int bit_ceil(unsigned int n) {
-    unsigned int x = 1;
-    while (x < (unsigned int)(n)) x *= 2;
-    return x;
-}
-
-#endif
-
-// @param n `1 <= n`
-// @return same with std::bit::countr_zero
-int countr_zero(unsigned int n) {
-#ifdef _MSC_VER
-    unsigned long index;
-    _BitScanForward(&index, n);
-    return index;
-#else
-    return __builtin_ctz(n);
-#endif
-}
-
-// @param n `1 <= n`
-// @return same with std::bit::countr_zero
-constexpr int countr_zero_constexpr(unsigned int n) {
-    int x = 0;
-    while (!(n & (1 << x))) x++;
-    return x;
-}
-
-}  // namespace internal
-
-}  // namespace atcoder
-
-
-#line 10 "library/atcoder/segtree.hpp"
-
-namespace atcoder {
-
-#if __cplusplus >= 201703L
-
-template <class S, auto op, auto e> struct segtree {
-    static_assert(std::is_convertible_v<decltype(op), std::function<S(S, S)>>,
-                  "op must work as S(S, S)");
-    static_assert(std::is_convertible_v<decltype(e), std::function<S()>>,
-                  "e must work as S()");
-
-#else
-
-template <class S, S (*op)(S, S), S (*e)()> struct segtree {
-
-#endif
-
-  public:
-    segtree() : segtree(0) {}
-    explicit segtree(int n) : segtree(std::vector<S>(n, e())) {}
-    explicit segtree(const std::vector<S>& v) : _n(int(v.size())) {
-        size = (int)internal::bit_ceil((unsigned int)(_n));
-        log = internal::countr_zero((unsigned int)size);
-        d = std::vector<S>(2 * size, e());
-        for (int i = 0; i < _n; i++) d[size + i] = v[i];
-        for (int i = size - 1; i >= 1; i--) {
-            update(i);
+template <class T>
+struct erasablepq {
+    priority_queue<T> pq, del;
+    void push(const T& x) {
+        pq.push(x);
+        normalize();
+    }
+    void erase(const T& x) {
+        del.push(x);
+        normalize();
+    }
+    void pop() {
+        pq.pop();
+        normalize();
+    }
+    T top() {
+        return pq.top();
+        normalize();
+    }
+    bool empty() {
+        return pq.empty();
+        normalize();
+    }
+    int size() {
+        return pq.size() - del.size();
+    }
+    void normalize() {
+        while (!del.empty() && !pq.empty() && pq.top() == del.top()) {
+            pq.pop();
+            del.pop();
         }
     }
-
-    void set(int p, S x) {
-        assert(0 <= p && p < _n);
-        p += size;
-        d[p] = x;
-        for (int i = 1; i <= log; i++) update(p >> i);
-    }
-
-    S get(int p) const {
-        assert(0 <= p && p < _n);
-        return d[p + size];
-    }
-
-    S prod(int l, int r) const {
-        assert(0 <= l && l <= r && r <= _n);
-        S sml = e(), smr = e();
-        l += size;
-        r += size;
-
-        while (l < r) {
-            if (l & 1) sml = op(sml, d[l++]);
-            if (r & 1) smr = op(d[--r], smr);
-            l >>= 1;
-            r >>= 1;
-        }
-        return op(sml, smr);
-    }
-
-    S all_prod() const { return d[1]; }
-
-    template <bool (*f)(S)> int max_right(int l) const {
-        return max_right(l, [](S x) { return f(x); });
-    }
-    template <class F> int max_right(int l, F f) const {
-        assert(0 <= l && l <= _n);
-        assert(f(e()));
-        if (l == _n) return _n;
-        l += size;
-        S sm = e();
-        do {
-            while (l % 2 == 0) l >>= 1;
-            if (!f(op(sm, d[l]))) {
-                while (l < size) {
-                    l = (2 * l);
-                    if (f(op(sm, d[l]))) {
-                        sm = op(sm, d[l]);
-                        l++;
-                    }
-                }
-                return l - size;
-            }
-            sm = op(sm, d[l]);
-            l++;
-        } while ((l & -l) != l);
-        return _n;
-    }
-
-    template <bool (*f)(S)> int min_left(int r) const {
-        return min_left(r, [](S x) { return f(x); });
-    }
-    template <class F> int min_left(int r, F f) const {
-        assert(0 <= r && r <= _n);
-        assert(f(e()));
-        if (r == 0) return 0;
-        r += size;
-        S sm = e();
-        do {
-            r--;
-            while (r > 1 && (r % 2)) r >>= 1;
-            if (!f(op(d[r], sm))) {
-                while (r < size) {
-                    r = (2 * r + 1);
-                    if (f(op(d[r], sm))) {
-                        sm = op(d[r], sm);
-                        r--;
-                    }
-                }
-                return r + 1 - size;
-            }
-            sm = op(d[r], sm);
-        } while ((r & -r) != r);
-        return 0;
-    }
-
-  private:
-    int _n, size, log;
-    std::vector<S> d;
-
-    void update(int k) { d[k] = op(d[2 * k], d[2 * k + 1]); }
 };
 
-}  // namespace atcoder
+template <class T>
+struct erasablepqg {
+    priority_queue<T, vector<T>, greater<T>> pq, del;
+    void push(const T& x) {
+        pq.push(x);
+        normalize();
+    }
+    void erase(const T& x) {
+        del.push(x);
+        normalize();
+    }
+    void pop() {
+        pq.pop();
+        normalize();
+    }
+    T top() {
+        return pq.top();
+        normalize();
+    }
+    bool empty() {
+        return pq.empty();
+        normalize();
+    }
+    int size() {
+        return pq.size() - del.size();
+    }
+    void normalize() {
+        while (!del.empty() && !pq.empty() && pq.top() == del.top()) {
+            pq.pop();
+            del.pop();
+        }
+    }
+};
+#line 4 "library/structure/bipq.hpp"
+using namespace std;
 
-
+template <class T>
+struct bipq {
+    erasablepq<T> q;
+    erasablepqg<T> qg;
+    void push(const T& x) { q.push(x); qg.push(x); }
+    void erase(const T& x) { q.erase(x); qg.erase(x); }
+    void pop_max() {
+        qg.erase(q.top());
+        q.pop();
+    }
+    void pop_min() {
+        q.erase(qg.top());
+        qg.pop();
+    }
+    T top_max() { return q.top(); }
+    T top_min() { return qg.top(); }
+    int size() { return q.size(); }
+    bool empty() { return q.empty(); }
+};
 #line 3 "contests/arc210/b/main.cpp"
-using namespace atcoder;
 
 int main() {
     IO();
@@ -289,44 +194,64 @@ int main() {
 
 void solve() {
     ll n, m, q; cin >> n >> m >> q;
+    ll N = n / 2;
     vll a(n), b(m); cin >> a >> b;
-    vec<pair<ll, pll>> query(q); cin >> query;
-    vll s;
-    range(i, a) s.pb(i);
-    range(i, b) s.pb(i);
-    range(i, query) s.pb(i.se.se);
-    uniq(s);
-    int S = s.size();
-    vll c(S+1);
-    vll A(n), B(m), Q(q);
-    rep(i, n) A[i] = lower_bound(all(s), a[i])-s.begin();
-    rep(i, m) B[i] = lower_bound(all(s), b[i])-s.begin();
-    rep(i, q) Q[i] = lower_bound(all(s), query[i].se.se)-s.begin();
-    range(i, A) c[i+1]++;
-    range(i, B) c[i+1]++;
-    range(i, Q) c[i+1]++;
-    rep(i, S) c[i+1] += c[i];
-    vll C(S);
-    vpll v(n+m+q);
-    rep(i, n) v[c[A[i]]+(C[A[i]]++)] = {1, a[i]};
-    rep(i, m) v[c[B[i]]+(C[B[i]]++)] = {1, b[i]};
-    segtree<pll,[](pll x,pll y){return pll{x.fi+y.fi,x.se+y.se};},[](){return pll{0, 0};}> seg(v);
-    rep(i, q) {
-        auto [x, p] = query[i]; auto [y, z] = p; y--;
+    multiset<ll> left, mid, right;
+    ll ans = 0;
+    vll c = a; range(i, b) c.pb(i);
+    Sort(c);
+    rep(i, N) {
+        left.insert(c[i]);
+        ans += c[i];
+    }
+    loop(i, N, N+m) {
+        mid.insert(c[i]);
+    }
+    loop(i, N+m, n+m) {
+        right.insert(c[i]);
+        ans += c[i];
+    }
+    auto eraseadd = [&](ll erase, ll add) {
+        if (erase <= *left.rbegin()) {
+            left.erase(left.find(erase));
+            ans -= erase;
+            ans += *mid.begin();
+            left.insert(*mid.begin());
+            mid.erase(mid.find(*mid.begin()));
+        } elif (*right.begin() <= erase) {
+            right.erase(right.find(erase));
+            ans -= erase;
+            ans += *mid.rbegin();
+            right.insert(*mid.rbegin());
+            mid.erase(mid.find(*mid.rbegin()));
+        } else {
+            mid.erase(mid.find(erase));
+        }
+        if (add <= *left.rbegin()) {
+            left.insert(add);
+            ans += add;
+            ans -= *left.rbegin();
+            mid.insert(*left.rbegin());
+            left.erase(left.find(*left.rbegin()));
+        } elif (*right.begin() <= add) {
+            right.insert(add);
+            ans += add;
+            ans -= *right.begin();
+            mid.insert(*right.begin());
+            right.erase(right.find(*right.begin()));
+        } else {
+            mid.insert(add);
+        }
+    };
+    while (q--) {
+        int x, y, z; cin >> x >> y >> z; y--;
         if (x == 1) {
-            int t = lower_bound(all(s), a[y]) - s.begin();
-            int T = lower_bound(all(s), z) - s.begin();
-            seg.set(c[t]+(--C[t]), {0, 0});
-            seg.set(c[T]+(C[T]++), {1, z});
+            eraseadd(a[y], z);
             a[y] = z;
         } else {
-            int t = lower_bound(all(s), b[y]) - s.begin();
-            int T = lower_bound(all(s), z) - s.begin();
-            seg.set(c[t]+(--C[t]), {0, 0});
-            seg.set(c[T]+(C[T]++), {1, z});
+            eraseadd(b[y], z);
             b[y] = z;
         }
-        cout << (seg.prod(0, seg.max_right(0, [&n](pll x){return x.fi<=n/2;})).se) + (seg.prod(seg.min_left(n+m+q, [&n](pll x){return x.fi<=n/2;}), n+m+q).se) << nl;
-        assert(n == (seg.prod(0, seg.max_right(0, [&n](pll x){return x.fi<=n/2;})).fi) + (seg.prod(seg.min_left(n+m+q, [&n](pll x){return x.fi<=n/2;}), n+m+q).fi));
+        cout << ans << nl;
     }
 }
