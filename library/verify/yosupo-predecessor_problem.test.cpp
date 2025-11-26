@@ -1,6 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/predecessor_problem"
-#include "wordsizetree"
+
 #include "template"
+#include "splaytree"
 
 int main() { IO();
     int T=1;
@@ -10,24 +11,20 @@ int main() { IO();
 
 void solve() {
     int n, q; cin >> n >> q;
-    vi a(n);
-    str st; cin >> st;
-    rep(i, n) if (st[i] == '1') a[i] = 1;
-    wordsizetree s(a);
+    str s; cin >> s;
+    splaytree<int> t, T;
+    rep(i, n) if (s[i] == '1') { t.insert(i); T.insert(-i); }
     while (q--) {
         int x, y; cin >> x >> y;
-        if (x == 0) {
-            s.insert(y);
-        } elif (x == 1) {
-            s.erase(y);
-        } elif (x == 2) {
-            cout << s.count(y) << nl;
-        } elif (x == 3) {
-            int z = s.minright(y);
-            cout << (z<n ? z : -1) << nl;
+        if (x == 0) { t.insert(y); T.insert(-y); }
+        elif (x == 1) { t.erase(y); T.erase(-y); }
+        elif (x == 2) { cout << t.contains(y) << nl;}
+        elif (x == 3) {
+            auto z = t.lower_bound(y);
+            cout << (z==nullptr ? -1 : z->v) << nl;
         } else {
-            int z = s.maxleft(y);
-            cout << (0<=z ? z : -1) << nl;
+            auto z = T.lower_bound(-y);
+            cout << (z==nullptr ? -1 : -(z->v)) << nl;
         }
     }
 }
