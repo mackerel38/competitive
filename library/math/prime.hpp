@@ -35,7 +35,7 @@ bool isprime(long long n) {
 }
 // n 以下の素数を列挙する O(n log log n)
 vector<int> enumprimes(int n) {
-    vector<bool> primeflag(n+1);
+    vector<char> primeflag(n+1);
     vector<int> re;
     for (long long i=2; i<=n; i++) {
         if (primeflag[i]) continue;
@@ -46,8 +46,7 @@ vector<int> enumprimes(int n) {
     }
     return re;
 }
-// 素因数分解をする O(n^0.25)
-void factorize(long long n, vector<long long>& factors) {
+void inner_factorize(long long n, vector<long long>& factors) {
     if (n <= 1) return;
     if (isprime(n)) {
         factors.push_back(n);
@@ -58,7 +57,7 @@ void factorize(long long n, vector<long long>& factors) {
             factors.push_back(2);
             n /= 2;
         }
-        factorize(n, factors);
+        inner_factorize(n, factors);
         return;
     }
     while (true) {
@@ -74,9 +73,15 @@ void factorize(long long n, vector<long long>& factors) {
             if (m == n) break;
         }
         if (m != n) {
-            factorize(m, factors);
-            factorize(n / m, factors);
+            inner_factorize(m, factors);
+            inner_factorize(n / m, factors);
             return;
         }
     }
+}
+// 素因数分解をする O(n^0.25)
+vector<long long> factorize(long long n) {
+    vector<long long> re;
+    inner_factorize(n, re);
+    return re;
 }
