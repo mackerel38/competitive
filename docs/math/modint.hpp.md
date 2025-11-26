@@ -8,31 +8,16 @@ data:
   - icon: ':warning:'
     path: math/FPSbase.hpp
     title: math/FPSbase.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/NTT.hpp
     title: math/NTT.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-bitwise_xor_convolution.test.cpp
-    title: verify/yosupo-bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-convolution_mod.test.cpp
-    title: verify/yosupo-convolution_mod.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-point_set_range_composite.test.cpp
-    title: verify/yosupo-point_set_range_composite.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_point_get.test.cpp
-    title: verify/yosupo-range_affine_point_get.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_range_sum.test.cpp
-    title: verify/yosupo-range_affine_range_sum.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/modint.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -210,13 +195,8 @@ data:
   - math/FPSbase.hpp
   - math/FPS.hpp
   timestamp: '2025-10-08 04:52:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-bitwise_xor_convolution.test.cpp
-  - verify/yosupo-point_set_range_composite.test.cpp
-  - verify/yosupo-range_affine_range_sum.test.cpp
-  - verify/yosupo-range_affine_point_get.test.cpp
-  - verify/yosupo-convolution_mod.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/modint.hpp
 layout: document
 redirect_from:

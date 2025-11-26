@@ -2,16 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-factorize.test.cpp
-    title: verify/yosupo-factorize.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-primality_test.test.cpp
-    title: verify/yosupo-primality_test.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/prime.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -79,10 +73,8 @@ data:
   path: math/prime.hpp
   requiredBy: []
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-factorize.test.cpp
-  - verify/yosupo-primality_test.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/prime.hpp
 layout: document
 redirect_from:

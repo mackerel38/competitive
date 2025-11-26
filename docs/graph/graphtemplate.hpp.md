@@ -2,55 +2,37 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/bellmanford.hpp
     title: graph/bellmanford.hpp
   - icon: ':warning:'
     path: graph/cartesiantree.hpp
     title: graph/cartesiantree.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/dijkstra.hpp
     title: graph/dijkstra.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/dijkstrarestore.hpp
     title: graph/dijkstrarestore.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/kruskal.hpp
     title: graph/kruskal.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/minimumsteinertree.hpp
     title: graph/minimumsteinertree.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/scc.hpp
     title: graph/scc.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/warshallfloyd.hpp
     title: graph/warshallfloyd.hpp
   - icon: ':warning:'
     path: graph/warshallfloydrestore.hpp
     title: graph/warshallfloydrestore.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/aizu-GRL_1_B.test.cpp
-    title: verify/aizu-GRL_1_B.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_1_C.test.cpp
-    title: verify/aizu-GRL_1_C.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_2_A.test.cpp
-    title: verify/aizu-GRL_2_A.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-minimum_steiner_tree.test.cpp
-    title: verify/yosupo-minimum_steiner_tree.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-scc.test.cpp
-    title: verify/yosupo-scc.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-shortest_path.test.cpp
-    title: verify/yosupo-shortest_path.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graphtemplate.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -144,14 +126,8 @@ data:
   - graph/dijkstrarestore.hpp
   - graph/warshallfloyd.hpp
   timestamp: '2025-10-04 20:14:06+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-minimum_steiner_tree.test.cpp
-  - verify/yosupo-shortest_path.test.cpp
-  - verify/aizu-GRL_2_A.test.cpp
-  - verify/aizu-GRL_1_C.test.cpp
-  - verify/yosupo-scc.test.cpp
-  - verify/aizu-GRL_1_B.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/graphtemplate.hpp
 layout: document
 redirect_from:

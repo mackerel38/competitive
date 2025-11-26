@@ -2,19 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_B.test.cpp
-    title: verify/aizu-DSL_2_B.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_E.test.cpp
-    title: verify/aizu-DSL_2_E.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-static_range_inversions_query.test.cpp
-    title: verify/yosupo-static_range_inversions_query.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"structure/BIT.hpp\"\n#include<bits/stdc++.h>\nusing namespace\
@@ -90,11 +81,8 @@ data:
   path: structure/BIT.hpp
   requiredBy: []
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/aizu-DSL_2_B.test.cpp
-  - verify/yosupo-static_range_inversions_query.test.cpp
-  - verify/aizu-DSL_2_E.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/BIT.hpp
 layout: document
 redirect_from:

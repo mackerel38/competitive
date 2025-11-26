@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-static_range_inversions_query.test.cpp
-    title: verify/yosupo-static_range_inversions_query.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"util/Mo.hpp\"\n#include<bits/stdc++.h>\nusing namespace\
@@ -70,9 +67,8 @@ data:
   path: util/Mo.hpp
   requiredBy: []
   timestamp: '2025-08-07 22:45:58+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-static_range_inversions_query.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: util/Mo.hpp
 layout: document
 redirect_from:

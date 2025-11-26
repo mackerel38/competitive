@@ -1,17 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/graphtemplate.hpp
     title: graph/graphtemplate.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-scc.test.cpp
-    title: verify/yosupo-scc.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graphtemplate.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -94,9 +91,8 @@ data:
   path: graph/scc.hpp
   requiredBy: []
   timestamp: '2025-10-04 20:14:06+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-scc.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/scc.hpp
 layout: document
 redirect_from:

@@ -2,16 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_point_get.test.cpp
-    title: verify/yosupo-range_affine_point_get.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_range_sum.test.cpp
-    title: verify/yosupo-range_affine_range_sum.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"structure/lazysegtree.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -119,10 +113,8 @@ data:
   path: structure/lazysegtree.hpp
   requiredBy: []
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-range_affine_range_sum.test.cpp
-  - verify/yosupo-range_affine_point_get.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/lazysegtree.hpp
 layout: document
 redirect_from:

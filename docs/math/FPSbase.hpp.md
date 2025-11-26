@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/NTT.hpp
     title: math/NTT.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/modint.hpp
     title: math/modint.hpp
   _extendedRequiredBy: []

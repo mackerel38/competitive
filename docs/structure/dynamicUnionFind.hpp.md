@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-unionfind.test.cpp
-    title: verify/yosupo-unionfind.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"structure/dynamicUnionFind.hpp\"\n#include <bits/stdc++.h>\n\
@@ -55,9 +52,8 @@ data:
   path: structure/dynamicUnionFind.hpp
   requiredBy: []
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-unionfind.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/dynamicUnionFind.hpp
 layout: document
 redirect_from:

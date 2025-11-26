@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-suffixarray.test.cpp
-    title: verify/yosupo-suffixarray.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/suffixarray.hpp\"\n#include <bits/stdc++.h>\nusing\
@@ -40,10 +37,9 @@ data:
   isVerificationFile: false
   path: string/suffixarray.hpp
   requiredBy: []
-  timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-suffixarray.test.cpp
+  timestamp: '2025-11-26 07:53:13+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: string/suffixarray.hpp
 layout: document
 redirect_from:

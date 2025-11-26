@@ -6,78 +6,12 @@ data:
     path: main.cpp
     title: main.cpp
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/aizu-DSL_1_A.test.cpp
-    title: verify/aizu-DSL_1_A.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_A.test.cpp
-    title: verify/aizu-DSL_2_A.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_B.test.cpp
-    title: verify/aizu-DSL_2_B.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_E.test.cpp
-    title: verify/aizu-DSL_2_E.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_1_B.test.cpp
-    title: verify/aizu-GRL_1_B.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_1_C.test.cpp
-    title: verify/aizu-GRL_1_C.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_2_A.test.cpp
-    title: verify/aizu-GRL_2_A.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-bitwise_xor_convolution.test.cpp
-    title: verify/yosupo-bitwise_xor_convolution.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-convolution_mod.test.cpp
-    title: verify/yosupo-convolution_mod.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-factorize.test.cpp
-    title: verify/yosupo-factorize.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-minimum_steiner_tree.test.cpp
-    title: verify/yosupo-minimum_steiner_tree.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-point_set_range_composite.test.cpp
-    title: verify/yosupo-point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem.test.cpp
     title: verify/yosupo-predecessor_problem.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-primality_test.test.cpp
-    title: verify/yosupo-primality_test.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_point_get.test.cpp
-    title: verify/yosupo-range_affine_point_get.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-range_affine_range_sum.test.cpp
-    title: verify/yosupo-range_affine_range_sum.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-scc.test.cpp
-    title: verify/yosupo-scc.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-shortest_path.test.cpp
-    title: verify/yosupo-shortest_path.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-static_range_inversions_query.test.cpp
-    title: verify/yosupo-static_range_inversions_query.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-static_range_sum.test.cpp
-    title: verify/yosupo-static_range_sum.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-staticrmq.test.cpp
-    title: verify/yosupo-staticrmq.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-suffixarray.test.cpp
-    title: verify/yosupo-suffixarray.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-unionfind.test.cpp
-    title: verify/yosupo-unionfind.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"util/template.hpp\"\n#ifdef poe\n#define debug(x) cerr<<#x<<\"\
@@ -186,31 +120,9 @@ data:
   requiredBy:
   - main.cpp
   timestamp: '2025-11-05 12:24:04+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/aizu-DSL_1_A.test.cpp
-  - verify/yosupo-bitwise_xor_convolution.test.cpp
-  - verify/aizu-DSL_2_A.test.cpp
-  - verify/yosupo-minimum_steiner_tree.test.cpp
-  - verify/yosupo-point_set_range_composite.test.cpp
-  - verify/yosupo-range_affine_range_sum.test.cpp
-  - verify/yosupo-shortest_path.test.cpp
-  - verify/yosupo-range_affine_point_get.test.cpp
-  - verify/yosupo-factorize.test.cpp
-  - verify/aizu-GRL_2_A.test.cpp
-  - verify/yosupo-static_range_sum.test.cpp
-  - verify/yosupo-primality_test.test.cpp
-  - verify/aizu-GRL_1_C.test.cpp
-  - verify/yosupo-scc.test.cpp
-  - verify/yosupo-staticrmq.test.cpp
-  - verify/aizu-GRL_1_B.test.cpp
-  - verify/aizu-DSL_2_B.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
-  - verify/yosupo-unionfind.test.cpp
-  - verify/yosupo-static_range_inversions_query.test.cpp
-  - verify/yosupo-suffixarray.test.cpp
-  - verify/aizu-DSL_2_E.test.cpp
-  - verify/yosupo-convolution_mod.test.cpp
 documentation_of: util/template.hpp
 layout: document
 redirect_from:

@@ -2,22 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: util/generalsegtree.hpp
     title: util/generalsegtree.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/aizu-DSL_2_A.test.cpp
-    title: verify/aizu-DSL_2_A.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-point_set_range_composite.test.cpp
-    title: verify/yosupo-point_set_range_composite.test.cpp
-  - icon: ':x:'
-    path: verify/yosupo-static_range_sum.test.cpp
-    title: verify/yosupo-static_range_sum.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"structure/segtree.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -118,11 +109,8 @@ data:
   requiredBy:
   - util/generalsegtree.hpp
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/aizu-DSL_2_A.test.cpp
-  - verify/yosupo-point_set_range_composite.test.cpp
-  - verify/yosupo-static_range_sum.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/segtree.hpp
 layout: document
 redirect_from:

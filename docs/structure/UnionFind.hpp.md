@@ -2,19 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/kruskal.hpp
     title: graph/kruskal.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/aizu-DSL_1_A.test.cpp
-    title: verify/aizu-DSL_1_A.test.cpp
-  - icon: ':x:'
-    path: verify/aizu-GRL_2_A.test.cpp
-    title: verify/aizu-GRL_2_A.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"structure/UnionFind.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -67,10 +61,8 @@ data:
   requiredBy:
   - graph/kruskal.hpp
   timestamp: '2025-08-07 22:45:57+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/aizu-DSL_1_A.test.cpp
-  - verify/aizu-GRL_2_A.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: structure/UnionFind.hpp
 layout: document
 redirect_from:

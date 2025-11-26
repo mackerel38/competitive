@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/modint.hpp
     title: math/modint.hpp
   _extendedRequiredBy:
@@ -11,16 +11,13 @@ data:
   - icon: ':warning:'
     path: math/FPSbase.hpp
     title: math/FPSbase.hpp
-  - icon: ':x:'
+  - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: verify/yosupo-convolution_mod.test.cpp
-    title: verify/yosupo-convolution_mod.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/modint.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -142,9 +139,8 @@ data:
   - math/FPSbase.hpp
   - math/FPS.hpp
   timestamp: '2025-10-08 04:52:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - verify/yosupo-convolution_mod.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: math/NTT.hpp
 layout: document
 redirect_from:
