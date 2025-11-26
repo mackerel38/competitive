@@ -77,7 +77,7 @@ struct splaytree {
     }
     bool contains(T x) {
         root = splay(root, x);
-        return root != nullptr && root.v == x;
+        return root != nullptr && root->v == x;
     }
     Node* innerinsert(Node* x, T v) {
         if (!x) {
@@ -134,15 +134,15 @@ struct splaytree {
         Node* b = nullptr;
         while (c) {
             b = c;
-            if (x <= c.v) {
+            if (x <= c->v) {
                 ans = c;
-                c = c.l;
+                c = c->l;
             } else {
-                c = c.r;
+                c = c->r;
             }
         }
         if (ans) {
-            root = splay(root, ans-v);
+            root = splay(root, ans->v);
             return root;
         } else {
             if (b) root = splay(root, b->v);
@@ -155,15 +155,15 @@ struct splaytree {
         Node* b = nullptr;
         while (c) {
             b = c;
-            if (x < c.v) {
+            if (x < c->v) {
                 ans = c;
-                c = c.l;
+                c = c->l;
             } else {
-                c = c.r;
+                c = c->r;
             }
         }
         if (ans) {
-            root = splay(root, ans-v);
+            root = splay(root, ans->v);
             return root;
         } else {
             if (b) root = splay(root, b->v);
