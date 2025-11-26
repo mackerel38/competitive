@@ -7,6 +7,9 @@ data:
     title: main.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-enumerate_primes.test.cpp
+    title: verify/yosupo-enumerate_primes.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem.test.cpp
     title: verify/yosupo-predecessor_problem.test.cpp
   _isVerificationFailed: false
@@ -123,6 +126,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-predecessor_problem.test.cpp
+  - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp
 layout: document
 redirect_from:

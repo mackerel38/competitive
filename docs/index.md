@@ -84,7 +84,7 @@ data:
     - icon: ':warning:'
       path: math/modint.hpp
       title: math/modint.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/prime.hpp
       title: math/prime.hpp
     - icon: ':warning:'
@@ -168,6 +168,9 @@ data:
   verificationCategories:
   - name: verify
     pages:
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-enumerate_primes.test.cpp
+      title: verify/yosupo-enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-predecessor_problem.test.cpp
       title: verify/yosupo-predecessor_problem.test.cpp
