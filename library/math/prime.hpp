@@ -83,5 +83,6 @@ void inner_factorize(long long n, vector<long long>& factors) {
 vector<long long> factorize(long long n) {
     vector<long long> re;
     inner_factorize(n, re);
+    sort(re.begin(), re.end());
     return re;
 }

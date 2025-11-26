@@ -14,6 +14,6 @@ void solve() {
     while (q--) {
         ll x; cin >> x;
         auto y = factorize(x);
-        cout << y;
+        cout << y.size() << sp << y;
     }
 }
