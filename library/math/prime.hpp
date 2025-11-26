@@ -34,7 +34,7 @@ bool isprime(long long n) {
     return true;
 }
 // n 以下の素数を列挙する O(n log log n)
-vector<int> enumprimes(int n) {
+vector<int> enumprimes(long long n) {
     vector<char> primeflag(n+1);
     vector<int> re;
     for (long long i=2; i<=n; i++) {
