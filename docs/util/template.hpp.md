@@ -10,6 +10,9 @@ data:
     path: verify/yosupo-enumerate_primes.test.cpp
     title: verify/yosupo-enumerate_primes.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-factorize.test.cpp
+    title: verify/yosupo-factorize.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem.test.cpp
     title: verify/yosupo-predecessor_problem.test.cpp
   _isVerificationFailed: false
@@ -59,14 +62,13 @@ data:
     \ S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return\
     \ s;}\ntemplate<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<'\
     \ '<<p.second<<'\\n';return s;}\ntemplate<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return\
-    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++)s<<v[i]<<\"\
-    \ \\n\"[i==(int)v.size()-1];return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst\
-    \ int dx[8]={0,1,0,-1,1,1,-1,-1};\nconst int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define\
-    \ nl '\\n'\n#define sp ' '\nconst int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\n\
-    const ll mod = 998244353;\nconst ll MOD = 1000000007;\nconst ld EPS = 1e-9;\n\
-    const ld PI = acos(-1);\n\nvoid IO() {\n    ios::sync_with_stdio(false);\n   \
-    \ cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n}\n\nvoid solve();\n\
-    // poe\n"
+    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=v.size()-1)s<<'\
+    \ ';}s<<'\\n';return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst int dx[8]={0,1,0,-1,1,1,-1,-1};\n\
+    const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\nconst\
+    \ int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\nconst ll mod = 998244353;\n\
+    const ll MOD = 1000000007;\nconst ld EPS = 1e-9;\nconst ld PI = acos(-1);\n\n\
+    void IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
+    }\n\nvoid solve();\n// poe\n"
   code: "#pragma once\n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n\
     #define debug(x)\n#endif\n#include<bits/stdc++.h>\nusing namespace std;\nusing\
     \ ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\n\
@@ -109,22 +111,22 @@ data:
     \ S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return\
     \ s;}\ntemplate<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<'\
     \ '<<p.second<<'\\n';return s;}\ntemplate<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return\
-    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++)s<<v[i]<<\"\
-    \ \\n\"[i==(int)v.size()-1];return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst\
-    \ int dx[8]={0,1,0,-1,1,1,-1,-1};\nconst int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define\
-    \ nl '\\n'\n#define sp ' '\nconst int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\n\
-    const ll mod = 998244353;\nconst ll MOD = 1000000007;\nconst ld EPS = 1e-9;\n\
-    const ld PI = acos(-1);\n\nvoid IO() {\n    ios::sync_with_stdio(false);\n   \
-    \ cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n}\n\nvoid solve();\n\
-    // poe"
+    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=v.size()-1)s<<'\
+    \ ';}s<<'\\n';return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst int dx[8]={0,1,0,-1,1,1,-1,-1};\n\
+    const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\nconst\
+    \ int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\nconst ll mod = 998244353;\n\
+    const ll MOD = 1000000007;\nconst ld EPS = 1e-9;\nconst ld PI = acos(-1);\n\n\
+    void IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
+    }\n\nvoid solve();\n// poe"
   dependsOn: []
   isVerificationFile: false
   path: util/template.hpp
   requiredBy:
   - main.cpp
-  timestamp: '2025-11-05 12:24:04+09:00'
+  timestamp: '2025-11-27 00:35:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-factorize.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp

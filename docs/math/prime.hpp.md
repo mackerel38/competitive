@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-enumerate_primes.test.cpp
     title: verify/yosupo-enumerate_primes.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-factorize.test.cpp
+    title: verify/yosupo-factorize.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -41,7 +44,7 @@ data:
     \ factors);\n            inner_factorize(n / m, factors);\n            return;\n\
     \        }\n    }\n}\n// \u7D20\u56E0\u6570\u5206\u89E3\u3092\u3059\u308B O(n^0.25)\n\
     vector<long long> factorize(long long n) {\n    vector<long long> re;\n    inner_factorize(n,\
-    \ re);\n    return re;\n}\n"
+    \ re);\n    sort(re.begin(), re.end());\n    return re;\n}\n"
   code: "#pragma once\n#include <bits/stdc++.h>\nusing namespace std;\n// \u7D20\u6570\
     \u5224\u5B9A O(log n)\nbool isprime(long long n) {\n    if (n <= 1) return false;\n\
     \    if (n == 2) return true;\n    if (n % 2 == 0) return false;\n    int flag\
@@ -72,14 +75,15 @@ data:
     \ factors);\n            inner_factorize(n / m, factors);\n            return;\n\
     \        }\n    }\n}\n// \u7D20\u56E0\u6570\u5206\u89E3\u3092\u3059\u308B O(n^0.25)\n\
     vector<long long> factorize(long long n) {\n    vector<long long> re;\n    inner_factorize(n,\
-    \ re);\n    return re;\n}"
+    \ re);\n    sort(re.begin(), re.end());\n    return re;\n}"
   dependsOn: []
   isVerificationFile: false
   path: math/prime.hpp
   requiredBy: []
-  timestamp: '2025-11-27 00:16:59+09:00'
+  timestamp: '2025-11-27 00:45:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-factorize.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: math/prime.hpp
 layout: document

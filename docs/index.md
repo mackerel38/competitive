@@ -172,6 +172,9 @@ data:
       path: verify/yosupo-enumerate_primes.test.cpp
       title: verify/yosupo-enumerate_primes.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-factorize.test.cpp
+      title: verify/yosupo-factorize.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-predecessor_problem.test.cpp
       title: verify/yosupo-predecessor_problem.test.cpp
 layout: toppage
