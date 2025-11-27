@@ -25,6 +25,9 @@ data:
     path: verify/yosupo-static_range_sum.test.cpp
     title: verify/yosupo-static_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-staticrmq-2.test.cpp
+    title: verify/yosupo-staticrmq-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-staticrmq.test.cpp
     title: verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -147,6 +150,7 @@ data:
   - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-staticrmq.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
+  - verify/yosupo-staticrmq-2.test.cpp
   - verify/yosupo-unionfind.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp

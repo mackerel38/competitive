@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-unionfind.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 12:44:21+09:00'
+  timestamp: '2025-11-27 12:49:25+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-unionfind.test.cpp

@@ -187,6 +187,9 @@ data:
       path: verify/yosupo-static_range_sum.test.cpp
       title: verify/yosupo-static_range_sum.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-staticrmq-2.test.cpp
+      title: verify/yosupo-staticrmq-2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-staticrmq.test.cpp
       title: verify/yosupo-staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
