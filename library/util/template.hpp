@@ -17,6 +17,7 @@ using vi=vec<int>;using vvi=vec<vi>;using vvvi=vec<vvi>;using vvvvi=vec<vvvi>;us
 using vll=vec<ll>;using vvll=vec<vll>;using vvvll=vec<vvll>;using vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;
 using vpi=vec<pi>;using vvpi=vec<vpi>;using vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;
 using vpll=vec<pll>;using vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using vvvvvpll=vec<vvvvpll>;
+template<class T>using pairs=pair<T, T>;
 template<class T>using pq=priority_queue<T,vector<T>>;
 template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;
 #define rep(i,n) for(int i=0;i<(int)(n);i++)
@@ -65,18 +66,18 @@ template<class S,class T>T Sum(const pair<S,T>&p){return p.first+p.second;}
 template<class S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return s;}
 template<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<' '<<p.second<<'\n';return s;}
 template<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return s;}
-template<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=v.size()-1)s<<' ';}s<<'\n';return s;}
+template<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=(int)v.size()-1)s<<' ';}s<<'\n';return s;}
 const int dxy[5]={0,1,0,-1,0};
 const int dx[8]={0,1,0,-1,1,1,-1,-1};
 const int dy[8]={1,0,-1,0,1,-1,1,-1};
-#define nl '\n'
-#define sp ' '
-const int inf = (1<<30)-(1<<15);
-const ll INF = 1LL<<61;
-const ll mod = 998244353;
-const ll MOD = 1000000007;
-const ld EPS = 1e-9;
-const ld PI = acos(-1);
+const char nl='\n';
+const char sp=' ';
+const int inf=(1<<30)-(1<<15);
+const ll INF=1LL<<61;
+const ll mod=998244353;
+const ll MOD=1000000007;
+const ld EPS=1e-9;
+const ld PI=acos(-1);
 
 void IO() {
     ios::sync_with_stdio(false);

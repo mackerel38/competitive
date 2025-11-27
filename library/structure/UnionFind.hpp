@@ -12,7 +12,7 @@ struct UnionFind {
         p = root(p);
         q = root(q);
         if (p == q) return false;
-        if (q < p) swap(p, q);
+        if (data[q] < data[p]) swap(p, q);
         data[p] += data[q];
         data[q] = p;
         return true;
@@ -28,17 +28,11 @@ struct UnionFind {
         }
     }
     // 親要素を取得 O(α(n))
-    int operator[](int p) {
-        return root(p);
-    }
+    int operator[](int p) { return root(p); }
     // 2 つの要素が同じ集合に含まれるか判定 O(α(n))
-    bool same(int p, int q) {
-        return root(p) == root(q);
-    }
+    bool same(int p, int q) { return root(p)==root(q); }
     // 要素が属する集合の大きさを返す O(α(n))
-    int size(int p) {
-        return -data[root(p)];
-    }
+    int size(int p) { return -data[root(p)]; }
     // UnionFind の連結成分のvector を返す O(n α(n))
     vector<vector<int>> groups() {
         vector<vector<int>> re(_n);
