@@ -121,7 +121,7 @@ data:
     - icon: ':warning:'
       path: structure/erasablepq.hpp
       title: structure/erasablepq.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/lazysegtree.hpp
       title: structure/lazysegtree.hpp
     - icon: ':warning:'
@@ -195,6 +195,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-static_range_sum-2.test.cpp
       title: verify/yosupo-static_range_sum-2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-static_range_sum-3.test.cpp
+      title: verify/yosupo-static_range_sum-3.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-staticrmq-1.test.cpp
       title: verify/yosupo-staticrmq-1.test.cpp

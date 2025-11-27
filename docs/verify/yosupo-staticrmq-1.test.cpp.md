@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-staticrmq-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 17:42:40+09:00'
+  timestamp: '2025-11-27 18:17:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-staticrmq-1.test.cpp
