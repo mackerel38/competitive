@@ -110,9 +110,6 @@ data:
       path: structure/UnionFind.hpp
       title: structure/UnionFind.hpp
     - icon: ':warning:'
-      path: structure/abstractBIT.hpp
-      title: structure/abstractBIT.hpp
-    - icon: ':warning:'
       path: structure/bipq.hpp
       title: structure/bipq.hpp
     - icon: ':warning:'

@@ -61,7 +61,7 @@ data:
     \ S,class T>istream&operator>>(istream&s,pair<S,T>&p){s>>p.first>>p.second;return\
     \ s;}\ntemplate<class S,class T>ostream&operator<<(ostream&s,pair<S,T>&p){s<<p.first<<'\
     \ '<<p.second<<'\\n';return s;}\ntemplate<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return\
-    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=v.size()-1)s<<'\
+    \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=(int)v.size()-1)s<<'\
     \ ';}s<<'\\n';return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst int dx[8]={0,1,0,-1,1,1,-1,-1};\n\
     const int dy[8]={1,0,-1,0,1,-1,1,-1};\nconst char nl='\\n';\nconst char sp=' ';\n\
     const int inf=(1<<30)-(1<<15);\nconst ll INF=1LL<<61;\nconst ll mod=998244353;\n\
@@ -137,7 +137,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 15:38:38+09:00'
+  timestamp: '2025-11-27 16:44:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum-1.test.cpp
