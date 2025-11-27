@@ -8,7 +8,7 @@ struct segtree {
     vector<S> data;
     segtree() = default;
     // 大きさn のセグ木を構築 O(n)
-    exolicit segtree(int n) : _n(n) { build(vector<S>(n, e())); }
+    explicit segtree(int n) : _n(n) { build(vector<S>(n, e())); }
     // 大きさv.size() のセグ木を構築 O(n)
     explicit segtree(const vector<S>& v) : _n(v.size()) { build(v); }
     void build(const vector<S>& v) {
@@ -54,48 +54,54 @@ struct segtree {
         return re;
     }
     void update(int p) { data[p] = op(data[2*p], data[2*p+1]); }
-    // f(op([l, r)))=true となる最大のr を返す O(log n)
+    // f(op([l, r)))==true となる最大のr を返す
     template <class F>
     int max_right(int l, F f) const {
-        assert(f(e()));
         assert(0 <= l && l <= _n);
+        assert(f(e()));
         if (l == _n) return _n;
-        int idx = l + size;
-        S s = e();
+        l += size;
+        S sm = e();
         do {
-            while (idx % 2 == 0) idx >>= 1;
-            if (!f(op(s, data[idx]))) {
-                while (idx < size) {
-                    idx = idx * 2;
-                    if (f(op(s, data[idx]))) s = op(s, data[idx++]);
+            while (l % 2 == 0) l >>= 1;
+            if (!f(op(sm, data[l]))) {
+                while (l < size) {
+                    l = (2 * l);
+                    if (f(op(sm, data[l]))) {
+                        sm = op(sm, data[l]);
+                        l++;
+                    }
                 }
-                return idx - size;
+                return l - size;
             }
-            s = op(s, data[idx]);
-            idx++;
-        } while (idx != (idx & -idx));
+            sm = op(sm, data[l]);
+            l++;
+        } while ((l & -l) != l);
         return _n;
     }
-    // f(op([l, r)))=true となる最小のl を返す O(log n)
+    // f(op([l, r)))==true となる最小のl を返す
     template <class F>
     int min_left(int r, F f) const {
-        assert(f(e()));
         assert(0 <= r && r <= _n);
+        assert(f(e()));
         if (r == 0) return 0;
-        int idx = r + size;
-        S s = e();
+        r += size;
+        S sm = e();
         do {
-            idx--;
-            while (idx % 2 == 1) idx >>= 1;
-            if (!f(op(data[idx], s))) {
-                while (idx < size) {
-                    idx = idx * 2 + 1;
-                    if (f(op(data[idx], s))) s = op(data[idx--], s);
+            r--;
+            while (r > 1 && (r % 2)) r >>= 1;
+            if (!f(op(data[r], sm))) {
+                while (r < size) {
+                    r = (2 * r + 1);
+                    if (f(op(data[r], sm))) {
+                        sm = op(data[r], sm);
+                        r--;
+                    }
                 }
-                return (idx + 1) - size;
+                return r + 1 - size;
             }
-            s = op(data[idx], s);
-        } while(idx != (idx & -idx));
+            sm = op(data[r], sm);
+        } while ((r & -r) != r);
         return 0;
     }
 };
