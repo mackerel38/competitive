@@ -26,17 +26,16 @@ data:
     \ <= p && p < _n);\n        if (data[p] < 0) {\n            return p;\n      \
     \  } else {\n            data[p] = root(data[p]);\n            return data[p];\n\
     \        }\n    }\n    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n\
-    \    int operator[](int p) {\n        return root(p);\n    }\n    // 2 \u3064\u306E\
-    \u8981\u7D20\u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\
-    \u5224\u5B9A O(\u03B1(n))\n    bool same(int p, int q) {\n        return root(p)\
-    \ == root(q);\n    }\n    // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\
-    \u5927\u304D\u3055\u3092\u8FD4\u3059 O(\u03B1(n))\n    int size(int p) {\n   \
-    \     return -data[root(p)];\n    }\n    // UnionFind \u306E\u9023\u7D50\u6210\
-    \u5206\u306Evector \u3092\u8FD4\u3059 O(n \u03B1(n))\n    vector<vector<int>>\
-    \ groups() {\n        vector<vector<int>> re(_n);\n        for (int i=0; i<_n;\
-    \ i++) re[root(i)].push_back(i);\n        re.erase(remove_if(re.begin(), re.end(),\
-    \ [](vector<int>& v){ return v.empty(); }), re.end());\n        return re;\n \
-    \   }\n};\n"
+    \    int operator[](int p) { return root(p); }\n    // 2 \u3064\u306E\u8981\u7D20\
+    \u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\u5224\u5B9A\
+    \ O(\u03B1(n))\n    bool same(int p, int q) { return root(p)==root(q); }\n   \
+    \ // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\u5927\u304D\u3055\u3092\
+    \u8FD4\u3059 O(\u03B1(n))\n    int size(int p) { return -data[root(p)]; }\n  \
+    \  // UnionFind \u306E\u9023\u7D50\u6210\u5206\u306Evector \u3092\u8FD4\u3059\
+    \ O(n \u03B1(n))\n    vector<vector<int>> groups() {\n        vector<vector<int>>\
+    \ re(_n);\n        for (int i=0; i<_n; i++) re[root(i)].push_back(i);\n      \
+    \  re.erase(remove_if(re.begin(), re.end(), [](vector<int>& v){ return v.empty();\
+    \ }), re.end());\n        return re;\n    }\n};\n"
   code: "#pragma once\n#include<bits/stdc++.h>\nusing namespace std;\nstruct UnionFind\
     \ {\n    int _n;\n    vector<int> data;\n    UnionFind() = default;\n    // n\
     \ \u500B\u306E\u8981\u7D20\u304B\u3089\u306A\u308BUnionFind \u3092\u69CB\u7BC9\
@@ -49,22 +48,22 @@ data:
     \        if (data[p] < 0) {\n            return p;\n        } else {\n       \
     \     data[p] = root(data[p]);\n            return data[p];\n        }\n    }\n\
     \    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n    int operator[](int\
-    \ p) {\n        return root(p);\n    }\n    // 2 \u3064\u306E\u8981\u7D20\u304C\
-    \u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\u5224\u5B9A O(\u03B1\
-    (n))\n    bool same(int p, int q) {\n        return root(p) == root(q);\n    }\n\
-    \    // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\u5927\u304D\u3055\
-    \u3092\u8FD4\u3059 O(\u03B1(n))\n    int size(int p) {\n        return -data[root(p)];\n\
-    \    }\n    // UnionFind \u306E\u9023\u7D50\u6210\u5206\u306Evector \u3092\u8FD4\
-    \u3059 O(n \u03B1(n))\n    vector<vector<int>> groups() {\n        vector<vector<int>>\
-    \ re(_n);\n        for (int i=0; i<_n; i++) re[root(i)].push_back(i);\n      \
-    \  re.erase(remove_if(re.begin(), re.end(), [](vector<int>& v){ return v.empty();\
-    \ }), re.end());\n        return re;\n    }\n};\n"
+    \ p) { return root(p); }\n    // 2 \u3064\u306E\u8981\u7D20\u304C\u540C\u3058\u96C6\
+    \u5408\u306B\u542B\u307E\u308C\u308B\u304B\u5224\u5B9A O(\u03B1(n))\n    bool\
+    \ same(int p, int q) { return root(p)==root(q); }\n    // \u8981\u7D20\u304C\u5C5E\
+    \u3059\u308B\u96C6\u5408\u306E\u5927\u304D\u3055\u3092\u8FD4\u3059 O(\u03B1(n))\n\
+    \    int size(int p) { return -data[root(p)]; }\n    // UnionFind \u306E\u9023\
+    \u7D50\u6210\u5206\u306Evector \u3092\u8FD4\u3059 O(n \u03B1(n))\n    vector<vector<int>>\
+    \ groups() {\n        vector<vector<int>> re(_n);\n        for (int i=0; i<_n;\
+    \ i++) re[root(i)].push_back(i);\n        re.erase(remove_if(re.begin(), re.end(),\
+    \ [](vector<int>& v){ return v.empty(); }), re.end());\n        return re;\n \
+    \   }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/UnionFind.hpp
   requiredBy:
   - graph/kruskal.hpp
-  timestamp: '2025-11-27 15:47:59+09:00'
+  timestamp: '2025-11-27 17:34:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-unionfind-1.test.cpp

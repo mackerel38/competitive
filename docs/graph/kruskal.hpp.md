@@ -64,25 +64,24 @@ data:
     \ <= p && p < _n);\n        if (data[p] < 0) {\n            return p;\n      \
     \  } else {\n            data[p] = root(data[p]);\n            return data[p];\n\
     \        }\n    }\n    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n\
-    \    int operator[](int p) {\n        return root(p);\n    }\n    // 2 \u3064\u306E\
-    \u8981\u7D20\u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\
-    \u5224\u5B9A O(\u03B1(n))\n    bool same(int p, int q) {\n        return root(p)\
-    \ == root(q);\n    }\n    // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\
-    \u5927\u304D\u3055\u3092\u8FD4\u3059 O(\u03B1(n))\n    int size(int p) {\n   \
-    \     return -data[root(p)];\n    }\n    // UnionFind \u306E\u9023\u7D50\u6210\
-    \u5206\u306Evector \u3092\u8FD4\u3059 O(n \u03B1(n))\n    vector<vector<int>>\
-    \ groups() {\n        vector<vector<int>> re(_n);\n        for (int i=0; i<_n;\
-    \ i++) re[root(i)].push_back(i);\n        re.erase(remove_if(re.begin(), re.end(),\
-    \ [](vector<int>& v){ return v.empty(); }), re.end());\n        return re;\n \
-    \   }\n};\n#line 5 \"graph/kruskal.hpp\"\nusing namespace std;\n// \u30AF\u30E9\
-    \u30B9\u30AB\u30EB\u6CD5\u3092\u7528\u3044\u3066\u6700\u5C0F\u5168\u57DF\u6728\
-    \u3092\u6C42\u3081\u308B O(m log m)\ntemplate<class T = int, bool directed = false,\
-    \ bool weighted = true>\ngraph<T, directed, weighted> kruskal(graph<T, directed,\
-    \ weighted>& g) {\n    graph<T, directed, weighted> re(g.size());\n    edges<T>\
-    \ _edges = g._edges;\n    sort(_edges.begin(), _edges.end(), [](edge<T> e1, edge<T>\
-    \ e2) { return e1.cost < e2.cost;} );\n    UnionFind uf(g.size());\n    for (auto&\
-    \ _e : _edges) {\n        if (uf.merge(_e.from, _e.to)) {\n            re.add_edge(_e);\n\
-    \        }\n    }\n    return re;\n}\n"
+    \    int operator[](int p) { return root(p); }\n    // 2 \u3064\u306E\u8981\u7D20\
+    \u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\u5224\u5B9A\
+    \ O(\u03B1(n))\n    bool same(int p, int q) { return root(p)==root(q); }\n   \
+    \ // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\u5927\u304D\u3055\u3092\
+    \u8FD4\u3059 O(\u03B1(n))\n    int size(int p) { return -data[root(p)]; }\n  \
+    \  // UnionFind \u306E\u9023\u7D50\u6210\u5206\u306Evector \u3092\u8FD4\u3059\
+    \ O(n \u03B1(n))\n    vector<vector<int>> groups() {\n        vector<vector<int>>\
+    \ re(_n);\n        for (int i=0; i<_n; i++) re[root(i)].push_back(i);\n      \
+    \  re.erase(remove_if(re.begin(), re.end(), [](vector<int>& v){ return v.empty();\
+    \ }), re.end());\n        return re;\n    }\n};\n#line 5 \"graph/kruskal.hpp\"\
+    \nusing namespace std;\n// \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\u3092\u7528\u3044\
+    \u3066\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B O(m log m)\ntemplate<class\
+    \ T = int, bool directed = false, bool weighted = true>\ngraph<T, directed, weighted>\
+    \ kruskal(graph<T, directed, weighted>& g) {\n    graph<T, directed, weighted>\
+    \ re(g.size());\n    edges<T> _edges = g._edges;\n    sort(_edges.begin(), _edges.end(),\
+    \ [](edge<T> e1, edge<T> e2) { return e1.cost < e2.cost;} );\n    UnionFind uf(g.size());\n\
+    \    for (auto& _e : _edges) {\n        if (uf.merge(_e.from, _e.to)) {\n    \
+    \        re.add_edge(_e);\n        }\n    }\n    return re;\n}\n"
   code: "#pragma once\n#include \"graphtemplate\"\n#include \"UnionFind\"\n#include<bits/stdc++.h>\n\
     using namespace std;\n// \u30AF\u30E9\u30B9\u30AB\u30EB\u6CD5\u3092\u7528\u3044\
     \u3066\u6700\u5C0F\u5168\u57DF\u6728\u3092\u6C42\u3081\u308B O(m log m)\ntemplate<class\
@@ -98,7 +97,7 @@ data:
   isVerificationFile: false
   path: graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2025-11-27 15:47:59+09:00'
+  timestamp: '2025-11-27 17:34:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/kruskal.hpp

@@ -154,7 +154,7 @@ data:
   path: util/template.hpp
   requiredBy:
   - main.cpp
-  timestamp: '2025-11-27 16:44:59+09:00'
+  timestamp: '2025-11-27 16:51:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-enumerate_primes-1.test.cpp

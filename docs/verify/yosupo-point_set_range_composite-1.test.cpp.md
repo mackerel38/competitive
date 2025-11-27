@@ -229,7 +229,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_set_range_composite-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 16:44:59+09:00'
+  timestamp: '2025-11-27 16:51:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_set_range_composite-1.test.cpp
