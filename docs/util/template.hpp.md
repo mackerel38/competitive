@@ -7,11 +7,11 @@ data:
     title: main.cpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-enumerate_primes.test.cpp
-    title: verify/yosupo-enumerate_primes.test.cpp
+    path: verify/yosupo-enumerate_primes-1.test.cpp
+    title: verify/yosupo-enumerate_primes-1.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-factorize.test.cpp
-    title: verify/yosupo-factorize.test.cpp
+    path: verify/yosupo-factorize-1.test.cpp
+    title: verify/yosupo-factorize-1.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem-1.test.cpp
     title: verify/yosupo-predecessor_problem-1.test.cpp
@@ -19,8 +19,8 @@ data:
     path: verify/yosupo-predecessor_problem-2.test.cpp
     title: verify/yosupo-predecessor_problem-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-primality_test.test.cpp
-    title: verify/yosupo-primality_test.test.cpp
+    path: verify/yosupo-primality_test-1.test.cpp
+    title: verify/yosupo-primality_test-1.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-static_range_sum-1.test.cpp
     title: verify/yosupo-static_range_sum-1.test.cpp
@@ -34,8 +34,8 @@ data:
     path: verify/yosupo-staticrmq-2.test.cpp
     title: verify/yosupo-staticrmq-2.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-unionfind.test.cpp
-    title: verify/yosupo-unionfind.test.cpp
+    path: verify/yosupo-unionfind-1.test.cpp
+    title: verify/yosupo-unionfind-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -147,16 +147,16 @@ data:
   timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo-factorize.test.cpp
+  - verify/yosupo-enumerate_primes-1.test.cpp
+  - verify/yosupo-factorize-1.test.cpp
   - verify/yosupo-predecessor_problem-1.test.cpp
-  - verify/yosupo-primality_test.test.cpp
+  - verify/yosupo-unionfind-1.test.cpp
   - verify/yosupo-staticrmq-1.test.cpp
   - verify/yosupo-static_range_sum-1.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
+  - verify/yosupo-primality_test-1.test.cpp
   - verify/yosupo-static_range_sum-2.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
-  - verify/yosupo-unionfind.test.cpp
-  - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp
 layout: document
 redirect_from:

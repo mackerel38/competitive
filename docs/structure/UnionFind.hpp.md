@@ -7,8 +7,8 @@ data:
     title: graph/kruskal.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-unionfind.test.cpp
-    title: verify/yosupo-unionfind.test.cpp
+    path: verify/yosupo-unionfind-1.test.cpp
+    title: verify/yosupo-unionfind-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -64,10 +64,10 @@ data:
   path: structure/UnionFind.hpp
   requiredBy:
   - graph/kruskal.hpp
-  timestamp: '2025-11-27 12:54:01+09:00'
+  timestamp: '2025-11-27 14:25:08+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo-unionfind.test.cpp
+  - verify/yosupo-unionfind-1.test.cpp
 documentation_of: structure/UnionFind.hpp
 layout: document
 redirect_from:

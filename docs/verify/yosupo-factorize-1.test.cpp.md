@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: structure/sparsetable.hpp
-    title: structure/sparsetable.hpp
+    path: math/prime.hpp
+    title: math/prime.hpp
   - icon: ':heavy_check_mark:'
     path: util/template.hpp
     title: util/template.hpp
@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
+    PROBLEM: https://judge.yosupo.jp/problem/factorize
     links:
-    - https://judge.yosupo.jp/problem/staticrmq
-  bundledCode: "#line 1 \"verify/yosupo-staticrmq-1.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#line 2 \"util/template.hpp\"\
+    - https://judge.yosupo.jp/problem/factorize
+  bundledCode: "#line 1 \"verify/yosupo-factorize-1.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/factorize\"\r\n\r\n#line 2 \"util/template.hpp\"\
     \n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n#define debug(x)\n\
     #endif\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\nusing\
     \ ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\nusing\
@@ -67,45 +67,60 @@ data:
     \ int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\nconst ll mod = 998244353;\n\
     const ll MOD = 1000000007;\nconst ld EPS = 1e-9;\nconst ld PI = acos(-1);\n\n\
     void IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n// poe\n#line 3 \"structure/sparsetable.hpp\"\nusing namespace\
-    \ std;\n\n// op \u306F\u7D50\u5408\u5F8B\u304B\u3064\u51AA\u7B49\u6027\uFF08op(x,x)=x\uFF09\
-    \u3092\u6E80\u305F\u3059\u3053\u3068\ntemplate<class T, auto op>\nstruct sparsetable\
-    \ {\n    int n, k;\n    vector<vector<T>> data;\n    sparsetable() = default;\n\
-    \    // sparsetable \u3092\u69CB\u7BC9 O(n log n)\n    sparsetable(const vector<T>&\
-    \ v) : n((int)v.size()) {\n        if (n == 0) { k = 0; return; }\n        k =\
-    \ __lg(n);\n        data.assign(n, vector<T>(k + 1));\n        for (int i=0; i<n;\
-    \ i++) data[i][0] = v[i];\n        for (int j=1; j<=k; j++) {\n            int\
-    \ len = 1<<j;\n            for (int i=0; i+len<=n; i++) {\n                data[i][j]\
-    \ = op(data[i][j-1], data[i+(1<<(j-1))][j-1]);\n            }\n        }\n   \
-    \ }\n    //op([l, r)) \u3092\u6C42\u3081\u308B O(1)\n    T prod(int l, int r)\
-    \ const {\n        assert(0 <= l && l <= r && r <= n);\n        if (l == r) return\
-    \ T{};\n        int j = __lg(r - l);\n        return op(data[l][j], data[r - (1\
-    \ << j)][j]);\n    }\n};\n#line 5 \"verify/yosupo-staticrmq-1.test.cpp\"\n\r\n\
-    int main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin\
-    \ >> a;\r\n    sparsetable<int, [](int x, int y){ return min(x, y); }> seg(a);\r\
-    \n    while (q--) {\r\n        int l, r; cin >> l >> r;\r\n        cout << seg.prod(l,\
-    \ r) << nl;\r\n    }\r\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#include\
-    \ \"template\"\r\n#include \"sparsetable\"\r\n\r\nint main() { IO();\r\n    int\
-    \ T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve()\
-    \ {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin >> a;\r\n    sparsetable<int,\
-    \ [](int x, int y){ return min(x, y); }> seg(a);\r\n    while (q--) {\r\n    \
-    \    int l, r; cin >> l >> r;\r\n        cout << seg.prod(l, r) << nl;\r\n   \
-    \ }\r\n}"
+    }\n\nvoid solve();\n// poe\n#line 3 \"math/prime.hpp\"\nusing namespace std;\n\
+    // \u7D20\u6570\u5224\u5B9A O(log n)\nbool isprime(long long n) {\n    if (n <=\
+    \ 1) return false;\n    if (n == 2) return true;\n    if (n % 2 == 0) return false;\n\
+    \    int flag = 1;\n    if (n < 4759123141LL) flag = 0;\n    vector<vector<long\
+    \ long>> tests = {{2, 7, 61}, {2, 325, 9375, 28178, 450775, 9780504, 1795265022}};\n\
+    \    long long s = 0, d = n - 1;\n    while (d % 2 == 0) {\n        ++s;\n   \
+    \     d >>= 1;\n    }\n    for (auto a : tests[flag]) {\n        if (n <= a) return\
+    \ true;\n        __int128_t x = 1, a2=a%n, d2 = d;\n        while (d2) {\n   \
+    \         if (d2 & 1) x = x * a2 % n;\n            a2 = a2 * a2 % n;\n       \
+    \     d2 >>= 1;\n        }\n        if (x != 1) {\n            long long t;\n\
+    \            for (t = 0; t < s; ++t) {\n                if (x == n - 1) break;\n\
+    \                x = x * x % n;\n            }\n            if (t == s) return\
+    \ false;\n        }\n    }\n    return true;\n}\n// n \u4EE5\u4E0B\u306E\u7D20\
+    \u6570\u3092\u5217\u6319\u3059\u308B O(n log log n)\nvector<int> enumprimes(long\
+    \ long n) {\n    vector<char> primeflag(n+1);\n    vector<int> re;\n    for (long\
+    \ long i=2; i<=n; i++) {\n        if (primeflag[i]) continue;\n        re.push_back(i);\n\
+    \        for (long long j=i*i; j<=n; j+=i) {\n            primeflag[j] = true;\n\
+    \        }\n    }\n    return re;\n}\nvoid inner_factorize(long long n, vector<long\
+    \ long>& factors) {\n    if (n <= 1) return;\n    if (isprime(n)) {\n        factors.push_back(n);\n\
+    \        return;\n    }\n    if (n % 2 == 0) {\n        while (n % 2 == 0) {\n\
+    \            factors.push_back(2);\n            n /= 2;\n        }\n        inner_factorize(n,\
+    \ factors);\n        return;\n    }\n    while (true) {\n        __int128_t x\
+    \ = rand() % (n - 2) + 2;\n        __int128_t y = x;\n        __int128_t c = rand()\
+    \ % (n - 1) + 1;\n        __int128_t m = 1;\n        while (m == 1) {\n      \
+    \      x = (x * x + c) % n;\n            y = (y * y + c) % n;\n            y =\
+    \ (y * y + c) % n;\n            m = gcd((long long)(x - y + n), n);\n        \
+    \    if (m == n) break;\n        }\n        if (m != n) {\n            inner_factorize(m,\
+    \ factors);\n            inner_factorize(n / m, factors);\n            return;\n\
+    \        }\n    }\n}\n// \u7D20\u56E0\u6570\u5206\u89E3\u3092\u3059\u308B O(n^0.25)\n\
+    vector<long long> factorize(long long n) {\n    vector<long long> re;\n    inner_factorize(n,\
+    \ re);\n    sort(re.begin(), re.end());\n    return re;\n}\n#line 5 \"verify/yosupo-factorize-1.test.cpp\"\
+    \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
+    \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int q; cin >> q;\r\n    while (q--)\
+    \ {\r\n        ll x; cin >> x;\r\n        auto y = factorize(x);\r\n        cout\
+    \ << y.size() << sp << y;\r\n    }\r\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/factorize\"\r\n\r\n#include\
+    \ \"template\"\r\n#include \"prime\"\r\n\r\nint main() { IO();\r\n    int T=1;\r\
+    \n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve() {\r\n\
+    \    int q; cin >> q;\r\n    while (q--) {\r\n        ll x; cin >> x;\r\n    \
+    \    auto y = factorize(x);\r\n        cout << y.size() << sp << y;\r\n    }\r\
+    \n}"
   dependsOn:
   - util/template.hpp
-  - structure/sparsetable.hpp
+  - math/prime.hpp
   isVerificationFile: true
-  path: verify/yosupo-staticrmq-1.test.cpp
+  path: verify/yosupo-factorize-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 14:25:08+09:00'
+  timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/yosupo-staticrmq-1.test.cpp
+documentation_of: verify/yosupo-factorize-1.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/yosupo-staticrmq-1.test.cpp
-- /verify/verify/yosupo-staticrmq-1.test.cpp.html
-title: verify/yosupo-staticrmq-1.test.cpp
+- /verify/verify/yosupo-factorize-1.test.cpp
+- /verify/verify/yosupo-factorize-1.test.cpp.html
+title: verify/yosupo-factorize-1.test.cpp
 ---

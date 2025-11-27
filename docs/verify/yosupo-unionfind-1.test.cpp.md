@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: structure/sparsetable.hpp
-    title: structure/sparsetable.hpp
+    path: structure/UnionFind.hpp
+    title: structure/UnionFind.hpp
   - icon: ':heavy_check_mark:'
     path: util/template.hpp
     title: util/template.hpp
@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
+    PROBLEM: https://judge.yosupo.jp/problem/unionfind
     links:
-    - https://judge.yosupo.jp/problem/staticrmq
-  bundledCode: "#line 1 \"verify/yosupo-staticrmq-1.test.cpp\"\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#line 2 \"util/template.hpp\"\
+    - https://judge.yosupo.jp/problem/unionfind
+  bundledCode: "#line 1 \"verify/yosupo-unionfind-1.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/unionfind\"\r\n\r\n#line 2 \"util/template.hpp\"\
     \n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n#define debug(x)\n\
     #endif\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\nusing\
     \ ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\nusing\
@@ -67,45 +67,54 @@ data:
     \ int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\nconst ll mod = 998244353;\n\
     const ll MOD = 1000000007;\nconst ld EPS = 1e-9;\nconst ld PI = acos(-1);\n\n\
     void IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
-    }\n\nvoid solve();\n// poe\n#line 3 \"structure/sparsetable.hpp\"\nusing namespace\
-    \ std;\n\n// op \u306F\u7D50\u5408\u5F8B\u304B\u3064\u51AA\u7B49\u6027\uFF08op(x,x)=x\uFF09\
-    \u3092\u6E80\u305F\u3059\u3053\u3068\ntemplate<class T, auto op>\nstruct sparsetable\
-    \ {\n    int n, k;\n    vector<vector<T>> data;\n    sparsetable() = default;\n\
-    \    // sparsetable \u3092\u69CB\u7BC9 O(n log n)\n    sparsetable(const vector<T>&\
-    \ v) : n((int)v.size()) {\n        if (n == 0) { k = 0; return; }\n        k =\
-    \ __lg(n);\n        data.assign(n, vector<T>(k + 1));\n        for (int i=0; i<n;\
-    \ i++) data[i][0] = v[i];\n        for (int j=1; j<=k; j++) {\n            int\
-    \ len = 1<<j;\n            for (int i=0; i+len<=n; i++) {\n                data[i][j]\
-    \ = op(data[i][j-1], data[i+(1<<(j-1))][j-1]);\n            }\n        }\n   \
-    \ }\n    //op([l, r)) \u3092\u6C42\u3081\u308B O(1)\n    T prod(int l, int r)\
-    \ const {\n        assert(0 <= l && l <= r && r <= n);\n        if (l == r) return\
-    \ T{};\n        int j = __lg(r - l);\n        return op(data[l][j], data[r - (1\
-    \ << j)][j]);\n    }\n};\n#line 5 \"verify/yosupo-staticrmq-1.test.cpp\"\n\r\n\
-    int main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin\
-    \ >> a;\r\n    sparsetable<int, [](int x, int y){ return min(x, y); }> seg(a);\r\
-    \n    while (q--) {\r\n        int l, r; cin >> l >> r;\r\n        cout << seg.prod(l,\
-    \ r) << nl;\r\n    }\r\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#include\
-    \ \"template\"\r\n#include \"sparsetable\"\r\n\r\nint main() { IO();\r\n    int\
+    }\n\nvoid solve();\n// poe\n#line 3 \"structure/UnionFind.hpp\"\nusing namespace\
+    \ std;\nstruct UnionFind {\n    int _n;\n    vector<int> data;\n    UnionFind()\
+    \ = default;\n    // n \u500B\u306E\u8981\u7D20\u304B\u3089\u306A\u308BUnionFind\
+    \ \u3092\u69CB\u7BC9 O(n)\n    UnionFind(int n) : _n(n), data(n, -1) {}\n    //\
+    \ 2 \u3064\u306E\u8981\u7D20\u3092\u4F75\u5408 O(\u03B1(n))\n    bool merge(int\
+    \ p, int q) {\n        p = root(p);\n        q = root(q);\n        if (p == q)\
+    \ return false;\n        if (data[q] < data[p]) swap(p, q);\n        data[p] +=\
+    \ data[q];\n        data[q] = p;\n        return true;\n    }\n    // \u89AA\u8981\
+    \u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n    int root(int p) {\n        assert(0\
+    \ <= p && p < _n);\n        if (data[p] < 0) {\n            return p;\n      \
+    \  } else {\n            data[p] = root(data[p]);\n            return data[p];\n\
+    \        }\n    }\n    // \u89AA\u8981\u7D20\u3092\u53D6\u5F97 O(\u03B1(n))\n\
+    \    int operator[](int p) {\n        return root(p);\n    }\n    // 2 \u3064\u306E\
+    \u8981\u7D20\u304C\u540C\u3058\u96C6\u5408\u306B\u542B\u307E\u308C\u308B\u304B\
+    \u5224\u5B9A O(\u03B1(n))\n    bool same(int p, int q) {\n        return root(p)\
+    \ == root(q);\n    }\n    // \u8981\u7D20\u304C\u5C5E\u3059\u308B\u96C6\u5408\u306E\
+    \u5927\u304D\u3055\u3092\u8FD4\u3059 O(\u03B1(n))\n    int size(int p) {\n   \
+    \     return -data[root(p)];\n    }\n    // UnionFind \u306E\u9023\u7D50\u6210\
+    \u5206\u306Evector \u3092\u8FD4\u3059 O(n \u03B1(n))\n    vector<vector<int>>\
+    \ groups() {\n        vector<vector<int>> re(_n);\n        for (int i=0; i<_n;\
+    \ i++) re[root(i)].push_back(i);\n        re.erase(remove_if(re.begin(), re.end(),\
+    \ [](vector<int>& v){ return v.empty(); }), re.end());\n        return re;\n \
+    \   }\n};\n#line 5 \"verify/yosupo-unionfind-1.test.cpp\"\n\r\nint main() { IO();\r\
+    \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    UnionFind uf(n);\r\n    while\
+    \ (q--) {\r\n        int x, y, z; cin >> x >> y >> z;\r\n        if (x == 0) {\r\
+    \n            uf.merge(y, z);\r\n        } else {\r\n            cout << uf.same(y,\
+    \ z) << nl;\r\n        }\r\n    }\r\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/unionfind\"\r\n\r\n#include\
+    \ \"template\"\r\n#include \"UnionFind\"\r\n\r\nint main() { IO();\r\n    int\
     \ T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve()\
-    \ {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin >> a;\r\n    sparsetable<int,\
-    \ [](int x, int y){ return min(x, y); }> seg(a);\r\n    while (q--) {\r\n    \
-    \    int l, r; cin >> l >> r;\r\n        cout << seg.prod(l, r) << nl;\r\n   \
-    \ }\r\n}"
+    \ {\r\n    int n, q; cin >> n >> q;\r\n    UnionFind uf(n);\r\n    while (q--)\
+    \ {\r\n        int x, y, z; cin >> x >> y >> z;\r\n        if (x == 0) {\r\n \
+    \           uf.merge(y, z);\r\n        } else {\r\n            cout << uf.same(y,\
+    \ z) << nl;\r\n        }\r\n    }\r\n}"
   dependsOn:
   - util/template.hpp
-  - structure/sparsetable.hpp
+  - structure/UnionFind.hpp
   isVerificationFile: true
-  path: verify/yosupo-staticrmq-1.test.cpp
+  path: verify/yosupo-unionfind-1.test.cpp
   requiredBy: []
   timestamp: '2025-11-27 14:25:08+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/yosupo-staticrmq-1.test.cpp
+documentation_of: verify/yosupo-unionfind-1.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/yosupo-staticrmq-1.test.cpp
-- /verify/verify/yosupo-staticrmq-1.test.cpp.html
-title: verify/yosupo-staticrmq-1.test.cpp
+- /verify/verify/yosupo-unionfind-1.test.cpp
+- /verify/verify/yosupo-unionfind-1.test.cpp.html
+title: verify/yosupo-unionfind-1.test.cpp
 ---
