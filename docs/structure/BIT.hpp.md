@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_add_range_sum-2.test.cpp
+    title: verify/yosupo-point_add_range_sum-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-static_range_sum-2.test.cpp
     title: verify/yosupo-static_range_sum-2.test.cpp
   _isVerificationFailed: false
@@ -57,10 +60,11 @@ data:
   isVerificationFile: false
   path: structure/BIT.hpp
   requiredBy: []
-  timestamp: '2025-11-27 14:25:08+09:00'
+  timestamp: '2025-11-27 14:31:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-static_range_sum-2.test.cpp
+  - verify/yosupo-point_add_range_sum-2.test.cpp
 documentation_of: structure/BIT.hpp
 layout: document
 redirect_from:

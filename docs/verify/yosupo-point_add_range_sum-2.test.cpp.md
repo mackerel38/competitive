@@ -14,29 +14,29 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/point_add_range_sum
     links:
-    - https://judge.yosupo.jp/problem/static_range_sum
-  bundledCode: "#line 1 \"verify/yosupo-static_range_sum-2.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/static_range_sum\"\r\n\r\n#line 2 \"util/template.hpp\"\
-    \n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n#define debug(x)\n\
-    #endif\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\nusing\
-    \ ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\nusing\
-    \ pll=pair<ll,ll>;\nusing str=string;\ntemplate<class T>using vec=vector<T>;\n\
-    using vi=vec<int>;using vvi=vec<vi>;using vvvi=vec<vvi>;using vvvvi=vec<vvvi>;using\
-    \ vvvvvi=vec<vvvvi>;\nusing vll=vec<ll>;using vvll=vec<vll>;using vvvll=vec<vvll>;using\
-    \ vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;\nusing vpi=vec<pi>;using vvpi=vec<vpi>;using\
-    \ vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;\nusing vpll=vec<pll>;using\
-    \ vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using vvvvvpll=vec<vvvvpll>;\n\
-    template<class T>using pq=priority_queue<T,vector<T>>;\ntemplate<class T>using\
-    \ pqg=priority_queue<T,vector<T>,greater<T>>;\n#define rep(i,n) for(int i=0;i<(int)(n);i++)\n\
-    #define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n#define loop(i, l, r) for (int\
-    \ i=(int)(l); i<(int)(r); i++)\n#define per(i,n) for(int i=(int)(n)-1;0<=i;i--)\n\
-    #define per1(i,n) for(int i=(int)(n);0<i;i--)\n#define range(i,x) for(auto&i:x)\n\
-    #define range2(i,j,x) for(auto&[i,j]:x)\n#define all(x) (x).begin(),(x).end()\n\
-    #define rall(x) (x).rbegin(),(x).rend()\n#define Sort(x) sort((x).begin(),(x).end())\n\
-    #define troS(x) sort((x).rbegin(),(x).rend())\n#define Reverse(x) reverse((x).begin(),(x).end())\n\
-    #define uniq(x) sort((x).begin(),(x).end());(x).erase(unique((x).begin(),(x).end()),(x).end())\n\
+    - https://judge.yosupo.jp/problem/point_add_range_sum
+  bundledCode: "#line 1 \"verify/yosupo-point_add_range_sum-2.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\r\n\r\n#line\
+    \ 2 \"util/template.hpp\"\n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n\
+    #else\n#define debug(x)\n#endif\n#include<bits/stdc++.h>\nusing namespace std;\n\
+    using ll=long long;\nusing ull=unsigned long long;\nusing ld=long double;\nusing\
+    \ pi=pair<int,int>;\nusing pll=pair<ll,ll>;\nusing str=string;\ntemplate<class\
+    \ T>using vec=vector<T>;\nusing vi=vec<int>;using vvi=vec<vi>;using vvvi=vec<vvi>;using\
+    \ vvvvi=vec<vvvi>;using vvvvvi=vec<vvvvi>;\nusing vll=vec<ll>;using vvll=vec<vll>;using\
+    \ vvvll=vec<vvll>;using vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;\nusing vpi=vec<pi>;using\
+    \ vvpi=vec<vpi>;using vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;\n\
+    using vpll=vec<pll>;using vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using\
+    \ vvvvvpll=vec<vvvvpll>;\ntemplate<class T>using pq=priority_queue<T,vector<T>>;\n\
+    template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;\n#define rep(i,n)\
+    \ for(int i=0;i<(int)(n);i++)\n#define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n\
+    #define loop(i, l, r) for (int i=(int)(l); i<(int)(r); i++)\n#define per(i,n)\
+    \ for(int i=(int)(n)-1;0<=i;i--)\n#define per1(i,n) for(int i=(int)(n);0<i;i--)\n\
+    #define range(i,x) for(auto&i:x)\n#define range2(i,j,x) for(auto&[i,j]:x)\n#define\
+    \ all(x) (x).begin(),(x).end()\n#define rall(x) (x).rbegin(),(x).rend()\n#define\
+    \ Sort(x) sort((x).begin(),(x).end())\n#define troS(x) sort((x).rbegin(),(x).rend())\n\
+    #define Reverse(x) reverse((x).begin(),(x).end())\n#define uniq(x) sort((x).begin(),(x).end());(x).erase(unique((x).begin(),(x).end()),(x).end())\n\
     #define nextp(x) next_permutation((x).begin(),(x).end())\n#define nextc(x,k) next_combination((x).begin(),(x).end(),k)\n\
     #define bit(x,i) (((x)>>(i))&1)\n#define pf push_front\n#define pb push_back\n\
     #define df pop_front\n#define db pop_back\n#define fi first\n#define se second\n\
@@ -87,30 +87,33 @@ data:
     \    }\n    // p \u756A\u76EE\u306E\u5024\u3092\u53D6\u5F97\u3059\u308B O(log\
     \ n)\n    T get(int p) const { return sum(p+1) - sum(p); }\n    // p \u756A\u76EE\
     \u306E\u5024\u3092\u53D6\u5F97\u3059\u308B O(log n)\n    T operator[](int p) const\
-    \ { return get(p); }\n};\n#line 5 \"verify/yosupo-static_range_sum-2.test.cpp\"\
+    \ { return get(p); }\n};\n#line 5 \"verify/yosupo-point_add_range_sum-2.test.cpp\"\
     \n\r\nint main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--)\
     \ solve();\r\n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll\
-    \ a(n); cin >> a;\r\n    BIT<ll> seg(a);\r\n    while (q--) {\r\n        int l,\
-    \ r; cin >> l >> r;\r\n        cout << seg.sum(l, r) << nl;\r\n    }\r\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\r\n\r\
-    \n#include \"template\"\r\n#include \"BIT\"\r\n\r\nint main() { IO();\r\n    int\
-    \ T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve()\
-    \ {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin >> a;\r\n    BIT<ll>\
-    \ seg(a);\r\n    while (q--) {\r\n        int l, r; cin >> l >> r;\r\n       \
-    \ cout << seg.sum(l, r) << nl;\r\n    }\r\n}"
+    \ a(n); cin >> a;\r\n    BIT<ll> seg(a);\r\n    while (q--) {\r\n        int x,\
+    \ y, z; cin >> x >> y >> z;\r\n        if (x == 0) {\r\n            seg.add(y,\
+    \ z);\r\n        } else {\r\n            cout << seg.sum(y, z) << nl;\r\n    \
+    \    }\r\n    }\r\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/point_add_range_sum\"\r\
+    \n\r\n#include \"template\"\r\n#include \"BIT\"\r\n\r\nint main() { IO();\r\n\
+    \    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
+    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin >> a;\r\n   \
+    \ BIT<ll> seg(a);\r\n    while (q--) {\r\n        int x, y, z; cin >> x >> y >>\
+    \ z;\r\n        if (x == 0) {\r\n            seg.add(y, z);\r\n        } else\
+    \ {\r\n            cout << seg.sum(y, z) << nl;\r\n        }\r\n    }\r\n}"
   dependsOn:
   - util/template.hpp
   - structure/BIT.hpp
   isVerificationFile: true
-  path: verify/yosupo-static_range_sum-2.test.cpp
+  path: verify/yosupo-point_add_range_sum-2.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 14:31:11+09:00'
+  timestamp: '2025-11-27 14:50:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/yosupo-static_range_sum-2.test.cpp
+documentation_of: verify/yosupo-point_add_range_sum-2.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/yosupo-static_range_sum-2.test.cpp
-- /verify/verify/yosupo-static_range_sum-2.test.cpp.html
-title: verify/yosupo-static_range_sum-2.test.cpp
+- /verify/verify/yosupo-point_add_range_sum-2.test.cpp
+- /verify/verify/yosupo-point_add_range_sum-2.test.cpp.html
+title: verify/yosupo-point_add_range_sum-2.test.cpp
 ---

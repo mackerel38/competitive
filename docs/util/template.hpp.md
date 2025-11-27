@@ -13,6 +13,12 @@ data:
     path: verify/yosupo-factorize-1.test.cpp
     title: verify/yosupo-factorize-1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_add_range_sum-1.test.cpp
+    title: verify/yosupo-point_add_range_sum-1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_add_range_sum-2.test.cpp
+    title: verify/yosupo-point_add_range_sum-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem-1.test.cpp
     title: verify/yosupo-predecessor_problem-1.test.cpp
   - icon: ':heavy_check_mark:'
@@ -151,12 +157,14 @@ data:
   - verify/yosupo-factorize-1.test.cpp
   - verify/yosupo-predecessor_problem-1.test.cpp
   - verify/yosupo-unionfind-1.test.cpp
+  - verify/yosupo-point_add_range_sum-1.test.cpp
   - verify/yosupo-staticrmq-1.test.cpp
   - verify/yosupo-static_range_sum-1.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-primality_test-1.test.cpp
   - verify/yosupo-static_range_sum-2.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
+  - verify/yosupo-point_add_range_sum-2.test.cpp
 documentation_of: util/template.hpp
 layout: document
 redirect_from:

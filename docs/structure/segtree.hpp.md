@@ -7,6 +7,9 @@ data:
     title: util/generalsegtree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_add_range_sum-1.test.cpp
+    title: verify/yosupo-point_add_range_sum-1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem-2.test.cpp
     title: verify/yosupo-predecessor_problem-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -126,6 +129,7 @@ data:
   timestamp: '2025-11-27 11:42:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-point_add_range_sum-1.test.cpp
   - verify/yosupo-static_range_sum-1.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
