@@ -22,6 +22,9 @@ data:
     path: verify/yosupo-primality_test.test.cpp
     title: verify/yosupo-primality_test.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-staticrmq.test.cpp
+    title: verify/yosupo-staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-unionfind.test.cpp
     title: verify/yosupo-unionfind.test.cpp
   _isVerificationFailed: false
@@ -138,6 +141,7 @@ data:
   - verify/yosupo-factorize.test.cpp
   - verify/yosupo-primality_test.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
+  - verify/yosupo-staticrmq.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
   - verify/yosupo-unionfind.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp

@@ -58,13 +58,13 @@ data:
     \u3059 O(n \u03B1(n))\n    vector<vector<int>> groups() {\n        vector<vector<int>>\
     \ re(_n);\n        for (int i=0; i<_n; i++) re[root(i)].push_back(i);\n      \
     \  re.erase(remove_if(re.begin(), re.end(), [](vector<int>& v){ return v.empty();\
-    \ }), re.end());\n        return re;\n    }\n};"
+    \ }), re.end());\n        return re;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/UnionFind.hpp
   requiredBy:
   - graph/kruskal.hpp
-  timestamp: '2025-11-27 12:15:09+09:00'
+  timestamp: '2025-11-27 12:37:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-unionfind.test.cpp

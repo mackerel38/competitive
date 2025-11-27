@@ -98,7 +98,7 @@ data:
   isVerificationFile: false
   path: graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2025-11-27 12:15:09+09:00'
+  timestamp: '2025-11-27 12:37:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/kruskal.hpp

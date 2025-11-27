@@ -133,7 +133,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/segtree.hpp
       title: structure/segtree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/sparsetable.hpp
       title: structure/sparsetable.hpp
     - icon: ':heavy_check_mark:'
@@ -183,6 +183,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-primality_test.test.cpp
       title: verify/yosupo-primality_test.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-staticrmq.test.cpp
+      title: verify/yosupo-staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-unionfind.test.cpp
       title: verify/yosupo-unionfind.test.cpp
