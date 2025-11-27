@@ -178,8 +178,14 @@ data:
       path: verify/yosupo-point_add_range_sum-2.test.cpp
       title: verify/yosupo-point_add_range_sum-2.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-point_add_range_sum-3.test.cpp
+      title: verify/yosupo-point_add_range_sum-3.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-point_set_range_composite-1.test.cpp
       title: verify/yosupo-point_set_range_composite-1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-point_set_range_composite-2.test.cpp
+      title: verify/yosupo-point_set_range_composite-2.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-predecessor_problem-1.test.cpp
       title: verify/yosupo-predecessor_problem-1.test.cpp

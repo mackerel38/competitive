@@ -18,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-point_set_range_composite-1.test.cpp
     title: verify/yosupo-point_set_range_composite-1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_set_range_composite-2.test.cpp
+    title: verify/yosupo-point_set_range_composite-2.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -200,6 +203,7 @@ data:
   timestamp: '2025-10-08 04:52:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-point_set_range_composite-2.test.cpp
   - verify/yosupo-point_set_range_composite-1.test.cpp
 documentation_of: math/modint.hpp
 layout: document

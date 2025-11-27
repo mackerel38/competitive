@@ -4,6 +4,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_add_range_sum-3.test.cpp
+    title: verify/yosupo-point_add_range_sum-3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_set_range_composite-2.test.cpp
+    title: verify/yosupo-point_set_range_composite-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-static_range_sum-3.test.cpp
     title: verify/yosupo-static_range_sum-3.test.cpp
   - icon: ':heavy_check_mark:'
@@ -159,7 +165,9 @@ data:
   timestamp: '2025-11-27 18:17:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-point_add_range_sum-3.test.cpp
   - verify/yosupo-staticrmq-3.test.cpp
+  - verify/yosupo-point_set_range_composite-2.test.cpp
   - verify/yosupo-static_range_sum-3.test.cpp
 documentation_of: structure/lazysegtree.hpp
 layout: document
