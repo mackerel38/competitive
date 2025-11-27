@@ -137,7 +137,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 16:51:55+09:00'
+  timestamp: '2025-11-27 17:42:40+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum-1.test.cpp

@@ -54,7 +54,29 @@ data:
     \            if (rr & 1) all_apply(--rr, f);\n            ll >>= 1;\n        \
     \    rr >>= 1;\n        }\n        for (int i=1; i<=sz; i++) {\n            if\
     \ (((l >> i) << i) != l) update(l >> i);\n            if (((r >> i) << i) != r)\
-    \ update((r - 1) >> i);\n        }\n    }\n};\n"
+    \ update((r - 1) >> i);\n        }\n    }\n    // f(op([l, r)))==true \u3068\u306A\
+    \u308B\u6700\u5927\u306Er \u3092\u8FD4\u3059\n    template<class G>\n    int max_right(int\
+    \ l, G g) {\n        assert(0 <= l && l <= _n);\n        assert(g(e()));\n   \
+    \     if (l == _n) return _n;\n        l += size;\n        for (int i=sz; i >=\
+    \ 1; i--) push(l >> i);\n        S sm = e();\n        do {\n            while\
+    \ (l % 2 == 0) l >>= 1;\n            if (!g(op(sm, data[l]))) {\n            \
+    \    while (l < size) {\n                    push(l);\n                    l =\
+    \ (2 * l);\n                    if (g(op(sm, data[l]))) {\n                  \
+    \      sm = op(sm, data[l]);\n                        l++;\n                 \
+    \   }\n                }\n                return l - size;\n            }\n  \
+    \          sm = op(sm, data[l]);\n            l++;\n        } while ((l & -l)\
+    \ != l);\n        return _n;\n    }\n    // f(op([l, r)))==true \u3068\u306A\u308B\
+    \u6700\u5C0F\u306El \u3092\u8FD4\u3059\n    template <class G> int min_left(int\
+    \ r, G g) {\n        assert(0 <= r && r <= _n);\n        assert(g(e()));\n   \
+    \     if (r == 0) return 0;\n        r += size;\n        for (int i=sz; i >= 1;\
+    \ i--) push((r - 1) >> i);\n        S sm = e();\n        do {\n            r--;\n\
+    \            while (r > 1 && (r % 2)) r >>= 1;\n            if (!g(op(data[r],\
+    \ sm))) {\n                while (r < size) {\n                    push(r);\n\
+    \                    r = (2 * r + 1);\n                    if (g(op(data[r], sm)))\
+    \ {\n                        sm = op(data[r], sm);\n                        r--;\n\
+    \                    }\n                }\n                return r + 1 - size;\n\
+    \            }\n            sm = op(data[r], sm);\n        } while ((r & -r) !=\
+    \ r);\n        return 0;\n    }\n};\n"
   code: "#pragma once\n#include<bits/stdc++.h>\nusing namespace std;\n\ntemplate<class\
     \ S, auto op, auto e, class F, auto mapping, auto composition, auto id>\nstruct\
     \ lazysegtree {\n    int _n, size, sz;\n    vector<S> data;\n    vector<F> lazy;\n\
@@ -100,12 +122,35 @@ data:
     \ if (ll & 1) all_apply(ll++, f);\n            if (rr & 1) all_apply(--rr, f);\n\
     \            ll >>= 1;\n            rr >>= 1;\n        }\n        for (int i=1;\
     \ i<=sz; i++) {\n            if (((l >> i) << i) != l) update(l >> i);\n     \
-    \       if (((r >> i) << i) != r) update((r - 1) >> i);\n        }\n    }\n};"
+    \       if (((r >> i) << i) != r) update((r - 1) >> i);\n        }\n    }\n  \
+    \  // f(op([l, r)))==true \u3068\u306A\u308B\u6700\u5927\u306Er \u3092\u8FD4\u3059\
+    \n    template<class G>\n    int max_right(int l, G g) {\n        assert(0 <=\
+    \ l && l <= _n);\n        assert(g(e()));\n        if (l == _n) return _n;\n \
+    \       l += size;\n        for (int i=sz; i >= 1; i--) push(l >> i);\n      \
+    \  S sm = e();\n        do {\n            while (l % 2 == 0) l >>= 1;\n      \
+    \      if (!g(op(sm, data[l]))) {\n                while (l < size) {\n      \
+    \              push(l);\n                    l = (2 * l);\n                  \
+    \  if (g(op(sm, data[l]))) {\n                        sm = op(sm, data[l]);\n\
+    \                        l++;\n                    }\n                }\n    \
+    \            return l - size;\n            }\n            sm = op(sm, data[l]);\n\
+    \            l++;\n        } while ((l & -l) != l);\n        return _n;\n    }\n\
+    \    // f(op([l, r)))==true \u3068\u306A\u308B\u6700\u5C0F\u306El \u3092\u8FD4\
+    \u3059\n    template <class G> int min_left(int r, G g) {\n        assert(0 <=\
+    \ r && r <= _n);\n        assert(g(e()));\n        if (r == 0) return 0;\n   \
+    \     r += size;\n        for (int i=sz; i >= 1; i--) push((r - 1) >> i);\n  \
+    \      S sm = e();\n        do {\n            r--;\n            while (r > 1 &&\
+    \ (r % 2)) r >>= 1;\n            if (!g(op(data[r], sm))) {\n                while\
+    \ (r < size) {\n                    push(r);\n                    r = (2 * r +\
+    \ 1);\n                    if (g(op(data[r], sm))) {\n                       \
+    \ sm = op(data[r], sm);\n                        r--;\n                    }\n\
+    \                }\n                return r + 1 - size;\n            }\n    \
+    \        sm = op(data[r], sm);\n        } while ((r & -r) != r);\n        return\
+    \ 0;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: structure/lazysegtree.hpp
   requiredBy: []
-  timestamp: '2025-11-27 17:41:17+09:00'
+  timestamp: '2025-11-27 18:10:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: structure/lazysegtree.hpp
