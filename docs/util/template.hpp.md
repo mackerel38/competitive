@@ -21,6 +21,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-primality_test.test.cpp
     title: verify/yosupo-primality_test.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-unionfind.test.cpp
+    title: verify/yosupo-unionfind.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -136,6 +139,7 @@ data:
   - verify/yosupo-primality_test.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
+  - verify/yosupo-unionfind.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp
 layout: document

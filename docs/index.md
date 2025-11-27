@@ -106,7 +106,7 @@ data:
     - icon: ':warning:'
       path: structure/BIT.hpp
       title: structure/BIT.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/UnionFind.hpp
       title: structure/UnionFind.hpp
     - icon: ':warning:'
@@ -183,5 +183,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-primality_test.test.cpp
       title: verify/yosupo-primality_test.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-unionfind.test.cpp
+      title: verify/yosupo-unionfind.test.cpp
 layout: toppage
 ---
