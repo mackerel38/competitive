@@ -152,7 +152,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-predecessor_problem.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 00:35:23+09:00'
+  timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-predecessor_problem.test.cpp

@@ -115,7 +115,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-enumerate_primes.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 00:45:15+09:00'
+  timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-enumerate_primes.test.cpp

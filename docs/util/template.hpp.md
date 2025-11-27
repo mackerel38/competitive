@@ -13,8 +13,14 @@ data:
     path: verify/yosupo-factorize.test.cpp
     title: verify/yosupo-factorize.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-predecessor_problem-2.test.cpp
+    title: verify/yosupo-predecessor_problem-2.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem.test.cpp
     title: verify/yosupo-predecessor_problem.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-primality_test.test.cpp
+    title: verify/yosupo-primality_test.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -123,10 +129,12 @@ data:
   path: util/template.hpp
   requiredBy:
   - main.cpp
-  timestamp: '2025-11-27 00:35:23+09:00'
+  timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-factorize.test.cpp
+  - verify/yosupo-primality_test.test.cpp
+  - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-predecessor_problem.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: util/template.hpp

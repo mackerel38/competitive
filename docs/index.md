@@ -130,7 +130,7 @@ data:
     - icon: ':warning:'
       path: structure/rollbackUnionFind.hpp
       title: structure/rollbackUnionFind.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/segtree.hpp
       title: structure/segtree.hpp
     - icon: ':warning:'
@@ -175,7 +175,13 @@ data:
       path: verify/yosupo-factorize.test.cpp
       title: verify/yosupo-factorize.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-predecessor_problem-2.test.cpp
+      title: verify/yosupo-predecessor_problem-2.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-predecessor_problem.test.cpp
       title: verify/yosupo-predecessor_problem.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-primality_test.test.cpp
+      title: verify/yosupo-primality_test.test.cpp
 layout: toppage
 ---

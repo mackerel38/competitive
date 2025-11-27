@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-factorize.test.cpp
     title: verify/yosupo-factorize.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-primality_test.test.cpp
+    title: verify/yosupo-primality_test.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -80,10 +83,11 @@ data:
   isVerificationFile: false
   path: math/prime.hpp
   requiredBy: []
-  timestamp: '2025-11-27 00:45:15+09:00'
+  timestamp: '2025-11-27 00:49:18+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-factorize.test.cpp
+  - verify/yosupo-primality_test.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
 documentation_of: math/prime.hpp
 layout: document
