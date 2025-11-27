@@ -28,9 +28,9 @@ data:
     \ vvvll=vec<vvll>;using vvvvll=vec<vvvll>;using vvvvvll=vec<vvvvll>;\nusing vpi=vec<pi>;using\
     \ vvpi=vec<vpi>;using vvvpi=vec<vvpi>;using vvvvpi=vec<vvvpi>;using vvvvvpi=vec<vvvvpi>;\n\
     using vpll=vec<pll>;using vvpll=vec<vpll>;using vvvpll=vec<vvpll>;using vvvvpll=vec<vvvpll>;using\
-    \ vvvvvpll=vec<vvvvpll>;\ntemplate<class T>using pq=priority_queue<T,vector<T>>;\n\
-    template<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;\n#define rep(i,n)\
-    \ for(int i=0;i<(int)(n);i++)\n#define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n\
+    \ vvvvvpll=vec<vvvvpll>;\ntemplate<class T>using pairs=pair<T, T>;\ntemplate<class\
+    \ T>using pq=priority_queue<T,vector<T>>;\ntemplate<class T>using pqg=priority_queue<T,vector<T>,greater<T>>;\n\
+    #define rep(i,n) for(int i=0;i<(int)(n);i++)\n#define rep1(i,n) for(int i=1;i<=(int)(n);i++)\n\
     #define loop(i, l, r) for (int i=(int)(l); i<(int)(r); i++)\n#define per(i,n)\
     \ for(int i=(int)(n)-1;0<=i;i--)\n#define per1(i,n) for(int i=(int)(n);0<i;i--)\n\
     #define range(i,x) for(auto&i:x)\n#define range2(i,j,x) for(auto&[i,j]:x)\n#define\
@@ -63,10 +63,10 @@ data:
     \ '<<p.second<<'\\n';return s;}\ntemplate<class T>istream&operator>>(istream&s,vector<T>&v){for(auto&i:v)s>>i;return\
     \ s;}\ntemplate<class T>ostream&operator<<(ostream&s,vector<T>&v){for(int i=0;i<(int)v.size();i++){s<<v[i];if(i!=v.size()-1)s<<'\
     \ ';}s<<'\\n';return s;}\nconst int dxy[5]={0,1,0,-1,0};\nconst int dx[8]={0,1,0,-1,1,1,-1,-1};\n\
-    const int dy[8]={1,0,-1,0,1,-1,1,-1};\n#define nl '\\n'\n#define sp ' '\nconst\
-    \ int inf = (1<<30)-(1<<15);\nconst ll INF = 1LL<<61;\nconst ll mod = 998244353;\n\
-    const ll MOD = 1000000007;\nconst ld EPS = 1e-9;\nconst ld PI = acos(-1);\n\n\
-    void IO() {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
+    const int dy[8]={1,0,-1,0,1,-1,1,-1};\nconst char nl='\\n';\nconst char sp=' ';\n\
+    const int inf=(1<<30)-(1<<15);\nconst ll INF=1LL<<61;\nconst ll mod=998244353;\n\
+    const ll MOD=1000000007;\nconst ld EPS=1e-9;\nconst ld PI=acos(-1);\n\nvoid IO()\
+    \ {\n    ios::sync_with_stdio(false);\n    cin.tie(nullptr);\n    cout<<fixed<<setprecision(30);\n\
     }\n\nvoid solve();\n// poe\n#line 3 \"structure/segtree.hpp\"\nusing namespace\
     \ std;\n// op(op(a, b), c) = op(a, op(b, c)) \u304C\u6210\u308A\u7ACB\u3064\u5FC5\
     \u8981\u304C\u3042\u308B(\u7D50\u5408\u5F8B)\ntemplate<class S, auto op, auto\
@@ -137,7 +137,7 @@ data:
   isVerificationFile: true
   path: verify/yosupo-point_add_range_sum-1.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 14:49:18+09:00'
+  timestamp: '2025-11-27 15:38:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: verify/yosupo-point_add_range_sum-1.test.cpp

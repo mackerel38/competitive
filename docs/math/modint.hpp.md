@@ -14,10 +14,13 @@ data:
   - icon: ':warning:'
     path: math/convolution.hpp
     title: math/convolution.hpp
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_set_range_composite-1.test.cpp
+    title: verify/yosupo-point_set_range_composite-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/modint.hpp\"\n#include <bits/stdc++.h>\nusing namespace\
@@ -195,8 +198,9 @@ data:
   - math/FPSbase.hpp
   - math/FPS.hpp
   timestamp: '2025-10-08 04:52:45+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo-point_set_range_composite-1.test.cpp
 documentation_of: math/modint.hpp
 layout: document
 redirect_from:

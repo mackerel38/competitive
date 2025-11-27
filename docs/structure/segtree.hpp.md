@@ -10,6 +10,9 @@ data:
     path: verify/yosupo-point_add_range_sum-1.test.cpp
     title: verify/yosupo-point_add_range_sum-1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-point_set_range_composite-1.test.cpp
+    title: verify/yosupo-point_set_range_composite-1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem-2.test.cpp
     title: verify/yosupo-predecessor_problem-2.test.cpp
   - icon: ':heavy_check_mark:'
@@ -132,6 +135,7 @@ data:
   - verify/yosupo-point_add_range_sum-1.test.cpp
   - verify/yosupo-static_range_sum-1.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
+  - verify/yosupo-point_set_range_composite-1.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
 documentation_of: structure/segtree.hpp
 layout: document

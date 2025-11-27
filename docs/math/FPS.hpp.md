@@ -4,7 +4,7 @@ data:
   - icon: ':warning:'
     path: math/NTT.hpp
     title: math/NTT.hpp
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: math/modint.hpp
     title: math/modint.hpp
   _extendedRequiredBy: []
