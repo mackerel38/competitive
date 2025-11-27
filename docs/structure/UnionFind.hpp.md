@@ -64,7 +64,7 @@ data:
   path: structure/UnionFind.hpp
   requiredBy:
   - graph/kruskal.hpp
-  timestamp: '2025-11-27 12:37:11+09:00'
+  timestamp: '2025-11-27 12:44:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-unionfind.test.cpp

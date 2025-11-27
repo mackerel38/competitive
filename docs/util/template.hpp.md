@@ -22,6 +22,9 @@ data:
     path: verify/yosupo-primality_test.test.cpp
     title: verify/yosupo-primality_test.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-static_range_sum.test.cpp
+    title: verify/yosupo-static_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-staticrmq.test.cpp
     title: verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -139,6 +142,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-factorize.test.cpp
+  - verify/yosupo-static_range_sum.test.cpp
   - verify/yosupo-primality_test.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
   - verify/yosupo-staticrmq.test.cpp
