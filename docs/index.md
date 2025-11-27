@@ -196,6 +196,12 @@ data:
       path: verify/yosupo-primality_test-1.test.cpp
       title: verify/yosupo-primality_test-1.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-range_affine_point_get-1.test.cpp
+      title: verify/yosupo-range_affine_point_get-1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-range_affine_range_sum-1.test.cpp
+      title: verify/yosupo-range_affine_range_sum-1.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-static_range_sum-1.test.cpp
       title: verify/yosupo-static_range_sum-1.test.cpp
     - icon: ':heavy_check_mark:'

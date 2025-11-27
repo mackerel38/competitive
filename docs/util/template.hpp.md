@@ -37,6 +37,12 @@ data:
     path: verify/yosupo-primality_test-1.test.cpp
     title: verify/yosupo-primality_test-1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-range_affine_point_get-1.test.cpp
+    title: verify/yosupo-range_affine_point_get-1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-range_affine_range_sum-1.test.cpp
+    title: verify/yosupo-range_affine_range_sum-1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-static_range_sum-1.test.cpp
     title: verify/yosupo-static_range_sum-1.test.cpp
   - icon: ':heavy_check_mark:'
@@ -172,6 +178,7 @@ data:
   - verify/yosupo-point_add_range_sum-3.test.cpp
   - verify/yosupo-enumerate_primes-1.test.cpp
   - verify/yosupo-staticrmq-3.test.cpp
+  - verify/yosupo-range_affine_point_get-1.test.cpp
   - verify/yosupo-factorize-1.test.cpp
   - verify/yosupo-predecessor_problem-1.test.cpp
   - verify/yosupo-unionfind-1.test.cpp
@@ -185,6 +192,7 @@ data:
   - verify/yosupo-point_set_range_composite-1.test.cpp
   - verify/yosupo-static_range_sum-2.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
+  - verify/yosupo-range_affine_range_sum-1.test.cpp
   - verify/yosupo-point_add_range_sum-2.test.cpp
 documentation_of: util/template.hpp
 layout: document
