@@ -205,6 +205,9 @@ data:
       path: verify/yosupo-staticrmq-2.test.cpp
       title: verify/yosupo-staticrmq-2.test.cpp
     - icon: ':heavy_check_mark:'
+      path: verify/yosupo-staticrmq-3.test.cpp
+      title: verify/yosupo-staticrmq-3.test.cpp
+    - icon: ':heavy_check_mark:'
       path: verify/yosupo-unionfind-1.test.cpp
       title: verify/yosupo-unionfind-1.test.cpp
 layout: toppage

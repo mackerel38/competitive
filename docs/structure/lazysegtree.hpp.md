@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-static_range_sum-3.test.cpp
     title: verify/yosupo-static_range_sum-3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-staticrmq-3.test.cpp
+    title: verify/yosupo-staticrmq-3.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -156,6 +159,7 @@ data:
   timestamp: '2025-11-27 18:17:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - verify/yosupo-staticrmq-3.test.cpp
   - verify/yosupo-static_range_sum-3.test.cpp
 documentation_of: structure/lazysegtree.hpp
 layout: document

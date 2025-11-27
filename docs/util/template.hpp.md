@@ -46,6 +46,9 @@ data:
     path: verify/yosupo-staticrmq-2.test.cpp
     title: verify/yosupo-staticrmq-2.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-staticrmq-3.test.cpp
+    title: verify/yosupo-staticrmq-3.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-unionfind-1.test.cpp
     title: verify/yosupo-unionfind-1.test.cpp
   _isVerificationFailed: false
@@ -161,6 +164,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-enumerate_primes-1.test.cpp
+  - verify/yosupo-staticrmq-3.test.cpp
   - verify/yosupo-factorize-1.test.cpp
   - verify/yosupo-predecessor_problem-1.test.cpp
   - verify/yosupo-unionfind-1.test.cpp

@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/static_range_sum
+    PROBLEM: https://judge.yosupo.jp/problem/staticrmq
     links:
-    - https://judge.yosupo.jp/problem/static_range_sum
-  bundledCode: "#line 1 \"verify/yosupo-static_range_sum-3.test.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/static_range_sum\"\r\n\r\n#line 2 \"util/template.hpp\"\
+    - https://judge.yosupo.jp/problem/staticrmq
+  bundledCode: "#line 1 \"verify/yosupo-staticrmq-3.test.cpp\"\n#define PROBLEM \"\
+    https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#line 2 \"util/template.hpp\"\
     \n#ifdef poe\n#define debug(x) cerr<<#x<<\": \"<<x<<endl\n#else\n#define debug(x)\n\
     #endif\n#include<bits/stdc++.h>\nusing namespace std;\nusing ll=long long;\nusing\
     \ ull=unsigned long long;\nusing ld=long double;\nusing pi=pair<int,int>;\nusing\
@@ -135,34 +135,36 @@ data:
     \ sm = op(data[r], sm);\n                        r--;\n                    }\n\
     \                }\n                return r + 1 - size;\n            }\n    \
     \        sm = op(data[r], sm);\n        } while ((r & -r) != r);\n        return\
-    \ 0;\n    }\n};\n#line 5 \"verify/yosupo-static_range_sum-3.test.cpp\"\n\r\nint\
-    \ main() { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\
-    \n}\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin\
-    \ >> a;\r\n    lazysegtree<ll,[](ll x,ll y){return x+y;},[](){return 0LL;},ll,[](ll\
-    \ x,ll y){return y;},[](ll x,ll y){return y;},[](){return 0LL;}> seg(a);\r\n \
-    \   while (q--) {\r\n        int l, r; cin >> l >> r;\r\n        cout << seg.prod(l,\
-    \ r) << nl;\r\n    }\r\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_sum\"\r\n\r\
-    \n#include \"template\"\r\n#include \"lazysegtree\"\r\n\r\nint main() { IO();\r\
-    \n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid\
-    \ solve() {\r\n    int n, q; cin >> n >> q;\r\n    vll a(n); cin >> a;\r\n   \
-    \ lazysegtree<ll,[](ll x,ll y){return x+y;},[](){return 0LL;},ll,[](ll x,ll y){return\
-    \ y;},[](ll x,ll y){return y;},[](){return 0LL;}> seg(a);\r\n    while (q--) {\r\
-    \n        int l, r; cin >> l >> r;\r\n        cout << seg.prod(l, r) << nl;\r\n\
-    \    }\r\n}"
+    \ 0;\n    }\n};\n#line 5 \"verify/yosupo-staticrmq-3.test.cpp\"\n\r\nint main()\
+    \ { IO();\r\n    int T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n\
+    }\r\n\r\nvoid solve() {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin >>\
+    \ a;\r\n    lazysegtree<int, [](int x, int y){ return min(x, y); }, [](){ return\
+    \ numeric_limits<int>::max(); }, int, [](int x, int y){ return min(x, y); }, [](int\
+    \ x, int y){ return min(x, y); }, [](){ return numeric_limits<int>::max(); }>\
+    \ seg(a);\r\n    while (q--) {\r\n        int l, r; cin >> l >> r;\r\n       \
+    \ cout << seg.prod(l, r) << nl;\r\n    }\r\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\r\n\r\n#include\
+    \ \"template\"\r\n#include \"lazysegtree\"\r\n\r\nint main() { IO();\r\n    int\
+    \ T=1;\r\n    // cin >> T;\r\n    while (T--) solve();\r\n}\r\n\r\nvoid solve()\
+    \ {\r\n    int n, q; cin >> n >> q;\r\n    vi a(n); cin >> a;\r\n    lazysegtree<int,\
+    \ [](int x, int y){ return min(x, y); }, [](){ return numeric_limits<int>::max();\
+    \ }, int, [](int x, int y){ return min(x, y); }, [](int x, int y){ return min(x,\
+    \ y); }, [](){ return numeric_limits<int>::max(); }> seg(a);\r\n    while (q--)\
+    \ {\r\n        int l, r; cin >> l >> r;\r\n        cout << seg.prod(l, r) << nl;\r\
+    \n    }\r\n}"
   dependsOn:
   - util/template.hpp
   - structure/lazysegtree.hpp
   isVerificationFile: true
-  path: verify/yosupo-static_range_sum-3.test.cpp
+  path: verify/yosupo-staticrmq-3.test.cpp
   requiredBy: []
-  timestamp: '2025-11-27 18:40:05+09:00'
+  timestamp: '2025-11-27 18:49:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: verify/yosupo-static_range_sum-3.test.cpp
+documentation_of: verify/yosupo-staticrmq-3.test.cpp
 layout: document
 redirect_from:
-- /verify/verify/yosupo-static_range_sum-3.test.cpp
-- /verify/verify/yosupo-static_range_sum-3.test.cpp.html
-title: verify/yosupo-static_range_sum-3.test.cpp
+- /verify/verify/yosupo-staticrmq-3.test.cpp
+- /verify/verify/yosupo-staticrmq-3.test.cpp.html
+title: verify/yosupo-staticrmq-3.test.cpp
 ---
