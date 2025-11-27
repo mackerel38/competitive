@@ -12,15 +12,9 @@ int main() { IO();
 void solve() {
     int n, q; cin >> n >> q;
     vll a(n); cin >> a;
-    lazysegtree<ll,[](ll x,ll y){return x+y;},[](){return 0LL;},ll,[](){return;},[](){return;},[](){return 0LL;}> seg(a);
+    lazysegtree<ll,[](ll x,ll y){return x+y;},[](){return 0LL;},ll,[](ll x,ll y){return y;},[](ll x,ll y){return y;},[](){return 0LL;}> seg(a);
     while (q--) {
-        int x; cin >> x;
-        if (x == 0) {
-            int y; ll z; cin >> y >> z;
-            seg.set(y, z);
-        } else {
-            int l, r; cin >> l >> r;
-            cout << seg.prod(l, r) << nl;
-        }
+        int l, r; cin >> l >> r;
+        cout << seg.prod(l, r) << nl;
     }
 }
