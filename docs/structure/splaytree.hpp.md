@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-predecessor_problem.test.cpp
-    title: verify/yosupo-predecessor_problem.test.cpp
+    path: verify/yosupo-predecessor_problem-1.test.cpp
+    title: verify/yosupo-predecessor_problem-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -133,7 +133,7 @@ data:
   timestamp: '2025-11-26 14:53:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo-predecessor_problem.test.cpp
+  - verify/yosupo-predecessor_problem-1.test.cpp
 documentation_of: structure/splaytree.hpp
 layout: document
 redirect_from:

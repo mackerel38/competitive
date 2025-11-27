@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-staticrmq.test.cpp
-    title: verify/yosupo-staticrmq.test.cpp
+    path: verify/yosupo-staticrmq-1.test.cpp
+    title: verify/yosupo-staticrmq-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -43,10 +43,10 @@ data:
   isVerificationFile: false
   path: structure/sparsetable.hpp
   requiredBy: []
-  timestamp: '2025-11-27 12:49:25+09:00'
+  timestamp: '2025-11-27 12:54:01+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - verify/yosupo-staticrmq.test.cpp
+  - verify/yosupo-staticrmq-1.test.cpp
 documentation_of: structure/sparsetable.hpp
 layout: document
 redirect_from:

@@ -13,23 +13,26 @@ data:
     path: verify/yosupo-factorize.test.cpp
     title: verify/yosupo-factorize.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-predecessor_problem-1.test.cpp
+    title: verify/yosupo-predecessor_problem-1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-predecessor_problem-2.test.cpp
     title: verify/yosupo-predecessor_problem-2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo-predecessor_problem.test.cpp
-    title: verify/yosupo-predecessor_problem.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-primality_test.test.cpp
     title: verify/yosupo-primality_test.test.cpp
   - icon: ':heavy_check_mark:'
-    path: verify/yosupo-static_range_sum.test.cpp
-    title: verify/yosupo-static_range_sum.test.cpp
+    path: verify/yosupo-static_range_sum-1.test.cpp
+    title: verify/yosupo-static_range_sum-1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-static_range_sum-2.test.cpp
+    title: verify/yosupo-static_range_sum-2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-staticrmq-1.test.cpp
+    title: verify/yosupo-staticrmq-1.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-staticrmq-2.test.cpp
     title: verify/yosupo-staticrmq-2.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: verify/yosupo-staticrmq.test.cpp
-    title: verify/yosupo-staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
     path: verify/yosupo-unionfind.test.cpp
     title: verify/yosupo-unionfind.test.cpp
@@ -145,11 +148,12 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - verify/yosupo-factorize.test.cpp
-  - verify/yosupo-static_range_sum.test.cpp
+  - verify/yosupo-predecessor_problem-1.test.cpp
   - verify/yosupo-primality_test.test.cpp
+  - verify/yosupo-staticrmq-1.test.cpp
+  - verify/yosupo-static_range_sum-1.test.cpp
   - verify/yosupo-predecessor_problem-2.test.cpp
-  - verify/yosupo-staticrmq.test.cpp
-  - verify/yosupo-predecessor_problem.test.cpp
+  - verify/yosupo-static_range_sum-2.test.cpp
   - verify/yosupo-staticrmq-2.test.cpp
   - verify/yosupo-unionfind.test.cpp
   - verify/yosupo-enumerate_primes.test.cpp
