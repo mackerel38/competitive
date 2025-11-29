@@ -1,0 +1,75 @@
+{
+  "contest": {
+    "id": "joi2019yo",
+    "title": "JOI 2018/2019 予選 過去問",
+    "url": "https://atcoder.jp/contests/joi2019yo"
+  },
+  "tasks": [
+    {
+      "id": "joi2019_yo_a",
+      "label": "A",
+      "title": "ソーシャルゲーム (Social Game)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2019_yo_b",
+      "label": "B",
+      "title": "すごろくと駒 (Sugoroku and Pieces)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2019_yo_c",
+      "label": "C",
+      "title": "マルバツスタンプ (Circle Cross Stamps)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2019_yo_d",
+      "label": "D",
+      "title": "日本沈没 (Japan Sinks)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2019_yo_e",
+      "label": "E",
+      "title": "イルミネーション (Illumination)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2019_yo_f",
+      "label": "F",
+      "title": "座席 (Seats)",
+      "url": "https://atcoder.jp/contests/joi2019yo/tasks/joi2019_yo_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
