@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: graph/graphtemplate.hpp
     title: graph/graphtemplate.hpp
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: verify/yosupo-minimum_steiner_tree-1.test.cpp
+    title: verify/yosupo-minimum_steiner_tree-1.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graphtemplate.hpp\"\n#include<bits/stdc++.h>\nusing\
@@ -135,8 +138,9 @@ data:
   path: graph/minimumsteinertree.hpp
   requiredBy: []
   timestamp: '2025-10-04 20:14:06+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - verify/yosupo-minimum_steiner_tree-1.test.cpp
 documentation_of: graph/minimumsteinertree.hpp
 layout: document
 redirect_from:

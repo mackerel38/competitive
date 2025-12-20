@@ -13,6 +13,9 @@ data:
     path: verify/yosupo-factorize-1.test.cpp
     title: verify/yosupo-factorize-1.test.cpp
   - icon: ':heavy_check_mark:'
+    path: verify/yosupo-minimum_steiner_tree-1.test.cpp
+    title: verify/yosupo-minimum_steiner_tree-1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: verify/yosupo-point_add_range_sum-1.test.cpp
     title: verify/yosupo-point_add_range_sum-1.test.cpp
   - icon: ':heavy_check_mark:'
@@ -194,6 +197,7 @@ data:
   - verify/yosupo-staticrmq-2.test.cpp
   - verify/yosupo-range_affine_range_sum-1.test.cpp
   - verify/yosupo-point_add_range_sum-2.test.cpp
+  - verify/yosupo-minimum_steiner_tree-1.test.cpp
 documentation_of: util/template.hpp
 layout: document
 redirect_from:

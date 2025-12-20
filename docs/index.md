@@ -29,7 +29,7 @@ data:
     - icon: ':warning:'
       path: graph/fordfulkerson.hpp
       title: graph/fordfulkerson.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/graphtemplate.hpp
       title: graph/graphtemplate.hpp
     - icon: ':warning:'
@@ -38,7 +38,7 @@ data:
     - icon: ':warning:'
       path: graph/kruskal.hpp
       title: graph/kruskal.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/minimumsteinertree.hpp
       title: graph/minimumsteinertree.hpp
     - icon: ':warning:'
@@ -171,6 +171,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-factorize-1.test.cpp
       title: verify/yosupo-factorize-1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: verify/yosupo-minimum_steiner_tree-1.test.cpp
+      title: verify/yosupo-minimum_steiner_tree-1.test.cpp
     - icon: ':heavy_check_mark:'
       path: verify/yosupo-point_add_range_sum-1.test.cpp
       title: verify/yosupo-point_add_range_sum-1.test.cpp
